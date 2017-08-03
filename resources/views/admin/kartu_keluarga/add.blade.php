@@ -14,20 +14,34 @@
         <div class="panel-body">
             <form method="post" action="/admin/warga">
                 {{csrf_field()}}
-                <table class="table ">
+                <table class="table table-responsive">
                     <tr>
                         <th>No.KK</th>
                         <td colspan="3"><input type="text" name="no_kk" class="form-control"></td>
                     </tr>
                     <tr>
-                        <th>kepala keluarga</th>
+                        <th>Kepala keluarga</th>
                         <td colspan="3"><input type="text" name="kepala_keluarga" class="form-control"></td>
                     </tr>
                     <tr>
                         <th>RT</th>
-                        <td><input type="text" name="rt" class="form-control"></td>
+                        <td>
+                            <select name="rt" id="" class="form-control">
+                                <option selected>Pilih Rt..</option>
+                                @for($i=1; $i <= 10; $i++)
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </td>
                         <th>RW</th>
-                        <td><input type="text" name="rw" class="form-control"></td>
+                        <td>
+                            <select name="rw" id="" class="form-control">
+                                <option selected>Pilih Rw..</option>
+                                @for($i=1; $i <= 10; $i++)
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <th>desa/kelurahan</th>
@@ -45,6 +59,10 @@
                         <td><input type="text" name="kodepos" class="form-control"></td>
                         <th>provinsi</th>
                         <td><input type="text" name="provinsi" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Dikeluarkan Tanggal</th>
+                        <td><input type="date" name="keluarTanggal" class="form-control"></td>
                     </tr>
                     <tr>
                         <th>Alamat</th>

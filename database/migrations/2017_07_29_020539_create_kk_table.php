@@ -25,6 +25,7 @@ class CreateKkTable extends Migration
             $table->string("kabupaten_kota");
             $table->string("kodepos");
             $table->string("provinsi");
+            $table->date("keluar_tgl");
             $table->timestamps();
             $table->softDeletes();
         });

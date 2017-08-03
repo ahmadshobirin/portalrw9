@@ -44,7 +44,6 @@ class categoryController extends Controller
         $item->category = $request->category;
         $item->save();
         return redirect("/admin/category");
-//        return $request->category;
     }
 
     /**
