@@ -2654,18 +2654,6 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-<<<<<<< HEAD
-            "version": "v7.9.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "ad6a456ebb018ba1485ed19c064b95742ebe5758"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/ad6a456ebb018ba1485ed19c064b95742ebe5758",
-                "reference": "ad6a456ebb018ba1485ed19c064b95742ebe5758",
-=======
             "version": "v7.5.0",
             "source": {
                 "type": "git",
@@ -2676,7 +2664,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/b0e4171a442d33a0d52f6a2b860bc2842f0a0096",
                 "reference": "b0e4171a442d33a0d52f6a2b860bc2842f0a0096",
->>>>>>> a2dc9c45a091e8bb58f3fac969d80707b9e14b72
                 "shasum": ""
             },
             "require": {
@@ -2724,42 +2711,38 @@
                 "jquery",
                 "laravel"
             ],
-<<<<<<< HEAD
-            "time": "2017-08-01T14:50:42+00:00"
-=======
             "time": "2017-05-22T03:51:49+00:00"
->>>>>>> a2dc9c45a091e8bb58f3fac969d80707b9e14b72
         }
     ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
+                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3,<8.0-DEV"
+                "php": "^7.1"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
                 "ext-pdo": "*",
                 "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
+                "phpunit/phpunit": "^6.2.3",
+                "squizlabs/php_codesniffer": "^3.0.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -2784,7 +2767,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14T21:17:01+00:00"
+            "time": "2017-07-22T11:58:36+00:00"
         },
         {
             "name": "fzaninotto/faker",
