@@ -7,8 +7,10 @@
 @section('contentheader_title', 'Master Category')
 
 @section('main-content')
-<div class=" col-md-6">
-    <div class="panel panel-primary">
+
+
+ <div class="col-md-6" >
+    <div class="panel panel-primary" style="position: absolute;left: 100px;top: 50px;width: 500px;height: 200px;box-shadow: 7px 7px 5px #888888;">
         <div class="panel-heading">Add new</div>
         <div class="panel-body">
             <form method="post" action="/admin/category">
@@ -27,8 +29,12 @@
         </div>
     </div>
 </div>
-<div class="col-md-6">
-    <table class="table">
+
+
+
+
+<!--<table class="table table-bordered" id="users-table">
+    <table id="table" class="table table-striped table-hover table-responsive">
         <tr>
             <th>No</th>
             <th>Category</th>
@@ -52,9 +58,7 @@
         </tr>
         @endforeach
     </table>
-</div>
-
-
+</div> -->
 
 
 @endsection
