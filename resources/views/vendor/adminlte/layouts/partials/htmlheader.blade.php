@@ -6,6 +6,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/landing.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/sb-admin-2.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/sb-admin-2.min.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
