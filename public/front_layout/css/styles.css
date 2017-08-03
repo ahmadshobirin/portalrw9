@@ -76,7 +76,7 @@ img{
 }
 
 ul#sidebar {
-    height: 100vh;
+    height: 100%;
     position:fixed;
     margin-top: 20px;
 }
@@ -97,6 +97,7 @@ li > a:hover {
 div.thumbnail {
   margin-top: 20px;
   border-radius: 5px;
+  margin-left: 220px;
 }
 
 a.category {
@@ -120,3 +121,22 @@ a:hover{
   text-decoration:none;
 }
 
+ul.rightSide {
+  position: fixed;
+  margin-left: 1000px;
+}
+
+ul.leftSide {
+    max-height: 100vh;
+    position:fixed;
+    z-index: 100;
+    margin-top: 20px;
+}
+
+ul.leftSide >li {
+  text-align: right;
+  color: #9E9E9E;
+  width: 100%;
+  font-size: 18px; 
+  border-bottom: 1px solid #E0E0E0;
+}
