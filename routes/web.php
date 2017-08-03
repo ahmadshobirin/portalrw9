@@ -21,7 +21,7 @@ Route::get('/article/post/{slug}','frontController@article_view');
 Route::get('/article/category/{slug}','frontController@category_article');
 
 Route::get('/admin','HomeController@index');
-Route::get('kk/getdata','kkController@getdata');
+Route::get('detailkk/{nokk}','DetailKkController@show');
 
 
 Route::group(['middleware' => 'auth'], function () {

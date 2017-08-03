@@ -3,12 +3,16 @@
 @section('htmlheader_title')
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
-
+    <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 @section('contentheader_title', 'Data Warga')
 
 @section('main-content')
-<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
-
+    <div class="">
+        <a href="{{ url('admin/warga/create') }}" class="btn btn-success btn-md">
+            <i class="fa fa-plus"></i> Tambah Data
+        </a>
+    </div>
+    <br>    
     <table id="table" class="table table-striped table-hover table-responsive">
         <thead>
             <tr>
@@ -28,7 +32,7 @@
              @foreach($kk as $list)
                 <tr>
                     <td>{{ $i++ }}</td>
-                    <td>{{ $list->no_kk }}</td>
+                    <td><a href="{{url('detailkk/'.$list->no_kk)}}">{{ $list->no_kk }}</a></td>
                     <td>{{ $list->kepala_keluarga }}</td>
                     <td>{{ $list->alamat }}</td>
                     <td>{{ $list->rt}}/{{$list->rw }}</td>

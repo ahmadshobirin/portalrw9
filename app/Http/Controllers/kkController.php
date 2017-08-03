@@ -85,7 +85,6 @@ class kkController extends Controller
     public function update(Request $request, $id)
     {
         $item =  kkMOdel::find($id);
-        $item->no_kk = $request->no_kk;
         $item->kepala_keluarga = $request->kepala_keluarga;
         $item->rt = $request->rt;
         $item->rw = $request->rw;
