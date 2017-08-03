@@ -15,9 +15,9 @@ class frontController extends Controller
         return view('dashboard', compact("article", "category"));
     }
 
-   public function article_view($id)
+   public function article_view($slug)
    {    
-        $article = ArticleModel::find($id);
+        $article = ArticleModel::where('slug','=', $slug)->first();
         $category = KategoriArticleModel::get();
         return view('articleView', compact("article", "category"));
    }

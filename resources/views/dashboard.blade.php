@@ -19,7 +19,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <center>
-                <a href="/article/post/{{$list->id}}">
+                <a href="/article/post/{{$list->slug}}">
                     <h4>{{$list->title}}</h4>
                 </a>
             </center>

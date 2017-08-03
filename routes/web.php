@@ -17,8 +17,8 @@
 Route::get('/welcome','frontController@index');
 
 Route::get('/','frontController@index');
-Route::get('/article/post/{id}','frontController@article_view');
-Route::get('/article/{id}','frontController@category_article');
+Route::get('/article/post/{slug}','frontController@article_view');
+Route::get('/article/category/{slug}','frontController@category_article');
 
 Route::get('/admin','HomeController@index');
 

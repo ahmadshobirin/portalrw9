@@ -51,6 +51,7 @@ class ArticleController extends Controller
         $item =  new ArticleModel;
         $item->category = $request->category;
         $item->title = $request->title;
+        $item->slug = str_slug($request->title,'-');
         $item->images = "img/".$request->file('images')->hashName();
         $item->view = 0;
         $item->description = $request->description;
