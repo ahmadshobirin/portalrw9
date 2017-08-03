@@ -48,12 +48,16 @@
                         <td><input type="text" name="provinsi" class="form-control" value="{{$data->provinsi}}"></td>
                     </tr>
                     <tr>
+                        <th>Dikeluarkan Tanggal</th>
+                        <td><input type="date" name="keluarTanggal" class="form-control" value="{{$data->keluar_tgl}}"></td>
+                    </tr>
+                    <tr>
                         <th>Alamat</th>
                         <td colspan="3"><textarea name="alamat"  class="form-control">{{$data->alamat}}</textarea></td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td><button type="submit" class="btn btn-primary">Simpan</button></td>
+                        <td><button type="submit" class="btn btn-primary">Update</button></td>
                     </tr>
                 </table>
             </form>

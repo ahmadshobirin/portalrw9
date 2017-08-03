@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\kkModel;
+use Yajra\Datatables\Datatables;
 
 class kkController extends Controller
 {
@@ -109,5 +110,11 @@ class kkController extends Controller
         $item = kkMOdel::find($id);
         $item->Delete();
         return redirect('/admin/article');
+    }
+
+    public function getData()
+    {
+        $dataKk = kkModel::select(['id','no_kk','kepala_keluarga','alamat','rt','rw','desa_kelurahan','kecamatan','kabupaten_kota','kodepos','provinsi','keluar_tgl']);
+        return Datatables::of($dataKk)->make(true);
     }
 }

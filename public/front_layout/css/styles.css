@@ -76,11 +76,36 @@ img{
 }
 
 ul#sidebar {
-    background-color: black;
-    min-height: 500px;
-    border-radius:5px;
+    height:100%;
     margin-top: 20px;
 }
 ul#sidebar >li {
     background-color: gray;
 }
+
+div.thumbnail {
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+a.category {
+  margin-left: 10px;
+  color: #9E9E9E;
+  font-size: 18px;
+}
+
+a.btn-foot {
+    border: #EEE solid 1px;
+    padding: 3px 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: #777;
+    font-size: 16px;
+    display: block;
+    float: right;
+    border-radius: 3px;
+}
+a:hover{
+  text-decoration:none;
+}
+

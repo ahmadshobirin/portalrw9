@@ -53,14 +53,12 @@
 
 
 <!--main-->
-<div class="container">
 	<div class="row">
      @include("front.sidebar")
       
       <!--right-->
-      <div class="col-md-7" id="page-content" style="min-height:1000px">
-          @section("content")
-          @show
+      <div class="col-md-8" id="page-content" style="min-height:1000px">
+          @include('front.content')
         
         </div><!--/right-->
         
@@ -82,8 +80,6 @@
   	</div><!--/row-->
     
     
-
-</div><!--/container-->
 @include("front.footer")
 
 	<!-- script references -->
