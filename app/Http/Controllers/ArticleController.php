@@ -58,7 +58,7 @@ class ArticleController extends Controller
         $item->content = $request->content;
         $item->save();
         return redirect("/admin/article");
-//        return $request->file('images')->getClientOriginalName();
+        return $request->file('images')->getClientOriginalName();
     }
 
     /**

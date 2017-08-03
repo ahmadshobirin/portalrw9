@@ -19,7 +19,7 @@ class categoryController extends Controller
     {
 //        $category = DB::table("category")->get();
         $category = KategoriArticleModel::get();
-        return view("admin.category.add", compact("category"));
+        return view("admin.category.list", compact("category"));
     }
 
     /**
@@ -29,7 +29,8 @@ class categoryController extends Controller
      */
     public function create()
     {
-        return view("admin.category.add");
+        $category = KategoriArticleModel::get();
+        return view("admin.category.add", compact("category"));
     }
 
     /**
@@ -42,6 +43,8 @@ class categoryController extends Controller
     {
         $item =  new KategoriArticleModel;
         $item->category = $request->category;
+        $item->slug = str_slug($request->category,'-');
+        
         $item->save();
         return redirect("/admin/category");
     }
