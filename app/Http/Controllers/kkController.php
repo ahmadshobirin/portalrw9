@@ -45,6 +45,7 @@ class kkController extends Controller
         $item->desa_kelurahan = $request->desa_kelurahan;
         $item->kodepos = $request->kodepos;
         $item->provinsi = $request->provinsi;
+        $item->keluar_tgl = $request->keluarTanggal;
         $item->alamat = $request->alamat;
         $item->save();
         return redirect("/admin/warga");
