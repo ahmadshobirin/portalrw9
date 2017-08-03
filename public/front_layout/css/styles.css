@@ -79,6 +79,7 @@ ul#sidebar {
     background-color: black;
     min-height: 500px;
     border-radius:5px;
+    margin-top: 20px;
 }
 ul#sidebar >li {
     background-color: gray;

@@ -6,7 +6,7 @@
 		<title>title</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/front_layout/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -51,29 +51,6 @@
   </div>
 </nav>
 
-<div id="masthead">  
-  <div class="container">
-      <div class="row">
-        <div class="col-md-7">
-          <h1>TEXT HERE
-            <p class="lead">Some text here</p>
-          </h1>
-        </div>
-        <div class="col-md-5">
-            <div class="well well-lg"> 
-              <div class="row">
-                <div class="col-sm-6">
-        	      	<img src="/front_layout/img/logo.png" class="img-responsive">
-                </div>
-                <div class="col-sm-6">
-	              	Some text here
-                </div>
-              </div>
-            </div>
-        </div>
-      </div> 
-  </div><!--/container-->
-</div><!--/masthead-->
 
 <!--main-->
 <div class="container">
