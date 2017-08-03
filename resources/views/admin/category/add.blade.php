@@ -18,7 +18,7 @@
                 <table class="table ">
                     <tr>
                         <th>Category</th>
-                        <td><input type="text" name="category" class="form-control"></td>
+                        <td><input type="text" name="category" class="form-control" autofocus></td>
                     </tr>
                     <tr>
                         <th></th>
