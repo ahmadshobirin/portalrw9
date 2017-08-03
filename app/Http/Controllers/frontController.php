@@ -15,21 +15,29 @@ class frontController extends Controller
         return view('dashboard', compact("article", "category"));
     }
 
-   public function article_view($slug)
-   {    
-        $article = ArticleModel::where('slug','=', $slug)->first();
-        $category = KategoriArticleModel::get();
-        return view('articleView', compact("article", "category"));
-   }
+     public function article_view($slug)
+     {    
+          $article = ArticleModel::where('slug','=', $slug)->first();
+          $category = KategoriArticleModel::get();
+          return view('articleView', compact("article", "category"));
+     }
     
-   public function category_article($id)
-   {    
-        $article = ArticleModel::where("category", "=", $id)->get();
-        $page_title = KategoriArticleModel::find($id);
+     // public function category_article($id)
+     // {    
+     //      $article = ArticleModel::where("category", "=", $id)->get();
+     //      $page_title = KategoriArticleModel::find($id);
+     //      $category = KategoriArticleModel::get();
+     //      return view('category_article', compact("article", "category", "page_title"));
+     // }
+  
+    public function category_article($slug)
+     {  
+        $kategori = KategoriArticleModel::where('slug','=',$slug)->first();
+        // dd($kategori->id);
+        $article =  ArticleModel::where('id','=',$kategori->id)->get();
         $category = KategoriArticleModel::get();
-        return view('category_article', compact("article", "category", "page_title"));
-   }
-    
+        return view('category_article', compact("kategori","category","article"));
+     }
     
 
 }
