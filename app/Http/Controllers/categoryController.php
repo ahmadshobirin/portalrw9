@@ -43,6 +43,8 @@ class categoryController extends Controller
     {
         $item =  new KategoriArticleModel;
         $item->category = $request->category;
+        $item->slug = str_slug($request->category,'-');
+        
         $item->save();
         return redirect("/admin/category");
     }

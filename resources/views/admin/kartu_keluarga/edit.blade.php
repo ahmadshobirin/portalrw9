@@ -18,7 +18,9 @@
                 <table class="table ">
                     <tr>
                         <th>No.KK</th>
-                        <td colspan="3"><input type="text" name="no_kk" class="form-control" value="{{$data->no_kk}}"></td>
+                        <td colspan="3">
+                            <input type="text" class="form-control" value="{{$data->no_kk}}" disabled>
+                        </td>
                     </tr>
                     <tr>
                         <th>kepala keluarga</th>

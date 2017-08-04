@@ -16,18 +16,18 @@ class CreateKkDetailTable extends Migration
         Schema::create('detail_kartu_keluarga', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("kartu_keluarga");
-            $table->string("nik");
+            $table->integer("nik");
             $table->string("nama");
-            $table->string("jenis_kelamin");
+            $table->enum("jk",['laki-laki','perempuan']);
             $table->string("tempat_lahir");
-            $table->datetime("tanggal_lahir");
+            $table->date("tanggal_lahir");
             $table->string("pendidikan");
             $table->string("jenis_pekerjaan");
             $table->string("status_pernikahan");
             $table->string("status_keluarga");
             $table->string("kewarganegaraan");
-            $table->string("pasport");
-            $table->string("kitap");
+            $table->string("pasport")->nullable();
+            $table->string("kitap")->nullable();
             $table->string("ayah");
             $table->string("ibu");
             $table->timestamps();

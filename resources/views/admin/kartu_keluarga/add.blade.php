@@ -17,7 +17,7 @@
                 <table class="table table-responsive">
                     <tr>
                         <th>No.KK</th>
-                        <td colspan="3"><input type="text" name="no_kk" class="form-control"></td>
+                        <td colspan="3"><input type="text" name="no_kk" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ></td>
                     </tr>
                     <tr>
                         <th>Kepala keluarga</th>

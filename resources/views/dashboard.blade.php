@@ -1,5 +1,5 @@
 @extends("front.front")
-
+{{--  <img src="{{ asset('storage/images.jpg') }}" alt="">  --}}
 @section("content")
 
     @foreach($article as $list)
@@ -16,6 +16,7 @@
 -->
 
 <div class="col-md-6">
+
     <div class="panel panel-default">
         <div class="panel-body">
             <center>
