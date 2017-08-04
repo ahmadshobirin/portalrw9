@@ -10,26 +10,26 @@
 
 <!--<script src="/ckeditor/ckeditor.js"></script>-->
 <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-<form method="post" action="/admin/article/{{$article->id}}/u" enctype="multipart/form-data">
+<form method="post" action="/admin/article/{{$article->id}}" enctype="multipart/form-data">
     {{csrf_field()}}
-    {{method_field("put")}}
+    {{method_field('put')}}
     <table class="table ">
-<!--
         <tr>
-            <th>Category</th>
+            <th>Kategori {{$article->category}}</th>
             <td>
-                <select name="category" class="form-control">
+                <select name="category" class="form-control" required>
+                    <option disabled>Kategori</option>
                     @foreach($category as $list)
-                    <option value="{{$list->id}}">{{$list->category}}</option>
+                          <option  @if( $list->category == $article->category) selected @endif value="{{$list->id}}">{{$list->category}}</option> 
                     @endforeach
                 </select>
             </td>
         </tr>
         <tr>
-            <th>Cover Image</th>
+            <th>Gambar Sampul</th>
             <td><input type="file" name="images" class="form-control"></td>
+            <td><img src="/storage/{{$article->images}}" style="max-width:100px"></td>
         </tr>
--->
         <tr>
             <th>Judul</th>
             <td><input type="text" name="title" class="form-control" value="{{$article->title}}"></td>

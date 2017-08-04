@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
 <div class="">
-    <a href="{{ url('admin/warga/create') }}" class="btn btn-success btn-md">
+    <a href="{{url('/admin/article/create')}}" class="btn btn-success btn-md">
         <i class="fa fa-plus"></i> Tambah Data
     </a>
 </div>

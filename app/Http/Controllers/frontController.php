@@ -14,14 +14,16 @@ class frontController extends Controller
     {
         $article = ArticleModel::get();
         $category = KategoriArticleModel::get();
-        return view('dashboard', compact("article", "category"));
+        return view('index', compact("article", "category"));
     }
 
      public function article_view($slug)
      {    
           $article = ArticleModel::where('slug','=', $slug)->first();
           $category = KategoriArticleModel::get();
+      
           return view('articleView', compact("article", "category"));
+
      }
     
      // public function category_article($id)
@@ -40,6 +42,7 @@ class frontController extends Controller
         $category = KategoriArticleModel::get();
         return view('category_article', compact("kategori","category","article"));
      }
+<<<<<<< HEAD
     
     public function birthday()
     {
@@ -47,5 +50,15 @@ class frontController extends Controller
         $birthdayTomorrow = DetailKkModel::select('nama')->where('tanggal_lahir','=',Carbon::now()->addDays(1))->get();
         dd($birthdayTomorrow);
     }
+=======
+
+     public function detail()
+     {
+        
+         $article = ArticleModel::get();
+         $category = KategoriArticleModel::get();
+         return view('detail-post',compact('article','category'));
+     }
+>>>>>>> ca9c5fcb1d8c572a45d4be209b8793102d4dcaf3
 
 }
