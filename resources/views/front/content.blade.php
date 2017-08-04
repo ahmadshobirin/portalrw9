@@ -1,5 +1,6 @@
 
-    <div class="thumbnail"><img src="/img/traveljinni-logo-icon.png">
+    <div class="thumbnail" style="padding:12px">
+		<img src="/img/traveljinni-logo-icon.png">
         <div class="caption">
             <p class="text-muted">POSTED BY IZZUL | 1 JULY 2017</p>
             <h3><a href="#">Travel Terbaik! eta Terangkanlah~ </a></h3>

@@ -53,11 +53,12 @@
 
 
 <!--main-->
-	<div class="row">
+<div class="container-fluid">
+    <div class="row">
      @include("front.sidebar")
       
       <!--right-->
-      <div class="col-md-7 col-md-offset-1" id="page-content">
+      <div class="col-md-9" id="page-content">
           @include('front.content')
         
         </div><!--/right-->
@@ -78,7 +79,7 @@
         @include("front.front_event")
         
   	</div><!--/row-->
-    
+</div>  
     
 @include("front.footer")
 
