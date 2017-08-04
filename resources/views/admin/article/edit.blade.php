@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Edit Article')
+@section('contentheader_title', 'Edit Artikel')
 
 @section('main-content')
 
@@ -31,15 +31,15 @@
         </tr>
 -->
         <tr>
-            <th>Title</th>
+            <th>Judul</th>
             <td><input type="text" name="title" class="form-control" value="{{$article->title}}"></td>
         </tr>
         <tr>
-            <th>Description</th>
+            <th>Deskripsi</th>
             <td><input type="text" name="description" class="form-control" value="{{$article->description}}"></td>
         </tr>
         <tr>
-            <th>Content</th>
+            <th>Konten</th>
             <td>
                 <textarea class="ckeditor" name="content" id="content">{{$article->content}}</textarea>
             </td>

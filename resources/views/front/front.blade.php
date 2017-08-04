@@ -4,7 +4,10 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<title>title</title>
-		<meta name="generator" content="Bootply" />
+
+    {{-- izul --}}
+
+    <meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/front_layout/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +15,9 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="/front_layout/css/styles.css" rel="stylesheet">
-	</head>
+	
+
+  </head>
 	<body>
 <nav id="top-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
   <div class="container">

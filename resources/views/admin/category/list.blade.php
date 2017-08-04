@@ -4,21 +4,31 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Article')
+
+@section('contentheader_title', 'Kategori Artikel')
 
 @section('main-content')
 	<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
- 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
-<table class="table table-bordered" id="users-table">
-    <table id="table" class="table table-striped table-hover table-responsive">
+<div class="">
+    <a href="#" class="btn btn-success btn-md">
+            <i class="fa fa-plus"></i> Tambah Data
+    </a>
+</div>
+
+<br>    
+
+<div class="col-lg-6">
+<table class="table table-striped table-hover table-responsive" id="table">
+            <thead>
                 <tr>
                     <th>No</th>
-		            <th>Category</th>
-		            <th>Action</th>
+    		            <th>Kategori</th>
+    		            <th>Aksi</th>
                 </tr>
+            </thead>
+
+            <tbody>
                 @foreach($category as $list)
                 <tr>
                     <td></td>
@@ -28,15 +38,16 @@
 			                {{csrf_field()}}
 			                {{method_field('DELETE')}}
 			                <button class="btn btn-danger pull-left">
-			                    <span class="fa fa-trash"> delete</span>
+			                    <span class="fa fa-trash"> Hapus</span>
 			                </button>
 			            </form>
-			                <a class="btn btn-warning pull-left" href="/admin/category/{{$list->id}}/edit"><span class="fa fa-pencil"> edit</span></a>
+			                <a class="btn btn-warning pull-left" href="/admin/category/{{$list->id}}/edit"><span class="fa fa-pencil"> Ubah</span></a>
                     </td>
                 </tr>
                 @endforeach
-            </table>
+            </tbody>
 </table>
+</div>
 
 @ckeditor('content')
 
