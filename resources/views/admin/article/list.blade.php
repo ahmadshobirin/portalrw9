@@ -10,10 +10,12 @@
 
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
-<button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah data</button> 
-
-<br>
-<br>
+<div class="">
+    <a href="{{url('/admin/article/create')}}" class="btn btn-success btn-md">
+        <i class="fa fa-plus"></i> Tambah Data
+    </a>
+</div>
+<br>    
 
     <table class="table table-striped table-hover table-responsive" id="table">
         <thead>
