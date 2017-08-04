@@ -20,14 +20,14 @@
                     <div class="col-md-12">
                     	{{-- Search Option --}}
                     	<div class="form-group">
-  <label class="control-label">Input addons</label>
-  <div class="input-group">
-    <input type="text" class="form-control">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="button">Button</button>
-    </span>
-  </div>
-</div>
+                      <label class="control-label">Input addons</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Button</button>
+                        </span>
+                      </div>
+                    </div>
 						<br>
                         <div class="card ">
                             <div class="header">

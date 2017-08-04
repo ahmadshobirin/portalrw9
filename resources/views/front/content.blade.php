@@ -1,4 +1,5 @@
-
+@extends('front.front')
+@section('content')
     <div class="thumbnail">
 		<img src="/img/traveljinni-logo-icon.png">
         <div class="caption">
@@ -48,3 +49,4 @@
 			</div> --}}
 		</div>
     </div>
+@endsection

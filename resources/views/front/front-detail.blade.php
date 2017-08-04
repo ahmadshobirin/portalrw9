@@ -80,7 +80,7 @@
       </div>
 -->
         <!--/full right-->
-        @include("front.front_event")
+        @include("front.sidebar-blog")
         
   	</div><!--/row-->
 </div>  
