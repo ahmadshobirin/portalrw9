@@ -32,7 +32,7 @@
              @foreach($kk as $list)
                 <tr>
                     <td>{{ $i++ }}</td>
-                    <td><a href="{{url('detailkk/'.$list->no_kk)}}">{{ $list->no_kk }}</a></td>
+                    <td><a href="{{url('admin/detailkk/'.$list->no_kk)}}">{{ $list->no_kk }}</a></td>
                     <td>{{ $list->kepala_keluarga }}</td>
                     <td>{{ $list->alamat }}</td>
                     <td>{{ $list->rt}}/{{$list->rw }}</td>

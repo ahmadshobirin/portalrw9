@@ -11,23 +11,24 @@ class DetailKkController extends Controller
     public function index()
     {
         $dataDetailKk = DetailKkModel::get();
-        return view('detailkk.index',compact('$dataDetailKk'));
+        return view('admin.detailkk.index',compact('dataDetailKk'));
     }
 
     public function create()
     {
-        $datakk = kkModel::select('no_kk')->get();
-        return view('detailkk.create',compact('datakk'));
+        $datakk = kkModel::select('id','no_kk')->get();
+        return view('admin.detailkk.create',compact('datakk'));
     }
     
     public function store(Request $request)
     {
         $store = new DetailKkModel();
-        $store->kartu_keluarga = $request->kartu_keluarga;
+        $store->kartu_keluarga = $request->kartuKeluarga;
         $store->nik = $request->nik;
         $store->nama = $request->nama;
-        $store->jenis_kelamin = $request->jenisKelamin;
+        $store->jk = $request->jk;
         $store->tempat_lahir = $request->tempatLahir;
+        $store->tanggal_lahir = $request->tanggalLahir;
         $store->pendidikan = $request->pendidikan;
         $store->jenis_pekerjaan = $request->jenisPekerjaan;
         $store->status_pernikahan = $request->statusPernikahan;
@@ -52,7 +53,40 @@ class DetailKkController extends Controller
 
     public function edit($id)
     {
-        $dataDetailKk = DetailKkModel::find()
+        $dataDetailKk = DetailKkModel::find($id);
+        $datakk = kkModel::select('id','no_kk')->get();
+        // dd($dataDetailKk->tanggal_lahir->diffForHumans());
+        return view('admin.detailkk.edit',compact('dataDetailKk','datakk'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $kewarganegaraan = $request->kewarganegaraan ?  $request->kewarganegaraan : '' ;
+        $pasport =  $request->pasport ?  $request->pasport : '';
+        $kitap =  $request->kitap ?  $request->kitap : '';
+        $update = DetailKkModel::find($id);
+        $update->kartu_keluarga = $request->kartuKeluarga;
+        $update->nik = $request->nik;
+        $update->nama = $request->nama;
+        $update->jk = $request->jk;
+        $update->tempat_lahir = $request->tempatLahir;
+        $update->pendidikan = $request->pendidikan;
+        $update->jenis_pekerjaan = $request->jenisPekerjaan;
+        $update->status_pernikahan = $request->statusPernikahan;
+        $update->status_keluarga = $request->statusKeluarga;
+        $update->kewarganegaraan = $kewarganegaraan;
+        $update->pasport = $pasport;
+        $update->kitap = $kitap;
+        $update->ayah = $request->ayah;
+        $update->ibu = $request->ibu;
+        $update->save();
+        return redirect('admin/detailkk');
+    }
+
+    public function destroy($id)
+    {
+        DetailKkModel::find($id)->delete();
+        return redirect()->back();
     }
 
 }
