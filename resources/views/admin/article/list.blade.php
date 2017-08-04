@@ -37,10 +37,10 @@
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
                             <button class="btn btn-danger pull-left">
-                                <span class="fa fa-trash">Hapus</span>
+                                <span class="fa fa-trash"> Hapus</span>
                             </button>
                         </form>
-                        <a class="btn btn-warning pull-left" href="/admin/article/{{$list->id}}/edit"><span class="fa fa-pencil">Edit</span></a>
+                        <a class="btn btn-warning pull-left" href="/admin/article/{{$list->id}}/edit"><span class="fa fa-pencil"> Ubah</span></a>
                     </td>
                 </tr>
                 @endforeach
