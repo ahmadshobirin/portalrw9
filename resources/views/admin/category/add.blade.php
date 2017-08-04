@@ -8,11 +8,12 @@
 
 @section('main-content')
 
-
- <div class="col-md-6" >
-    <div class="panel panel-primary" style="position: absolute;left: 100px;top: 50px;width: 500px;height: 200px;box-shadow: 7px 7px 5px #888888;">
-        <div class="panel-heading">Add new</div>
-        <div class="panel-body">
+<div class="col-lg-6">
+<br>
+<div class="container-fluid">
+       <div class="row">
+            <div class="box box-primary" style="box-shadow: 3px 3px 7px #888888">
+               <div class="box-body">
             <form method="post" action="/admin/category">
                 {{csrf_field()}}
                 <table class="table ">
@@ -28,6 +29,8 @@
             </form>
         </div>
     </div>
+</div> 
+</div>
 </div>
 
 

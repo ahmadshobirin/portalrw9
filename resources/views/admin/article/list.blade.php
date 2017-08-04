@@ -4,24 +4,29 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Master Category')
+@section('contentheader_title', 'Master Article')
 
 @section('main-content')
-<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
- 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
-<table class="table table-bordered" id="users-table">
-    <table id="table" class="table table-striped table-hover table-responsive">
-                <tr>
-                    <th>No.</th>
-                    <th>Title</th>
-                    <th>Cover</th>
-                    <th>Category</th>
-                    <th>Action</th>
-                </tr>
-                @foreach($article as $list)
+<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
+
+<button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah data</button> 
+
+<br>
+<br>
+
+    <table class="table table-striped table-hover table-responsive" id="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Title</th>
+                <th>Cover</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($article as $list)
                 <tr>
                     <td></td>
                     <td>{{$list->title}}</td>
@@ -39,17 +44,10 @@
                     </td>
                 </tr>
                 @endforeach
-            </table>
-</table>
+        </tbody>
+    </table>
 
 @ckeditor('content')
-
-<script src="//code.jquery.com/jquery.js"></script>
-       <!-- DataTables -->
-<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-        <!-- Bootstrap JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <!-- App scripts -->
 
 <script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>

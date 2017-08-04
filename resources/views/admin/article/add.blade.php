@@ -11,11 +11,13 @@
 <!--<script src="/ckeditor/ckeditor.js"></script>-->
 <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 
-<div class="panel panel-primary" style="box-shadow: 10px 10px 5px #888888;">
-        <div class="panel-heading">Add new</div>
-        <div class="panel-body">
+ <div class="container-fluid spark-screen">
+       <div class="row">
+            <div class="box box-primary" style="box-shadow: 3px 3px 7px #888888">
+               <div class="box-body">
+               <b> <h4 style="color: black;padding-left: 5px;"> FORM NEW ARTICLE</h4> </b>
             <form method="post" action="/admin/article" enctype="multipart/form-data">
-                {{csrf_field()}}
+                
                 <table class="table table:hover">
                     <tr>
                         <th>Category</th>
@@ -52,6 +54,8 @@
                     </tr>
                 </table>
             </form>
+        </div>
+        </div>
         </div>
         </div>
     

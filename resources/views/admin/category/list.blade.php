@@ -4,21 +4,27 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Article')
+
+@section('contentheader_title', 'Category Article')
 
 @section('main-content')
 	<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
- 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
-<table class="table table-bordered" id="users-table">
-    <table id="table" class="table table-striped table-hover table-responsive">
+<button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah data</button> 
+<br>
+<br>
+
+<div class="col-lg-6">
+<table class="table table-striped table-hover table-responsive" id="table">
+            <thead>
                 <tr>
                     <th>No</th>
 		            <th>Category</th>
 		            <th>Action</th>
                 </tr>
+            </thead>
+
+            <tbody>
                 @foreach($category as $list)
                 <tr>
                     <td></td>
@@ -35,8 +41,9 @@
                     </td>
                 </tr>
                 @endforeach
-            </table>
+            </tbody>
 </table>
+</div>
 
 @ckeditor('content')
 
