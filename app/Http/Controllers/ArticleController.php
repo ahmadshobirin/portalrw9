@@ -47,17 +47,17 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request->file('images')->store('public/img');
         $item =  new ArticleModel;
         $item->category = $request->category;
         $item->title = $request->title;
         $item->slug = str_slug($request->title,'-');
+        $path = $request->file('images')->store('public/img');
         $item->images = "img/".$request->file('images')->hashName();
         $item->view = 0;
         $item->description = $request->description;
         $item->content = $request->content;
         $item->save();
-        return redirect("/admin/article");
+        return redirect('/admin/article');
         return $request->file('images')->getClientOriginalName();
     }
 
@@ -69,7 +69,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+       $article = ArticleModel::where('category','=',$category)->first();
     }
 
     /**
@@ -81,7 +81,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = ArticleModel::find($id);
-        $category = KategoriArticleModel::get();
+        $category = KategoriArticleModel::select('id','category')->get();;
         return view("admin.article.edit", compact("article","category"));
     }
 
@@ -95,6 +95,9 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $item = ArticleModel::find($id);
+        $item->category = $request->category;
+        $path = $request->file('images')->store('public/img');
+        $item->images = "img/".$request->file('images')->hashName();
         $item->title = $request->title;
         $item->description = $request->description;
         $item->content = $request->content;
