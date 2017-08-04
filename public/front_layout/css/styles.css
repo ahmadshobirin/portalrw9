@@ -135,9 +135,13 @@ a.active{
   border-right: 2px solid #81D4FA;
 }
 
+a.visited{
+  border-right: 2px solid #81D4FA;
+}
+
 ul.rightSide {
   position: fixed;
-  margin-left: 80%;
+  margin-left: 75%;
   margin-top: 30px;
 }
 
