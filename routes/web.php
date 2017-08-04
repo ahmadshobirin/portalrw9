@@ -18,7 +18,7 @@ Route::get('/welcome','frontController@index');
 
 Route::get('/','frontController@index');
 Route::get('/article/post/{slug}','frontController@article_view');
-// Route::get('/article/{id}','frontController@category_article');
+Route::get('/birthday','frontController@birthday');
 Route::get('/article/category/{slug}','frontController@category_article');
 
 Route::get('/admin','HomeController@index');
@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/admin/article','articleController');
     Route::resource('/admin/category','categoryController');
     Route::resource('/admin/warga','kkController');
+    Route::get('/admin/warga/{id}/delete','kkController@destroy');
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 });

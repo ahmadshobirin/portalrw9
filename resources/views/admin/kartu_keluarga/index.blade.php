@@ -13,7 +13,7 @@
         </a>
     </div>
     <br>    
-    <table id="table" class="table table-striped table-hover table-responsive">
+    <table id="table" class="table table-striped table-hover table-responsive" style="font-size:12px">
         <thead>
             <tr>
                 <th>No</th>
@@ -40,16 +40,10 @@
                     <td>{{ $list->kabupaten_kota }}</td>
                     <td>{{ $list->keluar_tgl }}</td>
                     <td>
-                        {{--  <form method="post" action="{{/admin/warga/{{$list->id}}}}">  --}}
-                        <form method="post" action="{{ url('/admin/warga' . $list->id) }}">
-                            {{csrf_field()}}
-                            {{method_field('DELETE')}}
-                            <button class="btn btn-danger pull-left">
-                                <span class="fa fa-trash"></span>
-                            </button>
-                        </form>
-                        &nbsp;
-                        <a class="btn btn-warning pull-left" href="/admin/warga/{{$list->id}}/edit"><span class="fa fa-pencil"></span></a>
+                        <div class="">
+                            <a class="btn btn-warning btn-sm" href="{{url('/admin/warga/'.$list->id.'/edit')}}"><span class="fa fa-pencil"></span></a>
+                            <a class="btn btn-danger btn-sm" href="{{url('/admin/warga/'.$list->id.'/delete')}}"><span class="fa fa-trash"></span></a>
+                        </div>
                     </td>
                 </tr>
             @endforeach
