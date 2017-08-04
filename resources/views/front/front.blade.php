@@ -57,7 +57,7 @@
      @include("front.sidebar")
       
       <!--right-->
-      <div class="col-md-8" id="page-content" style="min-height:1000px">
+      <div class="col-md-7 col-md-offset-1" id="page-content">
           @include('front.content')
         
         </div><!--/right-->
