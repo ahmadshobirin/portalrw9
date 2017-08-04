@@ -5,7 +5,7 @@
 @endsection
 
 
-@section('contentheader_title', 'Category Article')
+@section('contentheader_title', 'Kategori Artikel')
 
 @section('main-content')
 	<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
@@ -19,8 +19,8 @@
             <thead>
                 <tr>
                     <th>No</th>
-		            <th>Category</th>
-		            <th>Action</th>
+    		            <th>Kategori</th>
+    		            <th>Aksi</th>
                 </tr>
             </thead>
 
@@ -34,10 +34,10 @@
 			                {{csrf_field()}}
 			                {{method_field('DELETE')}}
 			                <button class="btn btn-danger pull-left">
-			                    <span class="fa fa-trash"> delete</span>
+			                    <span class="fa fa-trash"> Hapus</span>
 			                </button>
 			            </form>
-			                <a class="btn btn-warning pull-left" href="/admin/category/{{$list->id}}/edit"><span class="fa fa-pencil"> edit</span></a>
+			                <a class="btn btn-warning pull-left" href="/admin/category/{{$list->id}}/edit"><span class="fa fa-pencil"> Ubah</span></a>
                     </td>
                 </tr>
                 @endforeach

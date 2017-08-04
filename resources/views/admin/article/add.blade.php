@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'New Article')
+@section('contentheader_title', 'Artikel')
 
 @section('main-content')
 
@@ -15,15 +15,15 @@
        <div class="row">
             <div class="box box-primary" style="box-shadow: 3px 3px 7px #888888">
                <div class="box-body">
-               <b> <h4 style="color: black;padding-left: 5px;"> FORM NEW ARTICLE</h4> </b>
+               <b> <h4 style="color: black;padding-left: 5px;"> FORM ARTIKEL BARU</h4> </b>
             <form method="post" action="/admin/article" enctype="multipart/form-data">
                 
                 <table class="table table:hover">
                     <tr>
-                        <th>Category</th>
+                        <th>Kategori</th>
                         <td>
                             <select name="category" class="form-control" required>
-                                <option selected disabled>--CATEGORY--</option>
+                                <option selected disabled>--Kategori--</option>
                                 @foreach($category as $list)
                                 <option value="{{$list->id}}">{{$list->category}}</option>
                                 @endforeach
@@ -31,21 +31,21 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Cover Image</th>
+                        <th>Gambar Sampul</th>
                         <td><input type="file" name="images" class="form-control"></td>
                     </tr>
                     <tr>
-                        <th>Title</th>
+                        <th>Judul</th>
                         <td><input type="text" name="title" class="form-control" required autofocus></td>
                     </tr>
                     <tr>
-                        <th>Description</th>
+                        <th>Deskripsi</th>
                         <td><input type="text" name="description" class="form-control" required></td>
                     </tr>
                     <tr>
-                        <th>Content</th>
+                        <th>Konten</th>
                         <td>
-                            <textarea class="ckeditor" name="content" id="content" required>input text here..!</textarea>
+                            <textarea class="ckeditor" name="content" id="content" required>Tulis teks disini..!</textarea>
                         </td>
                     </tr>
                     <tr>

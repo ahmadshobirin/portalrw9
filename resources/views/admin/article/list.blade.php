@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Master Article')
+@section('contentheader_title', 'Artikel')
 
 @section('main-content')
 
@@ -19,10 +19,10 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Title</th>
-                <th>Cover</th>
-                <th>Category</th>
-                <th>Action</th>
+                <th>Judul</th>
+                <th>Sampul</th>
+                <th>Kategori</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -37,10 +37,10 @@
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
                             <button class="btn btn-danger pull-left">
-                                <span class="fa fa-trash"> delete</span>
+                                <span class="fa fa-trash">Hapus</span>
                             </button>
                         </form>
-                        <a class="btn btn-warning pull-left" href="/admin/article/{{$list->id}}/edit"><span class="fa fa-pencil"> edit</span></a>
+                        <a class="btn btn-warning pull-left" href="/admin/article/{{$list->id}}/edit"><span class="fa fa-pencil">Edit</span></a>
                     </td>
                 </tr>
                 @endforeach

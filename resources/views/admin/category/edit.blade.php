@@ -16,7 +16,7 @@
                 {{method_field('put')}}
                 <table class="table ">
                     <tr>
-                        <th>Category</th>
+                        <th>Kategori</th>
                         <td><input type="text" name="category" class="form-control" value="{{$data->category}}"></td>
                     </tr>
                     <tr>
@@ -32,8 +32,8 @@
     <table class="table">
         <tr>
             <th>No</th>
-            <th>Category</th>
-            <th>Action</th>
+            <th>Kategori</th>
+            <th>Aksi</th>
         </tr>
         
         @foreach($category as $list)
@@ -45,10 +45,10 @@
                 {{csrf_field()}}
                 {{method_field('DELETE')}}
                 <button class="btn btn-danger pull-left">
-                    <span class="fa fa-trash"> delete</span>
+                    <span class="fa fa-trash"> Hapus</span>
                 </button>
             </form>
-                <a class="btn btn-warning pull-left" href="/admin/category/{{$list->id}}/edit"><span class="fa fa-pencil"> edit</span></a>
+                <a class="btn btn-warning pull-left" href="/admin/category/{{$list->id}}/edit"><span class="fa fa-pencil"> Ubah</span></a>
             </td>
         </tr>
         @endforeach

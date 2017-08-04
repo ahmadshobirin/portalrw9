@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Master Category')
+@section('contentheader_title', 'Kategori')
 
 @section('main-content')
 
@@ -14,11 +14,12 @@
        <div class="row">
             <div class="box box-primary" style="box-shadow: 3px 3px 7px #888888">
                <div class="box-body">
+            
             <form method="post" action="/admin/category">
                 {{csrf_field()}}
                 <table class="table ">
                     <tr>
-                        <th>Category</th>
+                        <th>Kategori</th>
                         <td><input type="text" name="category" class="form-control" autofocus></td>
                     </tr>
                     <tr>
