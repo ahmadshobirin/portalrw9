@@ -9,4 +9,9 @@ class ArticleModel extends Model
     use SoftDeletes;
     protected $table = 'article';
     protected $dates = ['deleted_at'];
+
+    public function scopeSearch($query, $s)
+    {
+        return $query->where('title','=','%'. $s .'%');
+    }
 }

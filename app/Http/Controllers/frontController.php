@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ArticleModel;
 use App\KategoriArticleModel;
+use App\DetailKkModel;
+use Carbon\Carbon;
 
 class frontController extends Controller
 {
@@ -40,6 +42,15 @@ class frontController extends Controller
         $category = KategoriArticleModel::get();
         return view('category_article', compact("kategori","category","article"));
      }
+<<<<<<< HEAD
+    
+    public function birthday()
+    {
+        $birthdayNow = DetailKkModel::select('nama')->where('tanggal_lahir','=',Carbon::now())->get();
+        $birthdayTomorrow = DetailKkModel::select('nama')->where('tanggal_lahir','=',Carbon::now()->addDays(1))->get();
+        dd($birthdayTomorrow);
+    }
+=======
 
      public function detail()
      {
@@ -48,5 +59,6 @@ class frontController extends Controller
          $category = KategoriArticleModel::get();
          return view('detail-post',compact('article','category'));
      }
+>>>>>>> ca9c5fcb1d8c572a45d4be209b8793102d4dcaf3
 
 }

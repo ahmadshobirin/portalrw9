@@ -48,7 +48,7 @@
                                  <div class="col-md-6">
                                     <div class="form-group">
                                        <label for="">Tanggal Lahir</label>
-                                       <input type="date" name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir...">
+                                       <input type="date" name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir..." min="1800-01-01" max="2100-12-31">
                                     </div>
                                  </div>
                               </div>

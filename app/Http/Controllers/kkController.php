@@ -106,9 +106,8 @@ class kkController extends Controller
      */
     public function destroy($id)
     {
-        $item = kkMOdel::find($id);
-        $item->Delete();
-        return redirect('/admin/article');
+        $item = kkMOdel::find($id)->delete();
+        return redirect()->back();
     }
 
     public function getData()
