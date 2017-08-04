@@ -9,25 +9,16 @@
 
 
 <ul class="nav flex-column col-md-offset-1 col-md-3 rightSide">
-
-
-
-
-
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                     	{{-- Search Option --}}
-                    	<div class="form-group">
-  <label class="control-label">Input addons</label>
-  <div class="input-group">
-    <input type="text" class="form-control">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="button">Button</button>
-    </span>
-  </div>
-</div>
+                    	<div class="input-group">
+						  <input type="text" class="form-control">
+						  <span class="input-group-btn">
+						    <button class="btn btn-default" type="button">isi</button>
+						  </span>
+						</div>
 						<br>
                         <div class="card ">
                             <div class="header">
@@ -63,8 +54,4 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
+</ul>
