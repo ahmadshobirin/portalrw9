@@ -79,6 +79,7 @@ ul#sidebar {
     height: 100%;
     position:fixed;
     margin-top: 20px;
+    padding: 12px;
 }
 
 ul#sidebar >li {
@@ -98,15 +99,17 @@ div.thumbnail {
   margin-top: 20px;
   border-radius: 5px;
   margin-left: 220px;
+  padding: 12px;
 }
 
 a.category {
-  margin-left: 10px;
+  margin-right: 10px;
   color: #9E9E9E;
   font-size: 18px;
+  float: right;
 }
 
-a.btn-foot {
+/*a.btn-foot {
     border: #EEE solid 1px;
     padding: 3px 10px;
     margin-right: 10px;
@@ -115,7 +118,7 @@ a.btn-foot {
     font-size: 16px;
     display: block;
     float: right;
-    border-radius: 3px;
+    border-radius: 3px;*/
 }
 a:hover{
   text-decoration:none;
@@ -123,7 +126,7 @@ a:hover{
 
 ul.rightSide {
   position: fixed;
-  margin-left: 1000px;
+  margin-left: 1050px;
 }
 
 ul.leftSide {
