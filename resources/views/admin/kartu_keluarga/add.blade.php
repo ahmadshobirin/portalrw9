@@ -9,7 +9,7 @@
 @section('main-content')
 
 <div class="">
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" style="box-shadow: 7px 7px 5px #888888;">
         <div class="panel-heading">Data Kartu Keluarga</div>
         <div class="panel-body">
             <form method="post" action="/admin/warga">
