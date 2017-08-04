@@ -8,18 +8,9 @@
 @section('main-content')
 <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-<link href="{{URL::asset('vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-<link href="{{URL::asset('css/sb-admin-2.css')}}" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-<link href="{{URL::asset('vendor/morrisjs/morris.css')}}" rel="stylesheet">
-
 	<br>
 
-	<div class="col-lg-12">
+	<div class="col-lg-12 col-lg-offset-3">
 		<div class="col-lg-6">
 				<div class="col-lg-12 col-md-6">
                     <div class="panel panel-primary">
@@ -43,7 +34,7 @@
                         </a>
                     </div>
                 </div>
-
+               
    				<div class="col-lg-12 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -67,28 +58,4 @@
                     </div>
                 </div>
         </div>
-
-		<div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Data Penduduk berdasarkan usia
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-pie-chart"></div>
-                            </div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-      </div>
-
-	<script src="{{URL::asset('vendor/jquery/jquery.min.js')}}"></script>
-	<script src="{{URL::asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-	<script src="{{URL::asset('vendor/raphael/raphael.min.js')}}"></script>
-    <script src="{{URL::asset('vendor/morrisjs/morris.min.js')}}"></script>
-	<script src="{{URL::asset('vendor/metisMenu/metisMenu.min.js')}}"></script>
-	<script src="{{URL::asset('vendor/flot/jquery.flot.pie.js')}}"></script>
 @endsection
