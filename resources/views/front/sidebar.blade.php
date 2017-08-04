@@ -17,7 +17,7 @@
 <ul class="nav flex-column col-md-2 leftSide">
 	@foreach($category as $list)
       	<li class="nav-item">
-      		<a href="/article/{{$list->id}}" class="nav-link active" style="color:white">{{$list->category}}</a>
+      		<a href="{{url('article/category/'.$list->slug)}}" class="nav-link active" style="color:white">{{$list->category}}</a>
       	</li>
     @endforeach
   <li class="nav-item">

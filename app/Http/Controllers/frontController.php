@@ -37,12 +37,13 @@ class frontController extends Controller
     public function category_article($slug)
      {  
         $kategori = KategoriArticleModel::where('slug','=',$slug)->first();
-        // dd($kategori->id);
-        $article =  ArticleModel::where('id','=',$kategori->id)->get();
+        $article  =  ArticleModel::select('category.category','article.id','article.title',
+                     'article.description','article.images','article.created_at')
+                     ->join('category','category.id','=','article.id')
+                     ->where('article.category','=',$kategori->id)->get();
         $category = KategoriArticleModel::get();
-        return view('category_article', compact("kategori","category","article"));
+        return view('detail-post', compact("kategori","category","article"));
      }
-<<<<<<< HEAD
     
     public function birthday()
     {
@@ -50,15 +51,12 @@ class frontController extends Controller
         $birthdayTomorrow = DetailKkModel::select('nama')->where('tanggal_lahir','=',Carbon::now()->addDays(1))->get();
         dd($birthdayTomorrow);
     }
-=======
 
-     public function detail()
-     {
-        
-         $article = ArticleModel::get();
-         $category = KategoriArticleModel::get();
-         return view('detail-post',compact('article','category'));
-     }
->>>>>>> ca9c5fcb1d8c572a45d4be209b8793102d4dcaf3
+    public function detail()
+    {
+        $article = ArticleModel::get();
+        $category = KategoriArticleModel::get();
+        return view('detail-post',compact('article','category'));
+    }
 
 }

@@ -1,6 +1,6 @@
 @extends('front.front-detail')
 @section('content')
-	    <div class="thumbnail">
+	    {{--  <div class="thumbnail">
 	    <center><h2 class="title">Travel Terbaik! eta Terangkanlah~</h2></center>
 		<img src="/img/traveljinni-logo-icon.png">
         <div class="caption">
@@ -14,5 +14,27 @@
 			</div>
 		</div>
     </div>
+      --}}
+    <h2>{{$kategori->kategori}}</h2>
+    
+    @forelse($article as $list)
+        <div class="thumbnail">
+            <h2 class="title">{{ $list->title }}</h2>
+                <img src="/img/traveljinni-logo-icon.png" class="img-responsive">
+            <div class="caption">
+                <p class="text-muted">Posted By Admin | {{ $list->created_at->diffForHumans() }}</p>
+                <p class="text-left">{{ $list->description }}</p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <span> <a href="#" class="category">{{ $list->category }}</a></span>
+                </div>
+            </div>
+        </div>
+    @empty
+       <div class="thumbnail">
+	       <center><h2 class="title">Data Kosong</h2></center>
+       </div>
+    @endforelse
 @endsection
 @include('front.sidebar-blog')

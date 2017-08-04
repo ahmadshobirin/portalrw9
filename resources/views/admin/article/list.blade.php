@@ -28,9 +28,10 @@
             </tr>
         </thead>
         <tbody>
+        <?php $i=1 ?>
             @foreach($article as $list)
                 <tr>
-                    <td></td>
+                    <td>{{ $i++ }}</td>
                     <td>{{$list->title}}</td>
                     <td><img src="/storage/{{$list->images}}" style="max-width:100px"></td>
                     <td>{{$list->category}}</td>

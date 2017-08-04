@@ -96,8 +96,13 @@ class ArticleController extends Controller
     {
         $item = ArticleModel::find($id);
         $item->category = $request->category;
-        $path = $request->file('images')->store('public/img');
-        $item->images = "img/".$request->file('images')->hashName();
+        if(empty($request->images)){
+            $item->images = $item->images;
+        }else{
+            //deleteimagefunction
+            $path = $request->file('images')->store('public/img');
+            $item->images = "img/".$request->file('images')->hashName();
+        }
         $item->title = $request->title;
         $item->description = $request->description;
         $item->content = $request->content;
@@ -113,9 +118,7 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $item = ArticleModel::find($id);
-        $item->Delete();
-        return redirect('/admin/article');
-//        return $id;
+        $item = ArticleModel::find($id)->delete();
+        return redirect()->back();
     }
 }

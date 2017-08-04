@@ -27,8 +27,10 @@
         </tr>
         <tr>
             <th>Gambar Sampul</th>
-            <td><input type="file" name="images" class="form-control"></td>
-            <td><img src="/storage/{{$article->images}}" style="max-width:100px"></td>
+            <td>
+                <input type="file" name="images" class="form-control">
+                <img src="/storage/{{$article->images}}" style="max-width:100px">
+            </td>
         </tr>
         <tr>
             <th>Judul</th>
