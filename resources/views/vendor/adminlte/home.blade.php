@@ -84,7 +84,6 @@
                     <!-- /.panel -->
                 </div>
       </div>
-	</div>
 
 	<script src="{{URL::asset('vendor/jquery/jquery.min.js')}}"></script>
 	<script src="{{URL::asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
