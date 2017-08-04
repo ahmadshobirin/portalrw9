@@ -124,9 +124,21 @@ a:hover{
   text-decoration:none;
 }
 
+a:visited {
+  border-right: 2px solid #E0E0E0;
+}
+
+ul > a:link {
+  border-right: 2px solid #E0E0E0;
+}
+a.active{
+  border-right: 2px solid #81D4FA;
+}
+
 ul.rightSide {
   position: fixed;
   margin-left: 80%;
+  margin-top: 30px;
 }
 
 ul.leftSide {
@@ -141,5 +153,4 @@ ul.leftSide >li {
   color: #9E9E9E;
   width: 100%;
   font-size: 18px; 
-  border-bottom: 1px solid #E0E0E0;
 }
