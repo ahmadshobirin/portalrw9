@@ -48,7 +48,7 @@
                                  <div class="col-md-6">
                                     <div class="form-group">
                                        <label for="">Tanggal Lahir</label>
-                                       <input type="date" name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir..." value="{{ $dataDetailKk->tanggal_lahir }}">
+                                       <input type="date" name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir..." value="{{ $dataDetailKk->tanggal_lahir->toDateString() }}">
                                     </div>
                                  </div>
                               </div>

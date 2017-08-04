@@ -5,5 +5,5 @@
          {{--  <a href="!#"></a><b>Devlopment</b></a>  --}}
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="http://acacha.org/sergitur">Portal RW9</a>.
+    <strong>Copyright &copy; <a href="{{url('home')}}">Portal RW9</a> 2017</strong>.
 </footer>
