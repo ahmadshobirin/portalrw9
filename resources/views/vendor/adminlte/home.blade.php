@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <a href="#">
+        <a href="{{url('/admin/article')}}">
             <div class="panel-footer">
                 <span class="pull-left">Lihat Rincian</span>
                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -39,11 +39,11 @@
                 </div>
                 <div class="col-xs-9 text-right">
                     <div class="huge" style="font-size: 40px;">26</div>
-                    <div>JUMLAH PENDUDUK RW9</div>
+                    <div>JUMLAH KK RW9</div>
                 </div>
             </div>
         </div>
-        <a href="#">
+        <a href="{{url('/admin/warga')}}">
             <div class="panel-footer">
                 <span class="pull-left">Lihat Rincian</span>
                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
