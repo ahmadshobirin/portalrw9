@@ -133,8 +133,8 @@ a.category {
     font-size: 16px;
     display: block;
     float: right;
-    border-radius: 3px;*/
-}
+    border-radius: 3px;
+} */
 a:hover{
   text-decoration:none;
 }
@@ -179,4 +179,11 @@ h3.title{
 
 div#side-blog{
   margin-left: 0;
+}
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  #mycontent { display: none; }  /* show it on small screens */
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+  #mycontent { display: none; }   /* hide it elsewhere */
 }
