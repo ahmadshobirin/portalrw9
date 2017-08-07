@@ -14,6 +14,7 @@
             <form method="post" action="/admin/category/{{$data->id}}">
                 {{csrf_field()}}
                 {{method_field('put')}}
+                @include('adminlte::layouts.partials.displayerror')
                 <table class="table ">
                     <tr>
                         <th>Kategori</th>

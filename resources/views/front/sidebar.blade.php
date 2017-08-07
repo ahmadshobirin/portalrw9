@@ -13,7 +13,7 @@
 </nav> --}}
 
 <!--/left-->
-<div id="mycontent">content</div>
+<div id="mycontent"></div>
 <ul class="nav flex-column col-md-2 leftSide" id="">
 	@foreach($category as $list)
       	<li class="nav-item">

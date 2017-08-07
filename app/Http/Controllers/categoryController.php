@@ -17,7 +17,7 @@ class categoryController extends Controller
      */
     public function index()
     {
-//        $category = DB::table("category")->get();
+        //$category = DB::table("category")->get();
         $category = KategoriArticleModel::get();
         return view("admin.category.list", compact("category"));
     }
@@ -42,6 +42,9 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $item =  new KategoriArticleModel;
+        $this->validate($request,[
+                'category' => 'required', 
+            ]); 
         $item->category = $request->category;
         $item->slug = str_slug($request->category,'-');
         
@@ -83,6 +86,9 @@ class categoryController extends Controller
     public function update(Request $request, $id)
     {
         $item = KategoriArticleModel::find($id);
+        $this->validate($request,[
+                'category' => 'required', 
+            ]); 
         $item->category = $request->category;
         $item->save();
         return redirect("/admin/category");
@@ -97,9 +103,30 @@ class categoryController extends Controller
     public function destroy($id)
     {
         $item = KategoriArticleModel::find($id);
-//        $item->delete();
+        //$item->delete();
         $item->Delete();
         return redirect('/admin/category');
-//        return $id;
+        //return $id;
+    }
+
+    public function trash()
+    {
+        $item = KategoriArticleModel::onlyTrashed()->get();
+        return view('admin.category.trash', compact('item'));
+    }
+
+
+    public function restore($id)
+    {
+        KategoriArticleModel::withTrashed()->where('id','=',$id)->restore();
+        return redirect()->back();
+
+    }
+
+    public function permanentDelete($id)
+    {
+        $dt = KategoriArticleModel::withTrashed()->where('id','=',$id)->first();
+        $dt->forceDelete();
+        return redirect()->back();
     }
 }

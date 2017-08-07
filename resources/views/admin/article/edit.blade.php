@@ -13,6 +13,7 @@
 <form method="post" action="/admin/article/{{$article->id}}" enctype="multipart/form-data">
     {{csrf_field()}}
     {{method_field('put')}}
+    @include('adminlte::layouts.partials.displayerror')
     <table class="table ">
         <tr>
             <th>Kategori {{$article->category}}</th>

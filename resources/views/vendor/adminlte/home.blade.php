@@ -15,7 +15,7 @@
                     <i class="fa fa-list fa-5x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class="huge" style="font-size: 40px;">26</div>
+                    <div class="huge" style="font-size: 40px;">{{$article}}</div>
                     <div>JUMLAH ARTIKEL</div>
                 </div>
             </div>

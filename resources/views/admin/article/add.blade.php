@@ -17,7 +17,8 @@
                <div class="box-body">
                     <b> <h4 style="color: black;padding-left: 5px;"> FORM ARTIKEL BARU</h4> </b>
                         <form method="post" action="/admin/article" enctype="multipart/form-data">
-                             {{csrf_field()}}
+                            @include('adminlte::layouts.partials.displayerror')
+                            {{csrf_field()}}
                             <table class="table table:hover">
                                 <tr>
                                     <th>Kategori</th>
