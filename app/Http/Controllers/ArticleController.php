@@ -18,13 +18,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-//        $article = DB::table("article")->get();
-//        $article = ArticleModel::get();
+    //$article = DB::table("article")->get();
+    //$article = ArticleModel::get();
         $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
                 ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.view', 'category.category')
                 ->get();
-//        dd($article);
-//        $article = ArticleModel::onlyTrashed()->get();
+        //dd($article);
+        //$article = ArticleModel::onlyTrashed()->get();
         return view("admin.article.list", compact("article"));
     }
 
@@ -48,6 +48,12 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $item =  new ArticleModel;
+        $this->validate($request,[
+                'title' => 'required', 
+                'images' => 'required|image|max:1024', 
+                'description' => 'required',
+                'content' => 'required',
+            ]);        
         $item->category = $request->category;
         $item->title = $request->title;
         $item->slug = str_slug($request->title,'-');
@@ -69,7 +75,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-       $article = ArticleModel::where('category','=',$category)->first();
+
     }
 
     /**
@@ -95,6 +101,12 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $item = ArticleModel::find($id);
+        $this->validate($request,[
+                'title' => 'required', 
+                'images' => 'image', 
+                'description' => 'required',
+                'content' => 'required',
+            ]); 
         $item->category = $request->category;
         if(empty($request->images)){
             $item->images = $item->images;
@@ -119,6 +131,27 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $item = ArticleModel::find($id)->delete();
+        return redirect()->back();
+    }
+
+    public function trash()
+    {
+        $item = ArticleModel::onlyTrashed()->get();
+        return view('admin.article.trash', compact('item'));
+    }
+
+
+    public function restore($id)
+    {
+        ArticleModel::withTrashed()->where('id','=',$id)->restore();
+        return redirect()->back();
+
+    }
+
+    public function permanentDelete($id)
+    {
+        $dt = ArticleModel::withTrashed()->where('id','=',$id)->first();
+        $dt->forceDelete();
         return redirect()->back();
     }
 }

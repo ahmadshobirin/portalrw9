@@ -115,4 +115,35 @@ class kkController extends Controller
         $dataKk = kkModel::select(['id','no_kk','kepala_keluarga','alamat','rt','rw','desa_kelurahan','kecamatan','kabupaten_kota','kodepos','provinsi','keluar_tgl']);
         return Datatables::of($dataKk)->make(true);
     }
+
+    public function trash()
+    {
+        $item = kkModel::onlyTrashed()->get();
+        return view('admin.kartu_keluarga.trash', compact('item'));
+    }
+
+
+    public function restore($id)
+    {
+        kkModel::withTrashed()->where('id','=',$id)->restore();
+        return redirect()->back();
+
+    }
+
+    public function permanentDelete($id)
+    {
+        $dt = kkModel::withTrashed()->where('id','=',$id)->first();
+        $dt->forceDelete();
+        return redirect()->back();
+    }
+
+    private function validateInput($request) {
+        $this->validate($request, [
+        'nama' => 'required',
+        'alamat' => 'required', 
+        'nis' => 'required|numeric',
+        'bapak' => 'required', 
+        'ibu' => 'required', 
+    ]);
+    }
 }

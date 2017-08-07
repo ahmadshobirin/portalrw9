@@ -16,4 +16,5 @@ class DetailKkModel extends Model
     {
         $this->attributes['tanggal_lahir'] = Carbon::parse($date);
     }
+
 }

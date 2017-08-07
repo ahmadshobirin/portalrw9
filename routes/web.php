@@ -28,6 +28,17 @@ Route::post('admin/detailkk/update/{id}','DetailKkController@update');
 Route::get('admin/detailkk/delete/{id}','DetailKkController@detroy');
 Route::get('admin/detailkk/{nokk}','DetailKkController@show');
 
+Route::get('admin/articletrash', 'articleController@trash');
+Route::get('admin/article/restore/{id}', 'articleController@restore');
+Route::get('admin/article/permanent/delete/{id}', 'articleController@permanentDelete');
+
+Route::get('admin/categorytrash', 'categoryController@trash');
+Route::get('admin/category/restore/{id}', 'categoryController@restore');
+Route::get('admin/category/permanent/delete/{id}', 'categoryController@permanentDelete');
+
+Route::get('admin/wargatrash', 'kkController@trash');
+Route::get('admin/warga/restore/{id}', 'kkController@restore');
+Route::get('admin/warga/permanent/delete/{id}', 'kkController@permanentDelete');
 
 Route::group(['middleware' => 'auth'], function () {
     

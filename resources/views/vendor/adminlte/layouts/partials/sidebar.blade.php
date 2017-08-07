@@ -11,6 +11,7 @@
                 <ul class="treeview-menu">
                     <li style="padding-left: 20px;"><a href="{{url('/admin/article')}}"><i class='fa fa-file-text-o'></i>Semua Artikel</a></li>
                     <li style="padding-left: 20px;"><a href="{{url('/admin/article/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/articletrash')}}"><i class='fa fa-trash'></i>Trash</a></li>
                 </ul>
             </li>
 
@@ -19,6 +20,7 @@
                 <ul class="treeview-menu">
                     <li style="padding-left: 20px;"><a href="{{ url('/admin/category') }}"><i class='fa fa-tags'></i>Kategori Artikel</a></li>
                     <li style="padding-left: 20px;"><a href="{{url('/admin/category/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/categorytrash')}}"><i class='fa fa-trash'></i>Trash</a></li>
                 </ul>
             </li>
             
@@ -27,6 +29,7 @@
                 <ul class="treeview-menu">
                     <li style="padding-left: 20px;"><a href="{{url('/admin/warga')}}"><i class='fa fa-files-o'></i>Semua KK</a></li>
                     <li style="padding-left: 20px;"><a href="{{url('/admin/warga/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/wargatrash')}}"><i class='fa fa-trash'></i>Trash</a></li>
                 </ul>
             </li>
              <li><a href="{{url('admin/detailkk/create')}}"><i class='fa fa-address-card'></i> <span>Tambah Detail KK</span></a></li> 

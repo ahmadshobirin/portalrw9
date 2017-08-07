@@ -17,6 +17,7 @@
             
             <form method="post" action="/admin/category">
                 {{csrf_field()}}
+                @include('adminlte::layouts.partials.displayerror')
                 <table class="table ">
                     <tr>
                         <th>Kategori</th>
