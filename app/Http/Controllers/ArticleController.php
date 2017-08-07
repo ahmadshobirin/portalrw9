@@ -23,6 +23,7 @@ class ArticleController extends Controller
         $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
                 ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.view', 'category.category')
                 ->get();
+        $total = ArticleModel::count();
         //dd($article);
         //$article = ArticleModel::onlyTrashed()->get();
         return view("admin.article.list", compact("article"));
