@@ -12,7 +12,7 @@
     <div class="box box-primary">
         <div class="box-header">Data Kartu Keluarga</div>
         <div class="box-body">
-            <form method="post" action="/admin/warga">
+            <form>
                 {{csrf_field()}}
                 <table class="table table-responsive">
                     <tr>
@@ -248,39 +248,29 @@
             var statusKeluarga      = $("[name='statusKeluarga']").val();
             var kewarganegaraan     = $("[name='kewarganegaraan']").val();
             var statusPernikahan    = $("[name='statusPernikahan']").val();
-            i +=1;
-            
 
-            //data.push(nama,nik); 
+            detailKeluarga.push({nama,nik,tpt_lahir,tgl_lahir,jk,pendidikan,statusPernikahan,statusKeluarga,kewarganegaraan,pasport,kitap,ayah,ibu});
+            data.push(detailKeluarga[i]);            
+            detailKeluarga[i] = [{ nama : nama, nik :nik,tpt_lahir: tpt_lahir,tgl_lahir:tgl_lahir,jk:jk,pendidikan:pendidikan,statusPernikahan:statusPernikahan,statusKeluarga:statusKeluarga,kewarganegaraan:kewarganegaraan,pasport:pasport,kitap:kitap,ayah:ayah,ibu:ibu }];
+
+            //console.log(data);
             //alert(data);
-            detailKeluarga.push({nama,nik});
-
-            for(var x=0; x < detailKeluarga.length; x++)
-            {
-                data.push(detailKeluarga[i]);
-                console.log(data);
-                alert(data);
-                //console.log(detailKeluarga);
-                //alert(detailKeluarga);
-                //detailKeluarga.push({'data' : data[i]});
-            }
-            //detailKeluarga = [nik ,nama];
-            //data = [];
-            //for(var n = 0; n < detailKeluarga.length; )
-            //detailKeluarga.push({test:'test', test:'test'});
-            //alert(detailKeluarga);
-
-            detailKeluarga[i] = [{nama : nama, nik :nik}];
             $("#tbl").append("<tr id="+i+"><td><button type='button' class='btn btn-sm btn-danger' class='btn' onclick ='deleteRow("+i+")' id="+i+">remove</button></td><td>"+nama+"</td><td>"+nik+"</td><td>"+tpt_lahir+"</td><td>"+tgl_lahir+"</td><td>"+pendidikan+"</td><td>"+statusPernikahan+"</td></tr>");
             $('#tbl2').append("<tr id="+i+"><td>"+statusKeluarga+"</td><td>"+kewarganegaraan+"</td><td>"+pasport+"</td><td>"+kitap+"</td><td>"+ayah+"</td><td>"+ibu+"</td></tr>");
             $('#counter').val(i);
             allInputs = $("div#content :input");
             $(allInputs).val('');
+            i ++;
         }
         
         function deleteRow(id){
             $('table#tbl tr#'+id).remove(); 
             $('table#tbl2 tr#'+id).remove(); 
+        }
+
+        function simpanData()
+        {
+            
         }
     </script>
 @stop
