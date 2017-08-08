@@ -51,7 +51,7 @@ class ArticleController extends Controller
         $item =  new ArticleModel;
         $this->validate($request,[
                 'title' => 'required', 
-                'images' => 'required|image|max:1024', 
+                'images' => 'required|image|max:3072', 
                 'description' => 'required',
                 'content' => 'required',
             ]);        
