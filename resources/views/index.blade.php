@@ -1,24 +1,41 @@
-@extends("front.front")
+@extends('frontend.main')
 
-@section("content")
+@section('body')
 
-                @foreach($article as $articles)
-                    <div class="thumbnail">
-                        <img src="/img/traveljinni-logo-icon.png">
-                        <div class="caption">
-                            <p class="text-muted">POSTED BY Admin | {{$articles->created_at->diffForHumans()}}</p>
-                            <h3><a href="{{url('article/post/'.$articles->slug)}}">{{$articles->title}}</a></h3>
-                            <p class="text-left">{{$articles->description}}</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <span> <a href="#" class="category">{{$articles->category}}</a></span>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-            <h3><a href="#">Travel Terbaik! eta Terangkanlah~ </a></h3>
-            <p class="text-left">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-        </div>  
+        <div class="panel-thumbnail">
+           <!--<div class="hayo">-->
+           <a href="#"> 
+           <img src="assets/img/hbd2.jpg" class="img-responsive hokya" style="width: 100%; max-height: 250px; padding-bottom: 10px;">
+           </a>
+        </div>
+        <div class="panel panel-default">
+           <div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive" style="width: 100%; max-height: 400px;">
+           </div>
+           <div class="caption panel-body">
+              <p class="text-muted">POSTED BY IZZUL | 1 JULY 2017</p>
+              <a href="#"> <h3>Thumbnail 3</h3> </a>
+              <p class="text-left">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+              <span> <a href="#" class="category">Liga Indonesia</a></span>
+           </div>
+        </div>
+        <div class="panel panel-default">
+           <div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive" style="width: 100%; max-height: 400px;">
+           </div>
+           <div class="caption panel-body">
+              <p class="text-muted">POSTED BY IZZUL | 1 JULY 2017</p>
+              <a href="#"> <h3>Thumbnail 3</h3> </a>
+              <p class="text-left">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+              <span> <a href="#" class="category">Liga Indonesia</a></span>
+           </div>
+        </div>
+        <div class="panel panel-default">
+           <div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive" style="width: 100%; max-height: 400px;">
+           </div>
+           <div class="caption panel-body">
+              <p class="text-muted">POSTED BY IZZUL | 1 JULY 2017</p>
+              <a href="#"> <h3>Thumbnail 3</h3> </a>
+              <p class="text-left">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+              <span> <a href="#" class="category">Liga Indonesia</a></span>
+           </div>
+        </div>
 @endsection
