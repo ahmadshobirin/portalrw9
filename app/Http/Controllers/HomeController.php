@@ -35,8 +35,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $article = ArticleModel::whereNull('deleted_at')->count();
-        $articleTrash = ArticleModel::whereNotNull('deleted_at')->count();
+        $article = ArticleModel::count();
+        $articleTrash = ArticleModel::onlyTrashed()->count();
         $kk = kkModel::count();
         return view('adminlte::home',compact("article","articleTrash","kk"));
     }
