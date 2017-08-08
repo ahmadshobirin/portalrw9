@@ -17,14 +17,14 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>No KK</th>
+                <th class="nosort">No KK</th>
                 <th>Kepala Keluarga</th>
                 <th>Alamat</th>
-                <th>RT/Rw</th>
+                <th class="nosort">RT/Rw</th>
                 <th>Desa</th>
                 <th>Kota/Kabupaten</th>
                 <th>Dikeluarkan Tanggal</th>
-                <th>Action</th>
+                <th class="nosort">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -61,7 +61,11 @@
       'searching'   : false,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      'aoColumnDefs': [{
+        'bSortable': false,
+        'aTargets': ['nosort']
+    }]
     });
 </script>
 @endsection

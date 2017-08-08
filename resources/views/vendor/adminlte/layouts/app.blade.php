@@ -55,9 +55,8 @@ desired effect
 
 </div><!-- ./wrapper -->
 </div>
-@section('scripts')
-    @include('adminlte::layouts.partials.scripts')
-@show
+@yield('scripts')
+@include('adminlte::layouts.partials.scripts')
 
 </body>
 </html>
