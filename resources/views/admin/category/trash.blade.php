@@ -29,7 +29,7 @@
                 <td>{{$list->category}}</td>
                 <td>
                     <a href="{{url('/admin/category/restore/'.$list->id)}}" class="btn btn-success btn-md">
-                        Restore
+                        Kembalikan Data
                     </a>
                     <a href="{{url('/admin/category/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md">
                         Delete

@@ -59,7 +59,7 @@
                     </tr>
                     <tr>
                         <th></th>
-                        <td><button type="submit" class="btn btn-primary">Update</button></td>
+                        <td><button type="submit" class="btn btn-primary">Perbaharui</button></td>
                     </tr>
                 </table>
             </form>

@@ -17,9 +17,9 @@
                               <div class="form-group">
                                  <label for="">Kartu Keluarga</label>
                                  <select name="kartuKeluarga" id="" class="form-control">
-                                    <option>Pilih Kartu Keluarga...</option>
+                                    <option disabled>Pilih Kartu Keluarga...</option>
                                     @foreach($datakk as $kk)
-                                       <option  @if( $kk->no_kk == $dataDetailKk->kartu_keluarga) selected @endif value="{{$kk->id}}" >{{ucfirst($kk->no_kk)}}</option>
+                                       <option  @if( $kk->no_kk == $dataDetailKk->kartu_keluarga) selected @endif value="{{$kk->id}}" >{{$kk->no_kk}}</option>
                                     @endforeach
                                  </select>
                               </div>
@@ -100,13 +100,13 @@
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="">Kewarganegaraan</label>
-                                       <input type="text" name="kewarganegaraan" class="form-control" placeholder="Kewarganegaraan" value="{{ $dataDetailKk->kewaganegaraan }}">
+                                       <input type="text" name="kewarganegaraan" class="form-control" placeholder="Kewarganegaraan" value="{{ $dataDetailKk->kewarganegaraan }}">
                                     </div>
                                  </div>
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="">Pasport</label>
-                                       <input type="text" name="pasport" class="form-control" placeholder="pasport" value="{{ $dataDetailKk->passport }}">
+                                       <input type="text" name="pasport" class="form-control" placeholder="pasport" value="{{ $dataDetailKk->pasport }}">
                                     </div>
                                  </div>
                                  <div class="col-md-4">

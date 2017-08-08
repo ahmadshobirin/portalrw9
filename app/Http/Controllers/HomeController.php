@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\ArticleModel;
+use App\kkModel;
 
 /**
  * Class HomeController
@@ -35,6 +36,8 @@ class HomeController extends Controller
     public function index()
     {
         $article = ArticleModel::count();
-        return view('adminlte::home',compact("article"));
+        $articleTrash = ArticleModel::onlyTrashed()->count();
+        $kk = kkModel::count();
+        return view('adminlte::home',compact("article","articleTrash","kk"));
     }
 }

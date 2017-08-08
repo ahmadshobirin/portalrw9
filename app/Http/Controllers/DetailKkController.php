@@ -46,8 +46,11 @@ class DetailKkController extends Controller
 
     public function show($nokk)
     {
-        $dataDetailKk = DetailKkModel::where('kartu_keluarga','=',$nokk)->first();
-        dd($dataDetailKk);
+        // $dataDetailKk = DetailKkModel::get();
+        $dataDetailKk = DetailKkModel::where('kartu_keluarga','=',$nokk)->get();
+        return view('admin.detailkk.index',compact('dataDetailKk'));
+        // dd($dataDetailKk);
+        // return view('admin.detailkk.index');
     }
 
 
@@ -89,4 +92,24 @@ class DetailKkController extends Controller
         return redirect()->back();
     }
 
+    public function trash()
+    {
+        $item = DetailKkModel::onlyTrashed()->get();
+        return view('admin.article.trash', compact('item'));
+    }
+
+
+    public function restore($id)
+    {
+        DetailKkModel::withTrashed()->where('id','=',$id)->restore();
+        return redirect()->back();
+
+    }
+
+    public function permanentDelete($id)
+    {
+        $dt = DetailKkModel::withTrashed()->where('id','=',$id)->first();
+        $dt->forceDelete();
+        return redirect()->back();
+    }
 }
