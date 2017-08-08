@@ -4,38 +4,25 @@
 
         <div class="panel-thumbnail">
            <!--<div class="hayo">-->
-           <a href="#"> 
+           <a href="/birthday"> 
            <img src="assets/img/hbd2.jpg" class="img-responsive hokya" style="width: 100%; max-height: 250px; padding-bottom: 10px;">
            </a>
         </div>
-        <div class="panel panel-default">
-           <div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive" style="width: 100%; max-height: 400px;">
+
+        @forelse($article as $list)
+            <div class="panel panel-default">
+               <div class="panel-thumbnail"><img src="/storage/{{$list->images}}" class="img-responsive" style="width: 100%; max-height: 400px;">
+               </div>
+               <div class="caption panel-body">
+                  <p class="text-muted">POSTED BY ADMIN | {{$list->created_at->diffForHumans()}}</p>
+                  <a href="{{url('article/post/'.$list->slug)}}"> <h3>{{$list->title}}</h3> </a>
+                  <p class="text-left">{{$list->description}}</p>
+                  <span> <a href="#" class="category">{{$list->category}}</a></span>
+               </div>
+            </div>
+          @empty
+           <div class="thumbnail">
+             <center><h2 class="title">Data Kosong</h2></center>
            </div>
-           <div class="caption panel-body">
-              <p class="text-muted">POSTED BY IZZUL | 1 JULY 2017</p>
-              <a href="#"> <h3>Thumbnail 3</h3> </a>
-              <p class="text-left">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-              <span> <a href="#" class="category">Liga Indonesia</a></span>
-           </div>
-        </div>
-        <div class="panel panel-default">
-           <div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive" style="width: 100%; max-height: 400px;">
-           </div>
-           <div class="caption panel-body">
-              <p class="text-muted">POSTED BY IZZUL | 1 JULY 2017</p>
-              <a href="#"> <h3>Thumbnail 3</h3> </a>
-              <p class="text-left">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-              <span> <a href="#" class="category">Liga Indonesia</a></span>
-           </div>
-        </div>
-        <div class="panel panel-default">
-           <div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive" style="width: 100%; max-height: 400px;">
-           </div>
-           <div class="caption panel-body">
-              <p class="text-muted">POSTED BY IZZUL | 1 JULY 2017</p>
-              <a href="#"> <h3>Thumbnail 3</h3> </a>
-              <p class="text-left">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-              <span> <a href="#" class="category">Liga Indonesia</a></span>
-           </div>
-        </div>
+        @endforelse
 @endsection

@@ -36,7 +36,7 @@
                     <td>{{ $list->nik }}</td>
                     <td>{{ $list->nama }}</td>
                     <td>{{ $list->jk }}</td>
-                    <td>{{ $list->tempat_lahir }}, {{ $list->tanggal_lahir }}</td>
+                    <td>{{ $list->tempat_lahir }}, {{ $list->tanggal_lahir->toDateString() }}</td>
                     <td>{{ $list->pendidikan }}</td>
                     <td>{{ $list->kewarganegaraan }}</td>
                     <td>{{ $list->ayah }}</td>

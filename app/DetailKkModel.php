@@ -14,7 +14,7 @@ class DetailKkModel extends Model
 
     public function setTanggalLahirAttribute($date)
     {
-        $this->attributes['tanggal_lahir'] = Carbon::parse($date);
+        return $this->attributes['tanggal_lahir'] = Carbon::parse($date);
     }
 
 }

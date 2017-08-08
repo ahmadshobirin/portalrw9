@@ -10,7 +10,7 @@
                         <a href="http://usebootstrap.com/theme/facebook" class="navbar-brand logo">b</a>
                      </div>
                      <nav class="collapse navbar-collapse" role="navigation">
-                        <form class="navbar-form navbar-right">
+                        <form class="navbar-form navbar-right" style="padding-right: 10px;">
                            <div class="input-group input-group-sm" style="max-width:360px;">
                               <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
                               <div class="input-group-btn">
