@@ -216,6 +216,7 @@
                         <th>Ibu</th>
                     </tr>
                 </table>
+                    <input type="text" id="counter" value="">
                     <input type="submit" value="Simpan Data" class="btn btn-success btn-block btn-md">
             </form>
         </div>{{--  end-box-body-first  --}}
@@ -227,11 +228,13 @@
  <script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript">
         var i = 0;
+        var detailKeluarga = [];
+        var data = [];
         function addData()
         {
             //deklrasivariable
-            var nik                 = $('#nik').val();
-            var nama                = $('#nama').val();
+            var nik                 = $("[name='nik']").val();
+            var nama                = $("[name='nama']").val();
             var jk                  = $("[name='jk']").val();
             var ibu                 = $("[name='ibu']").val();
             var ayah                = $("[name='ayah']").val();
@@ -245,22 +248,39 @@
             var statusKeluarga      = $("[name='statusKeluarga']").val();
             var kewarganegaraan     = $("[name='kewarganegaraan']").val();
             var statusPernikahan    = $("[name='statusPernikahan']").val();
-            i += 1;
+            i +=1;
+            
 
-            $("#tbl").append("<tr id="+i+"><td><button type='button' class='btn btn-sm btn-danger' class='btn' onclick ='deleteRow()'>remove</button></td><td>"+nama+"</td><td>"+nik+"</td><td>"+tpt_lahir+"</td><td>"+tgl_lahir+"</td><td>"+pendidikan+"</td><td>"+statusPernikahan+"</td></tr>");
+            //data.push(nama,nik); 
+            //alert(data);
+            detailKeluarga.push({nama,nik});
+
+            for(var x=0; x < detailKeluarga.length; x++)
+            {
+                data.push(detailKeluarga[i]);
+                console.log(data);
+                alert(data);
+                //console.log(detailKeluarga);
+                //alert(detailKeluarga);
+                //detailKeluarga.push({'data' : data[i]});
+            }
+            //detailKeluarga = [nik ,nama];
+            //data = [];
+            //for(var n = 0; n < detailKeluarga.length; )
+            //detailKeluarga.push({test:'test', test:'test'});
+            //alert(detailKeluarga);
+
+            detailKeluarga[i] = [{nama : nama, nik :nik}];
+            $("#tbl").append("<tr id="+i+"><td><button type='button' class='btn btn-sm btn-danger' class='btn' onclick ='deleteRow("+i+")' id="+i+">remove</button></td><td>"+nama+"</td><td>"+nik+"</td><td>"+tpt_lahir+"</td><td>"+tgl_lahir+"</td><td>"+pendidikan+"</td><td>"+statusPernikahan+"</td></tr>");
             $('#tbl2').append("<tr id="+i+"><td>"+statusKeluarga+"</td><td>"+kewarganegaraan+"</td><td>"+pasport+"</td><td>"+kitap+"</td><td>"+ayah+"</td><td>"+ibu+"</td></tr>");
-            allInputs = $(":input");
+            $('#counter').val(i);
+            allInputs = $("div#content :input");
             $(allInputs).val('');
-
         }
         
-        function deleteRow(){
-            var trid;
-            $('.btn' ).click(function() {
-            var bid = this.id; // button ID 
-            trid = $(this).closest('tr').attr('id'); // table row ID 
-            });
-            alert(trid);
+        function deleteRow(id){
+            $('table#tbl tr#'+id).remove(); 
+            $('table#tbl2 tr#'+id).remove(); 
         }
     </script>
 @stop
