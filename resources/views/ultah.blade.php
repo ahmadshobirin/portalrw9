@@ -3,8 +3,8 @@
 @section('body')
       <div id="getStart">
          <div class="jumbotron">
-            <h1>Selamat, User ...!</h1>
-            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+            <h1>Selamat Ulang Tahun Warga RW 9!</h1>
+            <p> Semoga selalu diberi umur yang barokah, rezeki yang lancar, dan tambah solid menjadi warga RW 9! </p>
          </div>
       </div>
       <h2>Ulang Tahun Hari Ini!</h2>

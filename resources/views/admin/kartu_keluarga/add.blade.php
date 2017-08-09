@@ -161,8 +161,8 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                <label for="">kitap</label>
-                                                <input type="text" name="kitap" class="form-control" placeholder="kitap">
+                                                <label for="">kitab</label>
+                                                <input type="text" name="kitap" class="form-control" placeholder="kitab">
                                                 </div>
                                             </div>
                                         </div>
