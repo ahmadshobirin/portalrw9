@@ -13,7 +13,7 @@
 
  <div class="container-fluid spark-screen">
        <div class="row">
-            <div class="box box-primary" style="box-shadow: 3px 3px 7px #888888">
+            <div class="box box-success" style="box-shadow: 3px 3px 7px #888888">
                <div class="box-body">
                     <b> <h4 style="color: black;padding-left: 5px;"> FORM ARTIKEL BARU</h4> </b>
                         <form method="post" action="/admin/article" enctype="multipart/form-data">

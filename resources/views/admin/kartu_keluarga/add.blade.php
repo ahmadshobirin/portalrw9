@@ -9,7 +9,7 @@
 @section('main-content')
 
 <div class="">
-    <div class="box box-primary">
+    <div class="box box-success">
         <div class="box-header">Data Kartu Keluarga</div>
         <div class="box-body">
             <form id="formCreate">

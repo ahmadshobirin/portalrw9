@@ -9,7 +9,7 @@
 @section('main-content')
     <div class="container-fluid spark-screen">
 		<div class="row">
-            <div class="box box-primary">
+            <div class="box box-success">
                <div class="box-body">
                     <form action="{{url('admin/detailkk/create')}}" role="form" method="post">
                         <div class="row">
