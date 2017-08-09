@@ -17,7 +17,8 @@
                <th>Alamat</th>
             </tr>
          </thead>
-         @forelse($birthdayNow as $list)
+         <?php $x = 0; ?>
+         @foreach($birthday as $list)
                @if( $list->tanggal_lahir->month == \Carbon\Carbon::now()->month && $list->tanggal_lahir->day == \Carbon\Carbon::now()->day)
                   <tbody>
                      <tr>
@@ -27,12 +28,14 @@
                         <td>{{$list->tempat_lahir}}</td>
                      </tr>
                   </tbody>
+               <?php $x += 1; ?>
                @endif
-            @empty
-               <tr>
-                     <td colspan="4"><center>Data Kosong</center></td>
-               </tr>
-         @endforelse
+         @endforeach
+         @if($x == 0)
+            <tr>
+                  <td colspan="4"><center>Data Kosong</center></td>
+            </tr>
+         @endif
       </table>
       <h2 style="padding-top: 40px;">Ulang Tahun Besok!</h2>
       <table class="table table-striped table-hover ">
@@ -45,7 +48,7 @@
             </tr>
          </thead>
             <?php $i = 0; ?>
-            @foreach($birthdayTomorrow as $list)
+            @foreach($birthday as $list)
                    @if( $list->tanggal_lahir->day ==  \Carbon\Carbon::now()->addDays(1)->day && $list->tanggal_lahir->month ==  \Carbon\Carbon::now()->addDays(1)->month)
                      <tbody>
                         <tr>

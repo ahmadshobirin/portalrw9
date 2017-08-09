@@ -8,6 +8,7 @@ use App\KategoriArticleModel;
 use App\DetailKkModel;
 use Carbon\Carbon;
 use DB;
+use Image;
 
 class frontController extends Controller
 {
@@ -15,16 +16,20 @@ class frontController extends Controller
     {
         $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
                 ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
                 ->get();
+
+        $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
         $category = KategoriArticleModel::get();
-        return view('index', compact("article", "category"));
+        return view('index', compact("article", "category","category","birthdayNow"));
     }
 
      public function article_view($slug)
      {    
-          $article = ArticleModel::where('slug','=', $slug)->get();
+          $article  = ArticleModel::where('slug','=', $slug)->get();
           $category = KategoriArticleModel::get();
-          return view('detail-index', compact("article", "category"));
+          return view('detail-index', compact("article", "category","image"));
 
      }
     
@@ -49,11 +54,14 @@ class frontController extends Controller
     
     public function birthday()
     {
-        $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-
-        $birthdayTomorrow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
         // dd($birthdayTomorrow, $birthdayNow);
-        return view('ultah', compact("birthdayNow","birthdayTomorrow"));
+        return view('ultah', compact("birthday","article"));
     }
 
     public function detail()

@@ -54,7 +54,7 @@ class ArticleController extends Controller
                 'images' => 'required|image|max:3072', 
                 'description' => 'required',
                 'content' => 'required',
-            ]);        
+            ]);      
         $item->category = $request->category;
         $item->title = $request->title;
         $item->slug = str_slug($request->title,'-');

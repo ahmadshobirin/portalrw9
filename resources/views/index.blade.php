@@ -1,13 +1,18 @@
 @extends('frontend.main')
 
 @section('body')
-
-        <div class="panel-thumbnail">
-           <!--<div class="hayo">-->
-           <a href="/birthday"> 
-           <img src="assets/img/hbd2.jpg" class="img-responsive hokya" style="width: 100%; max-height: 250px; padding-bottom: 10px;">
-           </a>
-        </div>
+  
+        @forelse($birthdayNow as $list)
+            @if( $list->tanggal_lahir->month == \Carbon\Carbon::now()->month && $list->tanggal_lahir->day == \Carbon\Carbon::now()->day)
+                <div class="panel-thumbnail">
+                   <!--<div class="hayo">-->
+                   <a href="/birthday"> 
+                   <img src="assets/img/hbd2.jpg" class="img-responsive hokya" style="width: 100%; max-height: 250px; padding-bottom: 10px;">
+                   </a>
+                </div>
+            @endif
+          @empty
+        @endforelse
 
         @forelse($article as $list)
             <div class="panel panel-default">
