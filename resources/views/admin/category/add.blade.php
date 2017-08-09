@@ -12,7 +12,7 @@
 <br>
 <div class="container-fluid">
        <div class="row">
-            <div class="box box-primary" style="box-shadow: 3px 3px 7px #888888">
+            <div class="box box-success" style="box-shadow: 3px 3px 7px #888888">
                <div class="box-body">
             
             <form method="post" action="/admin/category">
