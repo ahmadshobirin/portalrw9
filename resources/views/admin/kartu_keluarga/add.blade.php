@@ -12,21 +12,20 @@
     <div class="box box-primary">
         <div class="box-header">Data Kartu Keluarga</div>
         <div class="box-body">
-            <form>
-                {{csrf_field()}}
+            <form id="formCreate">
                 <table class="table table-responsive">
                     <tr>
                         <th>No.KK</th>
-                        <td colspan="3"><input type="text" name="no_kk" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ></td>
+                        <td colspan="3"><input type="text" name="no_kk" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  ></td>
                     </tr>
                     <tr>
                         <th>Kepala keluarga</th>
-                        <td colspan="3"><input type="text" name="kepala_keluarga" class="form-control"></td>
+                        <td colspan="3"><input type="text" name="kepala_keluarga" class="form-control"  ></td>
                     </tr>
                     <tr>
                         <th>RT</th>
                         <td>
-                            <select name="rt" id="" class="form-control">
+                            <select name="rt" id="" class="form-control"  >
                                 <option selected>Pilih Rt..</option>
                                 @for($i=1; $i <= 10; $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
@@ -35,7 +34,7 @@
                         </td>
                         <th>RW</th>
                         <td>
-                            <select name="rw" id="" class="form-control">
+                            <select name="rw" id="" class="form-control"  >
                                 <option selected>Pilih Rw..</option>
                                 @for($i=1; $i <= 10; $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
@@ -45,35 +44,33 @@
                     </tr>
                     <tr>
                         <th>desa/kelurahan</th>
-                        <td colspan="3"><input type="text" name="desa_kelurahan" class="form-control"></td>
+                        <td colspan="3"><input type="text" name="desa_kelurahan" class="form-control"  ></td>
                     </tr>
                     <tr>
                         <th>kecamatan</th>
-                        <td><input type="text" name="kecamatan" class="form-control"></td>
+                        <td><input type="text" name="kecamatan" class="form-control"  ></td>
                         <th>kabupaten/kota</th>
-                        <td><input type="text" name="kabupaten_kota" class="form-control"></td>
+                        <td><input type="text" name="kabupaten_kota" class="form-control"  ></td>
                     </tr>
                     
                     <tr>
                         <th>kodepos</th>
-                        <td><input type="text" name="kodepos" class="form-control"></td>
+                        <td><input type="text" name="kodepos" class="form-control"  ></td>
                         <th>provinsi</th>
                         <td><input type="text" name="provinsi" class="form-control"></td>
                     </tr>
                     <tr>
                         <th>Dikeluarkan Tanggal</th>
-                        <td><input type="date" name="keluarTanggal" class="form-control"></td>
+                        <td><input type="date" name="keluarTanggal" class="form-control"  ></td>
                     </tr>
                     <tr>
                         <th>Alamat</th>
-                        <td colspan="3"><textarea name="alamat"  class="form-control"></textarea></td>
+                        <td colspan="3"><textarea name="alamat" class="form-control"  ></textarea></td>
                     </tr>
-                    {{--  <tr>
-                        <th></th>
-                        <td><button type="submit" class="btn btn-primary">Simpan</button></td>
-                    </tr>  --}}
                 </table>
+
                 <hr>
+
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="box box-info">
@@ -114,12 +111,12 @@
                                             <label for="">Jenis Kelamin</label>
                                             <div class="radio">
                                                 <label>
-                                                <input type="radio" name="jk" id="optionsRadios1" value="laki-laki" checked>
+                                                <input type="radio" name="jk" value="laki-laki">
                                                     Laki-Laki
                                                 </label>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <label>
-                                                <input type="radio" name="jk" id="optionsRadios2" value="perempuan">
+                                                <input type="radio" name="jk" value="perempuan" checked>
                                                     Perempuan
                                                 </label>
                                             </div>
@@ -206,8 +203,10 @@
                         <th>Status Pernikahan</th>
                     </tr>
                 </table>
+
                 <table class="table table-responsive table-bordered table-hover" id="tbl2">
                     <tr>
+                        <th>Jk</th>
                         <th>Status Keluarga</th>
                         <th>Kewarganegaraan</th>
                         <th>Pasport</th>
@@ -216,8 +215,8 @@
                         <th>Ibu</th>
                     </tr>
                 </table>
-                    <input type="text" id="counter" value="">
-                    <input type="submit" value="Simpan Data" class="btn btn-success btn-block btn-md">
+                    <input type="text" id="counter" value="" name="counter">
+                    <input type="submit" value="Simpan Data" class="btn btn-success btn-block btn-md" id="submit">
             </form>
         </div>{{--  end-box-body-first  --}}
     </div>
@@ -229,48 +228,88 @@
     <script type="text/javascript">
         var i = 0;
         var detailKeluarga = [];
-        var data = [];
-        function addData()
-        {
-            //deklrasivariable
-            var nik                 = $("[name='nik']").val();
-            var nama                = $("[name='nama']").val();
-            var jk                  = $("[name='jk']").val();
-            var ibu                 = $("[name='ibu']").val();
-            var ayah                = $("[name='ayah']").val();
-            var kitap               = $("[name='kitap']").val();
-            var pasport             = $("[name='pasport']").val();
-            var tpt_lahir           = $("[name='tempatLahir']").val();
-            var pendidikan          = $("[name='pendidikan']").val();
-            var tgl_lahir           = $("[name='tanggalLahir']").val();
-            var tmpt_lahir          = $("[name='tempatLahir']").val();
-            var jenisPekerjaan      = $("[name='jenisPekerjaan']").val();
-            var statusKeluarga      = $("[name='statusKeluarga']").val();
-            var kewarganegaraan     = $("[name='kewarganegaraan']").val();
-            var statusPernikahan    = $("[name='statusPernikahan']").val();
+        var lengthDataKeluarga;
+        //var data = [];
+            function addData(){
+                //deklrasivariable
+                var nik                 = $("[name='nik']").val();
+                var nama                = $("[name='nama']").val();
+                var jk                  = $("[name='jk']:checked").val();
+                var ibu                 = $("[name='ibu']").val();
+                var ayah                = $("[name='ayah']").val();
+                var kitap               = $("[name='kitap']").val();
+                var pasport             = $("[name='pasport']").val();
+                var tpt_lahir           = $("[name='tempatLahir']").val();
+                var pendidikan          = $("[name='pendidikan']").val();
+                var tgl_lahir           = $("[name='tanggalLahir']").val();
+                var tmpt_lahir          = $("[name='tempatLahir']").val();
+                var jenisPekerjaan      = $("[name='jenisPekerjaan']").val();
+                var statusKeluarga      = $("[name='statusKeluarga']").val();
+                var kewarganegaraan     = $("[name='kewarganegaraan']").val();
+                var statusPernikahan    = $("[name='statusPernikahan']").val();
 
-            detailKeluarga.push({nama,nik,tpt_lahir,tgl_lahir,jk,pendidikan,statusPernikahan,statusKeluarga,kewarganegaraan,pasport,kitap,ayah,ibu});
-            data.push(detailKeluarga[i]);            
-            detailKeluarga[i] = [{ nama : nama, nik :nik,tpt_lahir: tpt_lahir,tgl_lahir:tgl_lahir,jk:jk,pendidikan:pendidikan,statusPernikahan:statusPernikahan,statusKeluarga:statusKeluarga,kewarganegaraan:kewarganegaraan,pasport:pasport,kitap:kitap,ayah:ayah,ibu:ibu }];
+                detailKeluarga.push({i,nama,nik,jk,tpt_lahir,tgl_lahir,jk,pendidikan,statusPernikahan,statusKeluarga,kewarganegaraan,pasport,kitap,ayah,ibu});
+                //data.push(detailKeluarga[i]);
 
-            //console.log(data);
-            //alert(data);
-            $("#tbl").append("<tr id="+i+"><td><button type='button' class='btn btn-sm btn-danger' class='btn' onclick ='deleteRow("+i+")' id="+i+">remove</button></td><td>"+nama+"</td><td>"+nik+"</td><td>"+tpt_lahir+"</td><td>"+tgl_lahir+"</td><td>"+pendidikan+"</td><td>"+statusPernikahan+"</td></tr>");
-            $('#tbl2').append("<tr id="+i+"><td>"+statusKeluarga+"</td><td>"+kewarganegaraan+"</td><td>"+pasport+"</td><td>"+kitap+"</td><td>"+ayah+"</td><td>"+ibu+"</td></tr>");
-            $('#counter').val(i);
-            allInputs = $("div#content :input");
-            $(allInputs).val('');
-            i ++;
-        }
-        
-        function deleteRow(id){
-            $('table#tbl tr#'+id).remove(); 
-            $('table#tbl2 tr#'+id).remove(); 
-        }
+                //detailKeluarga[i] = [{ nama : nama, nik :nik,tpt_lahir: tpt_lahir,tgl_lahir:tgl_lahir,jk:jk,pendidikan:pendidikan,statusPernikahan:statusPernikahan,statusKeluarga:statusKeluarga,kewarganegaraan:kewarganegaraan,pasport:pasport,kitap:kitap,ayah:ayah,ibu:ibu }];
 
-        function simpanData()
-        {
+                $("#tbl").append("<tr id="+i+"><td><button type='button' class='btn btn-sm btn-danger' class='btn' onclick ='deleteRow("+i+")'>remove</button></td><td>"+nama+"</td><td>"+nik+"</td><td>"+tpt_lahir+"</td><td>"+tgl_lahir+"</td><td>"+pendidikan+"</td><td>"+statusPernikahan+"</td></tr>");
+                $('#tbl2').append("<tr id="+i+"><td>"+jk+"</td><td>"+statusKeluarga+"</td><td>"+kewarganegaraan+"</td><td>"+pasport+"</td><td>"+kitap+"</td><td>"+ayah+"</td><td>"+ibu+"</td></tr>");
+
+                allInputs = $("div#content input.form-control");
+                $(allInputs).val('');
+
+                lengthDataKeluarga = detailKeluarga.length;
+                $('#counter').val(lengthDataKeluarga);
+                i+=1;
+            }
             
-        }
+            function deleteRow(id){
+                lengthDataKeluarga = detailKeluarga.length;
+                //alert(lengthDataKeluarga);
+                if(lengthDataKeluarga == 1)
+                {
+                    //detailKeluarga = [];
+                    detailKeluarga.length = 0;
+                    lengthDataKeluarga = detailKeluarga.length;
+                    $('#counter').val(lengthDataKeluarga);
+                }
+                else{
+                    detailKeluarga.splice(id,1);
+                    lengthDataKeluarga = detailKeluarga.length;
+                    $('#counter').val(lengthDataKeluarga);
+                }
+                
+                $('table#tbl tr#'+id).remove(); 
+                $('table#tbl2 tr#'+id).remove();
+            }
+
+        $(document).ready(function() {
+            $('#formCreate').on('submit', function (e) {
+                e.preventDefault();
+                var no_kk =  $("[name='no_kk']").val();
+                var kepala_keluarga =  $("[name='kepala_keluarga']").val();
+                var rt =  $("[name='rt']").val();
+                var rw =  $("[name='rw']").val();
+                var kodepos =  $("[name='kodepos']").val();
+                var desa_kelurahan =  $("[name='desa_kelurahan']").val();
+                var kecamatan =  $("[name='kecamatan']").val();
+                var kabupaten_kota =  $("[name='kabupaten_kota']").val();
+                var provinsi =  $("[name='provinsi']").val();
+                var keluarTanggal =  $("[name='keluarTanggal']").val();
+                var alamat =  $("[name='alamat']").val();
+                var counter = $('#counter').val();
+                
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/warga/create/ajax',
+                    data: { no_kk : no_kk, kepala_keluarga : kepala_keluarga, rt : rt, rw : rw, kodepos : kodepos,desa_kelurahan : desa_kelurahan, kecamatan : kecamatan, kabupaten_kota : kabupaten_kota, provinsi : provinsi, keluarTanggal : keluarTanggal, alamat : alamat, data : detailKeluarga, counter : counter, _token : "{{csrf_token()}}" },
+                    success: function(msg) {
+                        //alert(msg);
+                        //window.location.href = "<?= url('admin/warga')?>"
+                    }
+                });
+            });
+        });        
     </script>
 @stop

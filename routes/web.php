@@ -46,6 +46,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/admin/category','categoryController');
     Route::resource('/admin/warga','kkController');
     Route::get('/admin/warga/{id}/delete','kkController@destroy');
-    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
-    #adminlte_routes
+    Route::post('/admin/warga/create/ajax','kkController@store');
+    
 });

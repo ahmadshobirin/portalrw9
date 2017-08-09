@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\kkModel;
+use DB;
 use Yajra\Datatables\Datatables;
+use Response;
 
 class kkController extends Controller
 {
@@ -36,20 +38,45 @@ class kkController extends Controller
      */
     public function store(Request $request)
     {
-        $item =  new kkModel;
-        $item->no_kk = $request->no_kk;
-        $item->kepala_keluarga = $request->kepala_keluarga;
-        $item->rt = $request->rt;
-        $item->rw = $request->rw;
-        $item->kecamatan = $request->kecamatan;
-        $item->kabupaten_kota = $request->kabupaten_kota;
-        $item->desa_kelurahan = $request->desa_kelurahan;
-        $item->kodepos = $request->kodepos;
-        $item->provinsi = $request->provinsi;
-        $item->keluar_tgl = $request->keluarTanggal;
-        $item->alamat = $request->alamat;
-        $item->save();
-        return redirect("/admin/warga");
+        dd($request->data,$request->counter);
+        DB::table('kartu_keluarga')->insert([
+            'no_kk' => $request->no_kk,
+            'kepala_keluarga' => $request->kepala_keluarga,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'kecamatan' => $request->kecamatan,
+            'kabupaten_kota' => $request->kabupaten_kota,
+            'desa_kelurahan' => $request->desa_kelurahan,
+            'kodepos'    => $request->kodepos,
+            'provinsi'   => $request->provinsi,
+            'keluar_tgl' => $request->keluarTanggal,
+            'alamat'     => $request->alamat,
+        ]);
+
+        for($x=0; $x <= $request->counter; $x++)
+        {
+
+            DB::table('detail_kartu_keluarga')->insert([
+                'kartu_keluarga' => $request->no_kk,
+                'nik'   => $request->data[$x]['nik'],
+                'nama'  => $request->data[$x]['nama'],
+                'jk'    => $request->data[$x]['jk'],
+                'tempat_lahir'      => $request->data[$x]['tpt_lahir'],
+                'tanggal_lahir'     => $request->data[$x]['tgl_lahir'],
+                'jenis_pekerjaan'   => $request->data[$x]['pendidikan'],
+                'status_pernikahan' => $request->data[$x]['statusPernikahan'],
+                'status_keluarga'   => $request->data[$x]['statusKeluarga'],
+                'kewarganegaraan'   => $request->data[$x]['kewarganegaraan'],
+                'pendidikan'        => $request->data[$x]['pendidikan'],
+                'pasport'   => $request->data[$x]['pasport'],
+                'kitap'     => $request->data[$x]['kitap'],
+                'ayah'      => $request->data[$x]['ayah'],
+                'ibu'       => $request->data[$x]['ibu'],
+            ]);
+            //echo $request->data[$x][0]['nama']."<br>";
+        }
+
+        return 'success!';
     }
 
     /**
