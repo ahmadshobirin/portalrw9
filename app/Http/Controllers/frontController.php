@@ -24,9 +24,17 @@ class frontController extends Controller
                 ->limit(4)
                 ->get();
 
-        $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
         $category = KategoriArticleModel::get();
-        return view('index', compact("article", "category","category","birthdayNow"));
+        $countBirthday = 0;
+        $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        foreach($birthdayNow as $data)
+        {
+            if($data->tanggal_lahir->month == \Carbon\Carbon::now()->month && $data->tanggal_lahir->day == \Carbon\Carbon::now()->day)
+            {
+                $countBirthday++;
+            }
+        }
+        return view('index', compact("article", "category","category","countBirthday"));
     }
 
      public function article_view($slug)
