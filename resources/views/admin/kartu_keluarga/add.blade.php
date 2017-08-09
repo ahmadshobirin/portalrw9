@@ -215,7 +215,7 @@
                         <th>Ibu</th>
                     </tr>
                 </table>
-                    <input type="text" id="counter" value="" name="counter">
+                    <input type="hidden" id="counter" value="" name="counter">
                     <input type="submit" value="Simpan Data" class="btn btn-success btn-block btn-md" id="submit">
             </form>
         </div>{{--  end-box-body-first  --}}
