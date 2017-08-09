@@ -1,5 +1,10 @@
 <?php
-
+/*
+ * Created on Wed Aug 09 2017
+ *
+ * Copyright (c) 2017 Ahmad Shobirin Crish Virdy,Ilham Izzul H,Nofita Mahfudiyah,Harun U Fajar
+ */
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes

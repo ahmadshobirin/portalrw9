@@ -1,4 +1,9 @@
 <?php
+/*
+ * Created on Wed Aug 09 2017
+ *
+ * Copyright (c) 2017 Ahmad Shobirin
+ */
 
 namespace App\Http\Controllers;
 

@@ -23,20 +23,25 @@
                   <div class="row" style="margin-top: 5%;">
                      <div class="container">
                         <div class="col-md-8">
-                    <!-- CONTENT -->
-                      @section ('body')
-                      @show
+                          <!-- CONTENT -->
+                            @section ('body')
+                            @show
 
-                    <!-- END CONTENT -->
-
-                           <!-- FOOTER -->
-                          @include('frontend.partial.footer')
-                           <!-- END FOOTER -->
+                          <!-- END CONTENT -->
                         </div>
                         <!-- SIDE BAR -->
                           @include('frontend.partial.sidebar')
                         <!-- END SIDE BAR -->
                      </div>
+                     <div class="row">
+                      <div class="container">
+                        <div class="col-md-8">
+                      <!-- FOOTER -->
+                        @include('frontend.partial.footer')
+                      <!-- END FOOTER -->
+                      </div>
+                      </div>
+                  </div>
                   </div>
                </div>
             </div>

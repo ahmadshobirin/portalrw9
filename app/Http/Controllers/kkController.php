@@ -1,4 +1,10 @@
 <?php
+/*
+ * Created on Wed Aug 09 2017
+ *
+ * Copyright (c) 2017 Ahmad Shobirin
+ */
+
 
 namespace App\Http\Controllers;
 
@@ -38,45 +44,57 @@ class kkController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->data,$request->counter);
-        DB::table('kartu_keluarga')->insert([
-            'no_kk' => $request->no_kk,
-            'kepala_keluarga' => $request->kepala_keluarga,
-            'rt' => $request->rt,
-            'rw' => $request->rw,
-            'kecamatan' => $request->kecamatan,
-            'kabupaten_kota' => $request->kabupaten_kota,
-            'desa_kelurahan' => $request->desa_kelurahan,
-            'kodepos'    => $request->kodepos,
-            'provinsi'   => $request->provinsi,
-            'keluar_tgl' => $request->keluarTanggal,
-            'alamat'     => $request->alamat,
-        ]);
-
-        for($x=0; $x <= $request->counter; $x++)
-        {
-
-            DB::table('detail_kartu_keluarga')->insert([
-                'kartu_keluarga' => $request->no_kk,
-                'nik'   => $request->data[$x]['nik'],
-                'nama'  => $request->data[$x]['nama'],
-                'jk'    => $request->data[$x]['jk'],
-                'tempat_lahir'      => $request->data[$x]['tpt_lahir'],
-                'tanggal_lahir'     => $request->data[$x]['tgl_lahir'],
-                'jenis_pekerjaan'   => $request->data[$x]['pendidikan'],
-                'status_pernikahan' => $request->data[$x]['statusPernikahan'],
-                'status_keluarga'   => $request->data[$x]['statusKeluarga'],
-                'kewarganegaraan'   => $request->data[$x]['kewarganegaraan'],
-                'pendidikan'        => $request->data[$x]['pendidikan'],
-                'pasport'   => $request->data[$x]['pasport'],
-                'kitap'     => $request->data[$x]['kitap'],
-                'ayah'      => $request->data[$x]['ayah'],
-                'ibu'       => $request->data[$x]['ibu'],
+        //dd($request->data,count($request->data));
+        DB::beginTransaction();
+        try {
+            DB::table('kartu_keluarga')->insert([
+                'no_kk' => $request->no_kk,
+                'kepala_keluarga' => $request->kepala_keluarga,
+                'rt' => $request->rt,
+                'rw' => $request->rw,
+                'kecamatan' => $request->kecamatan,
+                'kabupaten_kota' => $request->kabupaten_kota,
+                'desa_kelurahan' => $request->desa_kelurahan,
+                'kodepos'    => $request->kodepos,
+                'provinsi'   => $request->provinsi,
+                'keluar_tgl' => $request->keluarTanggal,
+                'alamat'     => $request->alamat,
             ]);
-            //echo $request->data[$x][0]['nama']."<br>";
+
+            for($x=0; $x < count($request->data); $x++){
+
+                DB::table('detail_kartu_keluarga')->insert([
+                    'kartu_keluarga' => $request->no_kk,
+                    'nik'   => $request->data[$x]['nik'],
+                    'nama'  => $request->data[$x]['nama'],
+                    'jk'    => $request->data[$x]['jk'],
+                    'tempat_lahir'      => $request->data[$x]['tpt_lahir'],
+                    'tanggal_lahir'     => $request->data[$x]['tgl_lahir'],
+                    'jenis_pekerjaan'   => $request->data[$x]['pendidikan'],
+                    'status_pernikahan' => $request->data[$x]['statusPernikahan'],
+                    'status_keluarga'   => $request->data[$x]['statusKeluarga'],
+                    'kewarganegaraan'   => $request->data[$x]['kewarganegaraan'],
+                    'pendidikan'        => $request->data[$x]['pendidikan'],
+                    'pasport'   => $request->data[$x]['pasport'],
+                    'kitap'     => $request->data[$x]['kitap'],
+                    'ayah'      => $request->data[$x]['ayah'],
+                    'ibu'       => $request->data[$x]['ibu'],
+                ]);
+                //echo $request->data[$x][0]['nama']."<br>";
+            }
+            DB::commit();
+            $success = true;
+        } catch (\Exception $e) {
+            $success = false;
+            DB::rollback();
         }
 
-        return 'success!';
+        if ($success) {
+            return 'success';
+        }
+        else {
+            return 'gagal';
+        }
     }
 
     /**

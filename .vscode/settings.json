@@ -1,0 +1,20 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "fileHeaderComment.parameter":{
+        "*":{
+            "commentbegin": "/*",
+            "commentprefix": " *",
+            "commentend": " */",
+            "author": "Ahmad Shobirin"
+        }
+    },
+    "fileHeaderComment.template":{
+        "*":[
+            "${commentbegin}",
+            "${commentprefix} Created on ${date}",
+            "${commentprefix}",
+            "${commentprefix} Copyright (c) ${year} ${author}",
+            "${commentend}"
+        ]
+    }
+}

@@ -16,16 +16,16 @@
                 <table class="table table-responsive">
                     <tr>
                         <th>No.KK</th>
-                        <td colspan="3"><input type="text" name="no_kk" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  ></td>
+                        <td colspan="3"><input type="text" name="no_kk" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  required=""></td>
                     </tr>
                     <tr>
                         <th>Kepala keluarga</th>
-                        <td colspan="3"><input type="text" name="kepala_keluarga" class="form-control"  ></td>
+                        <td colspan="3"><input type="text" name="kepala_keluarga" class="form-control"  required=""></td>
                     </tr>
                     <tr>
                         <th>RT</th>
                         <td>
-                            <select name="rt" id="" class="form-control"  >
+                            <select name="rt" id="" class="form-control"  required="">
                                 <option selected>Pilih Rt..</option>
                                 @for($i=1; $i <= 10; $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
@@ -34,7 +34,7 @@
                         </td>
                         <th>RW</th>
                         <td>
-                            <select name="rw" id="" class="form-control"  >
+                            <select name="rw" id="" class="form-control"  required="">
                                 <option selected>Pilih Rw..</option>
                                 @for($i=1; $i <= 10; $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
@@ -44,28 +44,28 @@
                     </tr>
                     <tr>
                         <th>desa/kelurahan</th>
-                        <td colspan="3"><input type="text" name="desa_kelurahan" class="form-control"  ></td>
+                        <td colspan="3"><input type="text" name="desa_kelurahan" class="form-control"  required=""></td>
                     </tr>
                     <tr>
                         <th>kecamatan</th>
-                        <td><input type="text" name="kecamatan" class="form-control"  ></td>
+                        <td><input type="text" name="kecamatan" class="form-control"  required=""></td>
                         <th>kabupaten/kota</th>
-                        <td><input type="text" name="kabupaten_kota" class="form-control"  ></td>
+                        <td><input type="text" name="kabupaten_kota" class="form-control"  required=""></td>
                     </tr>
                     
                     <tr>
                         <th>kodepos</th>
-                        <td><input type="text" name="kodepos" class="form-control"  ></td>
+                        <td><input type="text" name="kodepos" class="form-control"  required=""></td>
                         <th>provinsi</th>
-                        <td><input type="text" name="provinsi" class="form-control"></td>
+                        <td><input type="text" name="provinsi" class="form-control" required=""></td>
                     </tr>
                     <tr>
                         <th>Dikeluarkan Tanggal</th>
-                        <td><input type="date" name="keluarTanggal" class="form-control"  ></td>
+                        <td><input type="date" name="keluarTanggal" class="form-control"  required=""></td>
                     </tr>
                     <tr>
                         <th>Alamat</th>
-                        <td colspan="3"><textarea name="alamat" class="form-control"  ></textarea></td>
+                        <td colspan="3"><textarea name="alamat" class="form-control"  required=""></textarea></td>
                     </tr>
                 </table>
 
@@ -111,12 +111,12 @@
                                             <label for="">Jenis Kelamin</label>
                                             <div class="radio">
                                                 <label>
-                                                <input type="radio" name="jk" value="laki-laki">
+                                                <input type="radio" name="jk" value="laki-laki" checked>
                                                     Laki-Laki
                                                 </label>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <label>
-                                                <input type="radio" name="jk" value="perempuan" checked>
+                                                <input type="radio" name="jk" value="perempuan">
                                                     Perempuan
                                                 </label>
                                             </div>
@@ -305,8 +305,12 @@
                     url: '/admin/warga/create/ajax',
                     data: { no_kk : no_kk, kepala_keluarga : kepala_keluarga, rt : rt, rw : rw, kodepos : kodepos,desa_kelurahan : desa_kelurahan, kecamatan : kecamatan, kabupaten_kota : kabupaten_kota, provinsi : provinsi, keluarTanggal : keluarTanggal, alamat : alamat, data : detailKeluarga, counter : counter, _token : "{{csrf_token()}}" },
                     success: function(msg) {
-                        //alert(msg);
-                        //window.location.href = "<?= url('admin/warga')?>"
+                        alert(msg);
+                        if(msg == "success"){ 
+                            window.location.href = "<?= url('admin/warga')?>";
+                        }else{
+                            window.location.reload();
+                        }
                     }
                 });
             });

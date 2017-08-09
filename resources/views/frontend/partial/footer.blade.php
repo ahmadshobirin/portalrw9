@@ -3,7 +3,7 @@
 <div id="footer">
     <div class="col-sm-12">
         <p>
-            ©Copyright 2013
+            © Copyright PortalRw9 All Right Reserved
         </p>
     </div>
 </div>
