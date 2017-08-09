@@ -53,7 +53,7 @@ class DetailKkController extends Controller
     {
         // $dataDetailKk = DetailKkModel::get();
         $dataDetailKk = DetailKkModel::where('kartu_keluarga','=',$nokk)->get();
-        return view('admin.detailkk.index',compact('dataDetailKk'));
+        return view('admin.detailkk.index',compact('dataDetailKk','nokk'));
         // dd($dataDetailKk);
         // return view('admin.detailkk.index');
     }
@@ -97,10 +97,15 @@ class DetailKkController extends Controller
         return redirect()->back();
     }
 
-    public function trash()
+    public function trash($nokk)
+
     {
-        $item = DetailKkModel::onlyTrashed()->get();
-        return view('admin.article.trash', compact('item'));
+        // dd($ikiaslinenokktapitakjenengnoid);
+        $kepalaKeluarga = kkModel::select('kepala_keluarga')->where('no_kk','=',$nokk)->first();
+        // dd($kepalaKeluarga);
+        $item = DetailKkModel::onlyTrashed()->where('kartu_keluarga',$nokk)->get();
+        // dd($item);
+        return view('admin.detailkk.trash', compact('item','nokk','kepalaKeluarga'));
     }
 
 

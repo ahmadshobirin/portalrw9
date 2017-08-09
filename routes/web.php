@@ -30,7 +30,7 @@ Route::get('admin/detailkk/create','DetailKkController@create');
 Route::post('admin/detailkk/create','DetailKkController@store');
 Route::get('admin/detailkk/edit/{id}','DetailKkController@edit');
 Route::post('admin/detailkk/update/{id}','DetailKkController@update');
-Route::get('admin/detailkk/delete/{id}','DetailKkController@detroy');
+Route::get('admin/detailkk/delete/{id}','DetailKkController@destroy');
 Route::get('admin/detailkk/{nokk}','DetailKkController@show');
 
 Route::get('admin/articletrash', 'articleController@trash');
@@ -44,6 +44,10 @@ Route::get('admin/category/permanent/delete/{id}', 'categoryController@permanent
 Route::get('admin/wargatrash', 'kkController@trash');
 Route::get('admin/warga/restore/{id}', 'kkController@restore');
 Route::get('admin/warga/permanent/delete/{id}', 'kkController@permanentDelete');
+
+Route::get('admin/detailkktrash/{nokk}', 'DetailKkController@trash');
+Route::get('admin/detailkk/restore/{id}', 'DetailKkController@restore');
+Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');
 
 Route::group(['middleware' => 'auth'], function () {
     
