@@ -34,7 +34,7 @@
                           @include('frontend.partial.sidebar')
                         <!-- END SIDE BAR -->
                      </div>
-                     <div class="row">
+                     <div>
                       <div class="container">
                         <div class="col-md-8">
                       <!-- FOOTER -->
