@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+S<!DOCTYPE html>
 <html lang="en">
    <head>
         <!-- STYLE CSS -->
@@ -28,7 +28,7 @@
                            <div id="getStart">
                               <div class="jumbotron">
                                  <h1>Selamat Ulang Tahun Warga RW 9!</h1>
-                                 <p> Semoga selalu diberi umur yang barokah, rezeki yang lancar, dan tambah solid menjadi warga RW 9! </p>
+                                 <p> Semoga selalu diberi umur yang barokah, rezeki yang lancar, dan tambah solid menjadi warga RW 9</p>
                               </div>
                            </div>
                            <h2>Ulang Tahun Hari Ini!</h2>
@@ -48,7 +48,7 @@
                                           <tr>
                                              <td>{{$list->nama}}</td>
                                              <td>{{$list->tanggal_lahir->toDateString() }}</td>
-                                             <td>{{ $list->tanggal_lahir->diffInYears(\Carbon\Carbon::now())}}</td>
+                                             <td>{{ $list->tanggal_lahir->diffInYears(\Carbon\Carbon::now())}} tahun</td>
                                              <td>{{$list->tempat_lahir}}</td>
                                           </tr>
                                        </tbody>
@@ -78,7 +78,7 @@
                                              <tr>
                                                 <td>{{$list->nama}}</td>
                                                 <td>{{$list->tanggal_lahir->toDateString()}}</td>
-                                                <td>{{ $list->tanggal_lahir->diffInYears(\Carbon\Carbon::now()->addDays(1))  }}</td></td>
+                                                <td>{{ $list->tanggal_lahir->diffInYears(\Carbon\Carbon::now()->addDays(1))  }} tahun</td></td>
                                                 <td>{{$list->tempat_lahir}}</td>
                                              </tr>
                                           </tbody>

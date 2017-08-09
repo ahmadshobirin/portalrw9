@@ -12,10 +12,10 @@ class DetailKkModel extends Model
     protected $table = 'detail_kartu_keluarga';
     protected $dates = ['tanggal_lahir','deleted_at'];
 
-    // public function setTanggalLahirAttribute($date)
-    // {
-    //     return $this->attributes['tanggal_lahir'] = Carbon::parse($date);
+    public function setTanggalLahirAttribute($date)
+    {
+        return $this->attributes['tanggal_lahir'] = Carbon::parse($date);
     //     //return ($this->attributes['tanggal_lahir']->year == Carbon::now()->year);
-    // }
+    }
 
 }
