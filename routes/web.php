@@ -15,7 +15,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
- Route::get('/detail','frontController@detail');
+
+Route::get('/cek', function(){
+    $cek = App\DetailKkModel::first();
+   dd($cek->tanggal_lahir);
+});
+Route::get('/detail','frontController@detail');
 
 Route::get('/welcome','frontController@index');
 
