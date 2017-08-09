@@ -56,12 +56,20 @@ class frontController extends Controller
     public function category_article($slug)
      {  
         $kategori = KategoriArticleModel::where('slug','=',$slug)->first();
-        $article  =  ArticleModel::select('category.category','article.id','article.title',
+
+        $listArticle  =  ArticleModel::select('category.category','article.slug','article.id','article.title',
                      'article.description','article.images','article.created_at')
-                     ->join('category','category.id','=','article.id')
+                     ->join('category','category.id','=','article.category')
                      ->where('article.category','=',$kategori->id)->get();
+
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+
         $category = KategoriArticleModel::get();
-        return view('detail-post', compact("kategori","category","article"));
+        return view('detail-post', compact("kategori","category","article","listArticle"));
      }
     
     public function birthday()
@@ -72,8 +80,9 @@ class frontController extends Controller
                 ->limit(4)
                 ->get();
         $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $category = KategoriArticleModel::get();
         // dd($birthdayTomorrow, $birthdayNow);
-        return view('ultah', compact("birthday","article"));
+        return view('ultah', compact("birthday","article","category"));
     }
 
     public function detail()

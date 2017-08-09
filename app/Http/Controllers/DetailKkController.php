@@ -15,6 +15,7 @@ class DetailKkController extends Controller
 {
     public function index()
     {
+
         $dataDetailKk = DetailKkModel::get();
         return view('admin.detailkk.index',compact('dataDetailKk'));
     }
@@ -44,8 +45,8 @@ class DetailKkController extends Controller
         $store->ayah = $request->ayah;
         $store->ibu = $request->ibu;
         $store->save();
-
-        return redirect('admin/detailkk');
+        $dataDetailKk = DetailKkModel::where('kartu_keluarga','=',$request->kartuKeluarga)->get();
+        return redirect('admin/detailkk/'.$store->kartu_keluarga)->with('dataDetailKk',$dataDetailKk);
 
     }
 

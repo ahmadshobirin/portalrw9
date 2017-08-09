@@ -25,7 +25,7 @@ Route::get('/birthday','frontController@birthday');
 Route::get('/article/category/{slug}','frontController@category_article');
 
 Route::get('/admin','HomeController@index');
-Route::get('admin/detailkk','DetailKkController@index');
+Route::get('admin/detailkk/','DetailKkController@index');
 Route::get('admin/detailkk/create','DetailKkController@create');
 Route::post('admin/detailkk/create','DetailKkController@store');
 Route::get('admin/detailkk/edit/{id}','DetailKkController@edit');

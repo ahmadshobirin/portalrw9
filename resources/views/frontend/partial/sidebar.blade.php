@@ -6,11 +6,13 @@
 
             <div class="panel-body topik">
                <div class="col-md-4">
-                  <img src="/storage/{{$list->images}}" style="width: 85px; height: 85px;">
+                  <a href="{{url('article/post/'.$list->slug)}}">
+                     <img src="{{URL::asset('/storage/'.$list->images)}}" style="width: 85px; height: 85px;">
+                  </a>
                </div>
                <div class="col-md-8">
                   <b>
-                     <a href="#">
+                     <a href="{{url('article/post/'.$list->slug)}}">
                         <p style="font-size: 15px;"> {{$list->title}} </p>
                      </a>
                   </b>

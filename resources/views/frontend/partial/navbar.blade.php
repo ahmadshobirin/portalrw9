@@ -19,5 +19,13 @@
                               </div>
                            </div>
                         </form>
+
+                        {{-- //menu --}}
+                        <ul class="nav navbar-nav navbar-right">
+                           <li><a href="{{url('/')}}">Beranda</a></li>
+                           @foreach($category as $list)
+                            <li><a href="{{url('article/category/'.$list->slug)}}">{{$list->category}}</a></li>
+                           @endforeach
+                        </ul>
                      </nav>
                   </div>

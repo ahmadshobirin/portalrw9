@@ -17,10 +17,10 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th class="nosort">No KK</th>
+                <th>No KK</th>
                 <th>Kepala Keluarga</th>
                 <th>Alamat</th>
-                <th class="nosort">RT/Rw</th>
+                <th>RT/Rw</th>
                 <th>Desa</th>
                 <th>Kota/Kabupaten</th>
                 <th>Dikeluarkan Tanggal</th>
