@@ -7,22 +7,24 @@ use App\ArticleModel;
 use App\KategoriArticleModel;
 use App\DetailKkModel;
 use Carbon\Carbon;
+use DB;
 
 class frontController extends Controller
 {
     public function index()
     {
-        $article = ArticleModel::get();
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->get();
         $category = KategoriArticleModel::get();
         return view('index', compact("article", "category"));
     }
 
      public function article_view($slug)
      {    
-          $article = ArticleModel::where('slug','=', $slug)->first();
+          $article = ArticleModel::where('slug','=', $slug)->get();
           $category = KategoriArticleModel::get();
-      
-          return view('articleView', compact("article", "category"));
+          return view('detail-index', compact("article", "category"));
 
      }
     
@@ -47,9 +49,11 @@ class frontController extends Controller
     
     public function birthday()
     {
-        $birthdayNow = DetailKkModel::select('nama')->where('tanggal_lahir','=',Carbon::now())->get();
-        $birthdayTomorrow = DetailKkModel::select('nama')->where('tanggal_lahir','=',Carbon::now()->addDays(1))->get();
-        dd($birthdayTomorrow);
+        $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+
+        $birthdayTomorrow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        // dd($birthdayTomorrow, $birthdayNow);
+        return view('ultah', compact("birthdayNow","birthdayTomorrow"));
     }
 
     public function detail()

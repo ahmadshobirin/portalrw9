@@ -17,16 +17,24 @@
                <th>Alamat</th>
             </tr>
          </thead>
-         <tbody>
-            <tr>
-               <td>Column content</td>
-               <td>Column content</td>
-               <td>Column content</td>
-               <td>Column content</td>
-            </tr>
-         </tbody>
+         @forelse($birthdayNow as $list)
+               @if( $list->tanggal_lahir->month == \Carbon\Carbon::now()->month && $list->tanggal_lahir->day == \Carbon\Carbon::now()->day)
+                  <tbody>
+                     <tr>
+                        <td>{{$list->nama}}</td>
+                        <td>{{$list->tanggal_lahir->toDateString() }}</td>
+                        <td>{{ $list->tanggal_lahir->diffInYears(\Carbon\Carbon::now())}}</td>
+                        <td>{{$list->tempat_lahir}}</td>
+                     </tr>
+                  </tbody>
+               @endif
+            @empty
+               <tr>
+                     <td colspan="4"><center>Data Kosong</center></td>
+               </tr>
+         @endforelse
       </table>
-      <h2 style="padding-top: 40px;">Ulang Tahun Hari Ini!</h2>
+      <h2 style="padding-top: 40px;">Ulang Tahun Besok!</h2>
       <table class="table table-striped table-hover ">
          <thead>
             <tr>
@@ -36,13 +44,26 @@
                <th>Alamat</th>
             </tr>
          </thead>
-         <tbody>
-            <tr>
-               <td>Column content</td>
-               <td>Column content</td>
-               <td>Column content</td>
-               <td>Column content</td>
-            </tr>
-         </tbody>
+            <?php $i = 0; ?>
+            @foreach($birthdayTomorrow as $list)
+                   @if( $list->tanggal_lahir->day ==  \Carbon\Carbon::now()->addDays(1)->day && $list->tanggal_lahir->month ==  \Carbon\Carbon::now()->addDays(1)->month)
+                     <tbody>
+                        <tr>
+                           <td>{{$list->nama}}</td>
+                           <td>{{$list->tanggal_lahir->toDateString()}}</td>
+                           <td>{{ $list->tanggal_lahir->diffInYears(\Carbon\Carbon::now()->addDays(1))  }}</td></td>
+                           <td>{{$list->tempat_lahir}}</td>
+                        </tr>
+                     </tbody>
+                     <?php $i += 1; ?>
+                  @endif
+            @endforeach
+            @if($i == 0)
+               <tbody>
+                  <tr>
+                     <td colspan="4"><center>Data Kosong</center></td>
+                  </tr>
+               </tbody>
+            @endif
       </table>
 @endsection
