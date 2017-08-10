@@ -1,4 +1,4 @@
-S<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
    <head>
         <!-- STYLE CSS -->
@@ -23,82 +23,34 @@ S<!DOCTYPE html>
 
                   <div class="row" style="margin-top: 5%;">
                      <div class="container">
-                        <div class="col-md-10 col-md-offset-1">
+                        
                           <!-- CONTENT -->
-                           <div id="getStart">
-                              <div class="jumbotron">
-                                 <h1>Selamat Ulang Tahun Warga RW 9!</h1>
-                                 <p> Semoga selalu diberi umur yang barokah, rezeki yang lancar, dan tambah solid menjadi warga RW 9</p>
+                             <div class="container">
+                              <div class="panel panel-default">
+                                 <div class="caption panel-body">
+                                    <h3 style="color: black;">PEDOMAN MEDIA CYBER</h3>
+                                    <hr>
+                                    <p class="text-muted">
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales fringilla arcu eu volutpat. Vivamus condimentum massa sed leo luctus laoreet. In dapibus elementum congue. Pellentesque quam dolor, vestibulum vel rhoncus quis, aliquet non elit. Pellentesque aliquam erat sit amet libero maximus hendrerit. Vivamus imperdiet, ex id vehicula molestie, dolor odio dignissim est, eu interdum purus purus ut diam. Nam id ipsum et sem dignissim porta sit amet vel turpis. Maecenas vel varius augue, eget mattis ex. Quisque sagittis felis non egestas dapibus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In mattis placerat tortor ut euismod. Etiam eu mollis enim.
+
+                                      Nunc nec ante orci. Nam at nisl ac sem gravida bibendum. Duis vel lacus vel mi rhoncus vestibulum quis non neque. Donec et rutrum velit. Ut non mi magna. Nulla bibendum imperdiet nibh a pulvinar. Sed ultricies laoreet iaculis. Aliquam a magna eget nisi varius lobortis vel ut urna. Sed odio libero, egestas non vestibulum eu, mollis a mi. Aliquam interdum quam quis sapien finibus aliquam. Integer eget mauris ligula. Duis congue nulla eu tellus eleifend volutpat.
+
+                                      Donec faucibus lacus nec sollicitudin molestie. Donec eleifend auctor consectetur. Phasellus placerat consequat dapibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur elementum nec arcu a egestas. Quisque quis vulputate mi. Fusce non odio quis mauris porttitor vulputate. In at tortor nec urna finibus fringilla mollis vel enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tristique tempor ligula sit amet pulvinar. Integer libero turpis, pellentesque sit amet posuere vitae, placerat ac felis. Sed et dui et eros vestibulum ultricies. Suspendisse dictum libero est, non malesuada sapien pretium et. Duis dapibus feugiat nibh id placerat. Mauris nec tellus quis felis maximus scelerisque at ac sem. Nam ac justo in dui semper volutpat.
+
+                                      Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam facilisis dui sit amet varius faucibus. Praesent pulvinar imperdiet erat faucibus interdum. Sed tincidunt non ligula sit amet aliquam. Morbi ultricies dui at purus venenatis lacinia. Aliquam commodo ultrices ipsum. Mauris porta at arcu quis pulvinar. Pellentesque imperdiet venenatis augue ac auctor. Ut porttitor feugiat gravida. Integer erat lorem, blandit sit amet erat non, blandit dignissim ex. Vestibulum nec commodo diam. Sed vehicula turpis non lorem suscipit, vel porta turpis tempor. In id velit enim. Mauris eget massa rhoncus, rhoncus lectus ac, fermentum mauris. Suspendisse quam tellus, malesuada at arcu ut, bibendum consequat orci.
+
+
+                                    </p>
+                                    
+                                 </div>
                               </div>
                            </div>
-                           <h2>Ulang Tahun Hari Ini!</h2>
-                           <table class="table table-striped table-hover ">
-                              <thead>
-                                 <tr>
-                                    <th>Nama</th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>Umur</th>
-                                    <th>Alamat</th>
-                                 </tr>
-                              </thead>
-                              <?php $x = 0; ?>
-                              @foreach($birthday as $list)
-                                    @if( $list->tanggal_lahir->month == \Carbon\Carbon::now()->month && $list->tanggal_lahir->day == \Carbon\Carbon::now()->day)
-                                       <tbody>
-                                          <tr>
-                                             <td>{{$list->nama}}</td>
-                                             <td>{{$list->tanggal_lahir->toDateString() }}</td>
-                                             <td>{{ $list->tanggal_lahir->diffInYears(\Carbon\Carbon::now())}} tahun</td>
-                                             <td>{{$list->tempat_lahir}}</td>
-                                          </tr>
-                                       </tbody>
-                                    <?php $x += 1; ?>
-                                    @endif
-                              @endforeach
-                              @if($x == 0)
-                                 <tr>
-                                       <td colspan="4"><center>Tidak ada yang ulang tahun</center></td>
-                                 </tr>
-                              @endif
-                           </table>
-                           <h2 style="padding-top: 40px;">Ulang Tahun Besok!</h2>
-                           <table class="table table-striped table-hover ">
-                              <thead>
-                                 <tr>
-                                    <th>Nama</th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>Umur</th>
-                                    <th>Alamat</th>
-                                 </tr>
-                              </thead>
-                                 <?php $i = 0; ?>
-                                 @foreach($birthday as $list)
-                                        @if( $list->tanggal_lahir->day ==  \Carbon\Carbon::now()->addDays(1)->day && $list->tanggal_lahir->month ==  \Carbon\Carbon::now()->addDays(1)->month)
-                                          <tbody>
-                                             <tr>
-                                                <td>{{$list->nama}}</td>
-                                                <td>{{$list->tanggal_lahir->toDateString()}}</td>
-                                                <td>{{ $list->tanggal_lahir->diffInYears(\Carbon\Carbon::now()->addDays(1))  }} tahun</td></td>
-                                                <td>{{$list->tempat_lahir}}</td>
-                                             </tr>
-                                          </tbody>
-                                          <?php $i += 1; ?>
-                                       @endif
-                                 @endforeach
-                                 @if($i == 0)
-                                    <tbody>
-                                       <tr>
-                                          <td colspan="4"><center>Tidak ada yang ulang tahun</center></td>
-                                       </tr>
-                                    </tbody>
-                                 @endif
-                           </table>
                           <!-- END CONTENT -->
-                        </div>
-                      <!-- FOOTER -->
-                        @include('frontend.partial.footer')
-                      <!-- END FOOTER -->
+                        
                      </div>
+                     <div>
+                        @include('frontend.partial.footer')
+                  </div>
                   </div>
                </div>
             </div>
