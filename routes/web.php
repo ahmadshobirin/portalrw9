@@ -27,10 +27,10 @@ Route::get('/welcome','frontController@index');
 Route::get('/','frontController@index');
 Route::get('/article/post/{slug}','frontController@article_view');
 Route::get('/birthday','frontController@birthday');
-Route::get('/tentangkami','frontController@tentangkami');
-Route::get('/pedoman','frontController@pedoman');
-Route::get('/manajemen','frontController@manajemen');
-Route::get('/ketentuan','frontController@ketentuan');
+Route::get('/tentang-kami','frontController@tentangkami');
+Route::get('/pedoman-media-cyber','frontController@pedoman');
+Route::get('/manajemen-redaksi','frontController@manajemen');
+Route::get('/ketentuan-layanan','frontController@ketentuan');
 Route::get('/article/category/{slug}','frontController@category_article');
 
 Route::get('/admin','HomeController@index');
