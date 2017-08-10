@@ -1,21 +1,22 @@
+<div class="footer-bottom">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="design">
+				 <a href="{{url('tentang-kami')}}">Tentang Kami </a> |  
+				 <a href="{{url('manajemen-redaksi')}}">Manajemen dan Redaksi</a> |
+				 <a href="{{url('pedoman-media-cyber')}}">Pedoman Media Cyber</a> |
+				 <a href="{{url('ketentuan-layanan')}}">Ketentuan Layanan</a>
+			</div>
+		</div>
 
-
-<div id="footer">
-	<div class="col-sm-3">
-		<a href="">Tentang Kami</a>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="copyright">
+				@if(date('Y') == 2017)
+					© 2017 PortalRw9 All rights reserved
+				@else
+					© 2017 - {{date('y')}} PortalRw9
+				@endif
+			</div>
+		</div>
 	</div>
-	<div class="col-sm-3" id="border">
-		<a href="">Manajemen dan redaksi</a>
-	</div>
-	<div class="col-sm-3" id="border">
-		<a href="">Pedoman Media Cyber</a>
-	</div>
-	<div class="col-sm-3" >
-		<a href="">Ketentuan Layanan</a>
-	</div>
-    <div class="col-sm-12" style="padding-top: 10px;">
-        <p>
-            © Copyright PortalRw9 All Right Reserved
-        </p>
-    </div>
 </div>

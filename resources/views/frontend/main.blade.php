@@ -35,13 +35,7 @@
                         <!-- END SIDE BAR -->
                      </div>
                      <div>
-                      <div class="container">
-                        <div class="col-md-8">
-                      <!-- FOOTER -->
                         @include('frontend.partial.footer')
-                      <!-- END FOOTER -->
-                      </div>
-                      </div>
                   </div>
                   </div>
                </div>
