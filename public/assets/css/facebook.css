@@ -60,6 +60,11 @@ hr {
   color: #EEEEEE; 
 }
 
+#border{
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
 .box {
   	bottom: 0; /* increase for footer use */
     left: 0;
