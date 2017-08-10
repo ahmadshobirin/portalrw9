@@ -91,5 +91,4 @@ class frontController extends Controller
         $category = KategoriArticleModel::get();
         return view('detail-post',compact('article','category'));
     }
-
 }
