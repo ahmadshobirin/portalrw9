@@ -10,6 +10,7 @@
             </a>
             <div class="caption">
                 <p class="text-muted">Posted By Admin | {{ $list->created_at->diffForHumans() }}</p>
+                <span class="category pull-right">{{$list->category}}</span>
                 <p class="text-left">{{ $list->description }}</p>
             </div>
         </div>
