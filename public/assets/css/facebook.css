@@ -60,6 +60,11 @@ hr {
   color: #EEEEEE; 
 }
 
+#border{
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
 .box {
   	bottom: 0; /* increase for footer use */
     left: 0;
@@ -152,10 +157,37 @@ hr {
 }
 #footer {
   height: auto;
+  width: 100%;
   bottom: 0;
-  padding-top: 8px;
-  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #388E3C;
   text-decoration: none;
+}
+.color-footer {
+  color: white;
+}
+
+.footer-bottom {
+    background-color: #388E3C;
+    min-height: 30px;
+    width: 100%;
+}
+.design {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+}
+.copyright {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+    text-align: right;
+}
+.design a {
+    color: #fff;
 }
 
 /* bootstrap overrides */

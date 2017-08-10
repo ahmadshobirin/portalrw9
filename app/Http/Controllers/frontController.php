@@ -91,4 +91,56 @@ class frontController extends Controller
         $category = KategoriArticleModel::get();
         return view('detail-post',compact('article','category'));
     }
+<<<<<<< HEAD
+=======
+
+    public function tentangkami()
+    {
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $category = KategoriArticleModel::get();
+        return view('tentang-kami',compact("birthday","article","category"));
+    }
+
+    public function manajemen()
+    {
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $category = KategoriArticleModel::get();
+        return view('manajemen-redaksi',compact("birthday","article","category"));
+    }
+
+    public function pedoman()
+    {
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $category = KategoriArticleModel::get();   
+        return view('pedoman-cyber',compact("birthday","article","category"));
+    }
+
+    public function ketentuan()
+    {
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $category = KategoriArticleModel::get(); 
+        return view('ketentuan-layanan', compact("birthday","article","category"));
+    }
+
+>>>>>>> 0f46118c22259b92561d5338f1a8101262ed0b37
 }

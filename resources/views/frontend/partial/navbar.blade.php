@@ -10,7 +10,7 @@
                         <a href="{{url('/')}}" class="navbar-brand logo">b</a>
                      </div>
                      <nav class="collapse navbar-collapse" role="navigation">
-                        <form class="navbar-form navbar-right" style="padding-right: 40px;">
+                        {{--  <form class="navbar-form navbar-right" style="padding-right: 40px;">
                            <div class="input-group input-group-sm" style="max-width:360px;">
                               <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
                               <div class="input-group-btn">
@@ -18,11 +18,10 @@
                                  </button>
                               </div>
                            </div>
-                        </form>
-
+                        </form>  --}}
                         {{-- //menu --}}
-                        <ul class="nav navbar-nav navbar-right">
-                           <li><a href="{{url('/')}}">Beranda</a></li>
+                        <ul class="nav navbar-nav navbar-right" style="padding-right: 40px;">
+                            <li><a href="{{url('beranda')}}">Beranda</a></li>
                            @foreach($category as $list)
                             <li><a href="{{url('article/category/'.$list->slug)}}">{{$list->category}}</a></li>
                            @endforeach

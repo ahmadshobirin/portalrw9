@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+S<!DOCTYPE html>
 <html lang="en">
    <head>
         <!-- STYLE CSS -->
@@ -23,20 +23,21 @@
 
                   <div class="row" style="margin-top: 5%;">
                      <div class="container">
-                        <div class="col-md-8">
+                        <div class="col-md-10 col-md-offset-1">
                           <!-- CONTENT -->
-                            @section ('body')
-                            @show
-
+                           <div id="getStart">
+                              <div class="jumbotron">
+                                 <h1>Selamat Ulang Tahun Warga RW 9!</h1>
+                                 <p> Semoga selalu diberi umur yang barokah, rezeki yang lancar, dan tambah solid menjadi warga RW 9</p>
+                              </div>
+                           </div>
+                          
                           <!-- END CONTENT -->
                         </div>
-                        <!-- SIDE BAR -->
-                          @include('frontend.partial.sidebar')
-                        <!-- END SIDE BAR -->
-                     </div>
-                     <div>
+                      <!-- FOOTER -->
                         @include('frontend.partial.footer')
-                  </div>
+                      <!-- END FOOTER -->
+                     </div>
                   </div>
                </div>
             </div>
