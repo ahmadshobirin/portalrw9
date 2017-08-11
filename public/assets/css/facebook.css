@@ -155,7 +155,7 @@ hr {
   bottom:5px;
   padding:5px;
 }
-/*#footer {
+#footer {
   height: auto;
   width: 100%;
   bottom: 0;
@@ -163,7 +163,7 @@ hr {
   padding-bottom: 20px;
   background-color: #388E3C;
   text-decoration: none;
-}*/
+}
 .color-footer {
   color: white;
 }
@@ -309,6 +309,17 @@ small.text-muted {
     position:relative;
   }
 
+  .footer-bottom {
+    background-color: #388E3C;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    bottom: 0;
+}
+
+
 }
 
 
@@ -339,6 +350,15 @@ small.text-muted {
   #sidebar, #sidebar a, #sidebar-footer a {
     padding-left:3px;
   }
+
+  .footer-bottom {
+    background-color: #388E3C;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    bottom: 0;
 }
 
 .topik

@@ -35,11 +35,11 @@
                           @include('frontend.partial.sidebar')
                         <!-- END SIDE BAR -->
                      </div>
-                     <div>
-                        @include('frontend.partial.footer')
+                     <div>                        
                   </div>
                   </div>
-               </div>
+                  @include('frontend.partial.footer')
+               </div>               
             </div>
          </div>
       </div>

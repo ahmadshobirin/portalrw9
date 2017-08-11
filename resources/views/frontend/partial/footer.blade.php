@@ -1,6 +1,7 @@
-<div class="footer-bottom">
+<div class="col-md-12">
+	<div class="footer-bottom">
 	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
 			<div class="design">
 				 <a href="{{url('tentang-kami')}}">Tentang Kami </a> |  
 				 <a href="{{url('manajemen-redaksi')}}">Manajemen dan Redaksi</a> |
@@ -9,7 +10,7 @@
 			</div>
 		</div>
 
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
 			<div class="copyright">
 				@if(date('Y') == 2017)
 					© 2017 PortalRw9 All rights reserved
@@ -18,5 +19,6 @@
 				@endif
 			</div>
 		</div>
+	</div>
 	</div>
 </div>
