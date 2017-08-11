@@ -50,6 +50,7 @@ class ArticleController extends Controller
     {
         $item =  new ArticleModel;
         $this->validate($request,[
+                'category' => 'required|not_in:--Kategori--', 
                 'title' => 'required', 
                 'images' => 'required|image|max:3072', 
                 'description' => 'required',
@@ -103,6 +104,7 @@ class ArticleController extends Controller
     {
         $item = ArticleModel::find($id);
         $this->validate($request,[
+                'category' => 'required|not_in:--Kategori--',
                 'title' => 'required', 
                 'images' => 'image', 
                 'description' => 'required',
