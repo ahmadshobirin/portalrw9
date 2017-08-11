@@ -21,8 +21,8 @@
                   @include('frontend.partial.navbar')
                 <!-- END NAVBAR -->
 
-                  <div class="row" style="margin-top: 5%;">
-                     <div class="container">
+                  <div class="row">
+                     <div class="container" style="margin-top: 5%;">
                         <div class="col-md-8">
                           <!-- CONTENT -->
                             @section ('body')
@@ -34,12 +34,13 @@
                           @include('frontend.partial.sidebar')
                         <!-- END SIDE BAR -->
                      </div>
-                     <div>
-                        @include('frontend.partial.footer')
+                         @include('frontend.partial.footer')
                   </div>
-                  </div>
+                  
                </div>
+            
             </div>
+
          </div>
       </div>
 

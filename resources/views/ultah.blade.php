@@ -12,7 +12,7 @@ S<!DOCTYPE html>
         <!-- END STYLE CSS -->
    </head>
    <body>
-      <div class="wrapper">
+      <div class="">
          <div class="box">
             <div class="row row-offcanvas row-offcanvas-left">
                <div class="column col-sm-12 col-xs-12" id="main">
