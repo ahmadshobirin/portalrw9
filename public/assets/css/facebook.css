@@ -155,7 +155,7 @@ hr {
   bottom:5px;
   padding:5px;
 }
-#footer {
+/*#footer {
   height: auto;
   width: 100%;
   bottom: 0;
@@ -163,15 +163,18 @@ hr {
   padding-bottom: 20px;
   background-color: #388E3C;
   text-decoration: none;
-}
+}*/
 .color-footer {
   color: white;
 }
 
 .footer-bottom {
     background-color: #388E3C;
-    min-height: 30px;
     width: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    padding: 1rem;
 }
 .design {
     color: #fff;

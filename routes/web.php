@@ -1,4 +1,5 @@
 <?php
+Route::group(['middleware' => 'auth'], function () {
 /*
  * Created on Wed Aug 09 2017
  *
@@ -16,10 +17,6 @@
 |
 */
 
-Route::get('/cek', function(){
-    $cek = App\DetailKkModel::first();
-   dd($cek->tanggal_lahir);
-});
 Route::get('/detail','frontController@detail');
 
 Route::get('/welcome','frontController@index');
@@ -66,4 +63,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/warga/{id}/delete','kkController@destroy');
     Route::post('/admin/warga/create/ajax','kkController@store');
     
-});
+});});
