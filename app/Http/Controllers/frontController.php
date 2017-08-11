@@ -91,8 +91,6 @@ class frontController extends Controller
         $category = KategoriArticleModel::get();
         return view('detail-post',compact('article','category'));
     }
-<<<<<<< HEAD
-=======
 
     public function tentangkami()
     {
@@ -142,5 +140,4 @@ class frontController extends Controller
         return view('ketentuan-layanan', compact("birthday","article","category"));
     }
 
->>>>>>> 0f46118c22259b92561d5338f1a8101262ed0b37
 }

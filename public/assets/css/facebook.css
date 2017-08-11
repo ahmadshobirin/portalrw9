@@ -170,8 +170,11 @@ hr {
 
 .footer-bottom {
     background-color: #388E3C;
-    min-height: 30px;
     width: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    padding: 1rem;
 }
 .design {
     color: #fff;
