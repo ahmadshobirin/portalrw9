@@ -175,22 +175,23 @@ hr {
     right: 0;
     left: 0;
     padding: 1rem;
-}
-.design {
     color: #fff;
     line-height: 30px;
     min-height: 30px;
     padding: 7px 0;
 }
-.copyright {
-    color: #fff;
-    line-height: 30px;
-    min-height: 30px;
-    padding: 7px 0;
-    text-align: right;
+
+#copyright{
+  text-align: right;
 }
-.design a {
-    color: #fff;
+
+.footer-bottom a {
+  color: #fff;
+}
+
+.design div {
+  border-right: 1px solid #fff;
+  text-align: center;
 }
 
 /* bootstrap overrides */
@@ -309,6 +310,10 @@ small.text-muted {
     position:relative;
   }
 
+  #copyright {
+    text-align: center;
+  }
+
   .footer-bottom {
     background-color: #388E3C;
     width: 100%;
@@ -347,6 +352,10 @@ small.text-muted {
     padding: 1rem;
 }
 
+ #copyright {
+    text-align: center;
+  }
+
 }
 
 
@@ -372,6 +381,10 @@ small.text-muted {
     top: 0;
     width: 33%;
     margin-left: 5px;
+  }
+
+   #copyright {
+    text-align: center;
   }
 
   #sidebar, #sidebar a, #sidebar-footer a {
