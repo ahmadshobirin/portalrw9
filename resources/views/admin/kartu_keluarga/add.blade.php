@@ -12,7 +12,7 @@
     <div class="box box-success">
         <div class="box-header">Data Kartu Keluarga</div>
         <div class="box-body">
-            <form id="formCreate">
+            <form id="formCreate" onsubmit="saveData()">
                 <table class="table table-responsive">
                     <tr>
                         <th>No.KK</th>
@@ -191,7 +191,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <input type="hidden" id="counter" value="" name="counter">
                 <table class="table table-responsive table-bordered table-hover" id="tbl">
                     <tr>
                         <th>Aksi</th>
@@ -203,7 +203,6 @@
                         <th>Status Pernikahan</th>
                     </tr>
                 </table>
-
                 <table class="table table-responsive table-bordered table-hover" id="tbl2">
                     <tr>
                         <th>Jk</th>
@@ -215,7 +214,6 @@
                         <th>Ibu</th>
                     </tr>
                 </table>
-                    <input type="hidden" id="counter" value="" name="counter">
                     <input type="submit" value="Simpan Data" class="btn btn-success btn-block btn-md" id="submit">
             </form>
         </div>{{--  end-box-body-first  --}}
@@ -223,8 +221,8 @@
 </div>
 @stop
 @section('scripts')
- <script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
- <script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('/vendor/jquery-validation/js/jquery.validate.js')}}"></script>
+ <script type="text/javascript" src="{{URL::asset('/vendor/jquery-validation/js/additional-methods.js')}}"></script> 
     <script type="text/javascript">
         var i = 0;
         var detailKeluarga = [];
@@ -282,38 +280,54 @@
                 
                 $('table#tbl tr#'+id).remove(); 
                 $('table#tbl2 tr#'+id).remove();
-            }
+            }    
 
-        $(document).ready(function() {
-            $('#formCreate').on('submit', function (e) {
-                e.preventDefault();
-                var no_kk =  $("[name='no_kk']").val();
-                var kepala_keluarga =  $("[name='kepala_keluarga']").val();
-                var rt =  $("[name='rt']").val();
-                var rw =  $("[name='rw']").val();
-                var kodepos =  $("[name='kodepos']").val();
-                var desa_kelurahan =  $("[name='desa_kelurahan']").val();
-                var kecamatan =  $("[name='kecamatan']").val();
-                var kabupaten_kota =  $("[name='kabupaten_kota']").val();
-                var provinsi =  $("[name='provinsi']").val();
-                var keluarTanggal =  $("[name='keluarTanggal']").val();
-                var alamat =  $("[name='alamat']").val();
-                var counter = $('#counter').val();
-                
-                $.ajax({
-                    type: "POST",
-                    url: '/admin/warga/create/ajax',
-                    data: { no_kk : no_kk, kepala_keluarga : kepala_keluarga, rt : rt, rw : rw, kodepos : kodepos,desa_kelurahan : desa_kelurahan, kecamatan : kecamatan, kabupaten_kota : kabupaten_kota, provinsi : provinsi, keluarTanggal : keluarTanggal, alamat : alamat, data : detailKeluarga, counter : counter, _token : "{{csrf_token()}}" },
-                    success: function(msg) {
-                        alert(msg);
-                        if(msg == "success"){ 
-                            window.location.href = "<?= url('admin/warga')?>";
-                        }else{
-                            window.location.reload();
+            $(document).ready(function() {
+                $('#formCreate').validate({
+                    errorElement: 'span', 
+                    errorClass: 'help-block', 
+                    focusInvalid: false, 
+                    ignore: "",
+                    rules: {
+                        counter: {
+                                number:true,
+                                required:true
+                            }
+                    },
+                    messages:{
+                        counter:{
+                            required: "Detail KK tidak boleh kosong"
                         }
+                    },
+                    submitHandler: function (form) {
+                        var no_kk =  $("[name='no_kk']").val();
+                        var kepala_keluarga =  $("[name='kepala_keluarga']").val();
+                        var rt =  $("[name='rt']").val();
+                        var rw =  $("[name='rw']").val();
+                        var kodepos =  $("[name='kodepos']").val();
+                        var desa_kelurahan =  $("[name='desa_kelurahan']").val();
+                        var kecamatan =  $("[name='kecamatan']").val();
+                        var kabupaten_kota =  $("[name='kabupaten_kota']").val();
+                        var provinsi =  $("[name='provinsi']").val();
+                        var keluarTanggal =  $("[name='keluarTanggal']").val();
+                        var alamat =  $("[name='alamat']").val();
+                        var counter = $('#counter').val();
+
+                        $.ajax({
+                            type: "POST",
+                            url: '/admin/warga/create/ajax',
+                            data: { no_kk : no_kk, kepala_keluarga : kepala_keluarga, rt : rt, rw : rw, kodepos : kodepos,desa_kelurahan : desa_kelurahan, kecamatan : kecamatan, kabupaten_kota : kabupaten_kota, provinsi : provinsi, keluarTanggal : keluarTanggal, alamat : alamat, data : detailKeluarga, counter : counter, _token : "{{csrf_token()}}" },
+                            success: function(msg) {
+                                alert(msg);
+                                if(msg == "success"){ 
+                                    window.location.href = "<?= url('admin/warga')?>";
+                                }else{
+                                    window.location.reload();
+                                }
+                            }
+                        }); 
                     }
                 });
             });
-        });        
     </script>
 @stop
