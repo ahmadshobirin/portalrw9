@@ -47,7 +47,12 @@
             </div>
          </div>
       </div>
-
+      <div  style="visibility: hidden; display:none;">
+       <audio id="player" controls="controls" style="visibility:hidden;">
+           <source id="sourceOgg" src="{{URL::asset('audio/indonesia.mp3')}}" type="audio/mp3"/>
+           Your browser does not support the audio element.
+       </audio>
+   </div>
       <!-- JS -->
       <script type="text/javascript" src="{{URL::asset('assets/js/jquery.js')}}"></script>
       <script type="text/javascript" src="{{URL::asset('assets/js/bootstrap.min.js')}}"></script>
@@ -61,6 +66,38 @@
                  $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
                  $('#btnShow').toggle();
              });
+              var player = document.getElementById('player');
+              var sourceMp3 = document.getElementById('player');
+              tday = new Array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu");
+              tmonth = new Array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+
+              function GetClock() {
+                  var today = new Date();
+                  var dx = today.toGMTString();
+                  dx = dx.substr(0, dx.length - 3);
+                  today.setTime(Date.parse(dx))
+                  today.setSeconds(today.getSeconds() + <?php date_default_timezone_set('Asia/Jakarta'); echo date('Z'); ?>);
+
+                  var nday = today.getDay(),
+                      nmonth = today.getMonth(),
+                      ndate = today.getDate(),
+                      nyear = today.getYear();
+
+                  if (nyear < 1000) nyear += 1900;
+                  var nhour = today.getHours(),
+                      nmin = today.getMinutes(),
+                      nsec = today.getSeconds();
+                  if (nmin <= 9) nmin = "0" + nmin;
+                  if (nsec <= 9) nsec = "0" + nsec;
+
+                  //document.getElementById('clockboxhour').innerHTML = "" + tday[nday] + ", " + ndate + " " + tmonth[nmonth] + " " + nyear + " " + nhour + ":" + nmin + ":" + nsec + " WIB";
+                  if (nhour + "." + nmin == 16.06) player.play();
+              }
+
+              window.onload = function() {
+                  GetClock();
+                  setInterval(GetClock, 1000);
+              }
          });
       </script>
       <!-- END JS -->
