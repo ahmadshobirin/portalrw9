@@ -21,7 +21,7 @@
                   @include('frontend.partial.navbar')
                 <!-- END NAVBAR -->
 
-                  <div class="" style="margin-top: 5%; margin-bottom:0;">
+                  <div class="container" style="margin-top: 5%; margin-bottom:0;height: 100%;">
                      <div class="container">
                         
                           <!-- CONTENT -->
@@ -41,15 +41,13 @@
                                     </p>
                                  </div>
                               </div>
-                              @include('frontend.partial.footer')
+                              
                            </div>
                           <!-- END CONTENT -->
                         
                      </div>
                   </div>
-                    
-                     
-                     
+                  @include('frontend.partial.footer')
                </div>
             </div>
          </div>
