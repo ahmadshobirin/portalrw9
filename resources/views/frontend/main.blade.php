@@ -31,14 +31,18 @@
 
                           <!-- END CONTENT -->
                         </div>
+                        <div class="col-md-4">
                         <!-- SIDE BAR -->
                           @include('frontend.partial.sidebar')
                         <!-- END SIDE BAR -->
+                        </div>
                      </div>
-                     <div>                        
+                     
+                     <div class="col-md-12">  
+                     @include('frontend.partial.footer')                      
                   </div>
                   </div>
-                  @include('frontend.partial.footer')
+                  
                </div>               
             </div>
          </div>
