@@ -1,4 +1,5 @@
-<div class="footer-bottom">
+<div class="col-md-12">
+	<div class="footer-bottom">
 	<div class="row">
 		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
 			<div class="design">
@@ -18,5 +19,6 @@
 				@endif
 			</div>
 		</div>
+	</div>
 	</div>
 </div>

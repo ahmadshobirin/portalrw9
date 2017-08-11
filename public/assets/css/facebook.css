@@ -155,7 +155,7 @@ hr {
   bottom:5px;
   padding:5px;
 }
-/*#footer {
+#footer {
   height: auto;
   width: 100%;
   bottom: 0;
@@ -163,7 +163,7 @@ hr {
   padding-bottom: 20px;
   background-color: #388E3C;
   text-decoration: none;
-}*/
+}
 .color-footer {
   color: white;
 }
