@@ -16,7 +16,7 @@
       <div class="wrapper">
          <div class="box">
             <div class="row row-offcanvas row-offcanvas-left">
-               <div class="column col-sm-12 col-xs-12" id="main">
+               <div class="column col-sm-12 col-xs-12" id="main" style="height: 100%;">
 
                 <!-- NAVBAR -->
                   @include('frontend.partial.navbar')
@@ -37,14 +37,12 @@
                         <!-- END SIDE BAR -->
                         </div>
                      </div>
-                     
-                     <div class="col-md-12">  
-                     @include('frontend.partial.footer')                      
+                  </div> 
+                  <div class="col-lg-12">
+                    @include('frontend.partial.footer')
                   </div>
-                  </div>
-                  
-               </div>               
             </div>
+
          </div>
       </div>
       <div  style="visibility: hidden; display:none;">
