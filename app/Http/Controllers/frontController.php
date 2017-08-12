@@ -23,6 +23,10 @@ class frontController extends Controller
                 ->orderBy('article.id','desc')
                 ->limit(4)
                 ->get();
+        $Listarticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->paginate(6);
 
         $category = KategoriArticleModel::get();
         $countBirthday = 0;
@@ -34,7 +38,7 @@ class frontController extends Controller
                 $countBirthday++;
             }
         }
-        return view('index', compact("article", "category","category","countBirthday"));
+        return view('index', compact("article", "category","category","countBirthday","Listarticle"));
     }
 
      public function article_view($slug)
@@ -60,14 +64,15 @@ class frontController extends Controller
         $listArticle  =  ArticleModel::select('category.category','article.slug','article.id','article.title',
                      'article.description','article.images','article.created_at')
                      ->join('category','category.id','=','article.category')
-                     ->where('article.category','=',$kategori->id)->get();
+                     ->where('article.category','=',$kategori->id)
+                     ->paginate(6);
 
         $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
                 ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
                 ->orderBy('article.id','desc')
                 ->limit(4)
                 ->get();
-
+        // dd($listArticle,$article);
         $category = KategoriArticleModel::get();
         return view('detail-post', compact("kategori","category","article","listArticle"));
      }

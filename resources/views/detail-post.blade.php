@@ -19,4 +19,5 @@
 	       <center><h2 class="title">Data Kosong</h2></center>
        </div>
     @endforelse
+    <div class="pull-right">{!! $listArticle->links() !!}</div>
 @endsection

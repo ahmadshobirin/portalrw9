@@ -5,5 +5,5 @@
          {{--  <a href="!#"></a><b>Devlopment</b></a>  --}}
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; <a href="{{url('home')}}">Portal RW9</a> 2017</strong>.
+    <strong> &copy; Copyright<a href="{{url('home')}}">RW9Ratim</a> 2017</strong>.
 </footer>

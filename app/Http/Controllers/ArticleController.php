@@ -48,14 +48,15 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $item =  new ArticleModel;
+        //dd($request->images);
         $this->validate($request,[
                 'category' => 'required|not_in:--Kategori--', 
                 'title' => 'required', 
-                'images' => 'required|image|max:3072', 
+                'images' => 'required|image|mimes:jpeg,bmp,png,jpg', 
                 'description' => 'required',
                 'content' => 'required',
             ]);      
+        $item =  new ArticleModel;
         $item->category = $request->category;
         $item->title = $request->title;
         $item->slug = str_slug($request->title,'-');
@@ -66,7 +67,7 @@ class ArticleController extends Controller
         $item->content = $request->content;
         $item->save();
         return redirect('/admin/article');
-        return $request->file('images')->getClientOriginalName();
+        //return $request->file('images')->getClientOriginalName();
     }
 
     /**
@@ -154,6 +155,7 @@ class ArticleController extends Controller
     public function permanentDelete($id)
     {
         $dt = ArticleModel::withTrashed()->where('id','=',$id)->first();
+        Storage::delete($dt->images);
         $dt->forceDelete();
         return redirect()->back();
     }

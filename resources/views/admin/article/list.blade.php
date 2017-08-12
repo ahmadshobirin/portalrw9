@@ -33,7 +33,7 @@
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>{{$list->title}}</td>
-                    <td><img src="/storage/{{$list->images}}" style="max-width:100px"></td>
+                    <td><img src="{{asset('storage/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
                     <td>{{$list->category}}</td>
                     <td>
                         <form method="post" action="/admin/article/{{$list->id}}">
@@ -50,22 +50,20 @@
         </tbody>
     </table>
 
-@ckeditor('content')
+@stop
+@section('scripts')
 
-<script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/datatables.bootstrap.min.js')}}"></script>
 
 <script>
     $('#table').DataTable({
       'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
+      'lengthChange': true,
+      'searching'   : true,
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false
     });
 </script>
-
-@endsection
+@stop

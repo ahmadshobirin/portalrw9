@@ -4,13 +4,13 @@
 
   @if($countBirthday > 0 )
     <div class="panel-thumbnail">
-        <a href="/birthday"> 
+        <a href="{{url('/birthday')}}"> 
         <img src="assets/img/hbd2.jpg" class="img-responsive hokya" style="width: 100%; max-height: 250px; padding-bottom: 10px;">
         </a>
     </div>
   @endif
 
-  @forelse($article as $list)
+  @forelse($Listarticle as $list)
       <div class="panel panel-default">
           <a href="{{url('article/post/'.$list->slug)}}">
             <div class="panel-thumbnail"><img src="/storage/{{$list->images}}" class="img-responsive" style="width: 100%; max-height: 400px;">
@@ -28,4 +28,5 @@
         <center><h2 class="title">Data Kosong</h2></center>
       </div>
   @endforelse
+  {!! $Listarticle->links() !!}
 @endsection

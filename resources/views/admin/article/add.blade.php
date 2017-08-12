@@ -46,7 +46,7 @@
                                 <tr>
                                     <th>Konten</th>
                                     <td>
-                                        <textarea class="ckeditor" name="content" id="content" required>Tulis teks disini..!</textarea>
+                                        <textarea class="ckeditor" name="content" id="content" required></textarea>
                                     </td>
                                 </tr>
                                 <tr>
