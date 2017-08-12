@@ -19,7 +19,7 @@
                 <th>Desa</th>
                 <th>Kota/Kabupaten</th>
                 <th>Dikeluarkan Tanggal</th>
-                <th>Action</th>
+                <th class="nosort">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -44,19 +44,24 @@
             @endforeach
         </tbody>
     </table>
-<!-- jQuery -->
- <script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
+@stop
+@section('scripts')
+
 <script type="text/javascript" src="{{URL::asset('/js/jquery.dataTables.min.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('/js/datatables.bootstrap.min.js')}}"></script> 
+<script type="text/javascript" src="{{URL::asset('/js/datatables.bootstrap.min.js')}}"></script>
+
 <script>
     $('#table').DataTable({
       'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
+      'lengthChange': true,
+      'searching'   : true,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      'aoColumnDefs': [{
+        'bSortable': false,
+        'aTargets': ['nosort']
+        }]
     });
 </script>
-@endsection
+@stop

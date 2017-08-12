@@ -24,7 +24,7 @@
                 <th>Judul</th>
                 <th>Sampul</th>
                 <th>Kategori</th>
-                <th>Aksi</th>
+                <th class="nosort">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -63,7 +63,11 @@
       'searching'   : true,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      'aoColumnDefs': [{
+        'bSortable': false,
+        'aTargets': ['nosort']
+        }]
     });
 </script>
 @stop

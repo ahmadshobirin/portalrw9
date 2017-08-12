@@ -11,13 +11,13 @@
 	<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
 <br>    
-<div class="col-lg-6">
+<div class="">
     <table class="table table-striped table-hover table-responsive" id="table">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Kategori</th>
-                <th>Aksi</th>
+                <th class="nosort">Aksi</th>
             </tr>
         </thead>
 
@@ -32,7 +32,7 @@
                         Kembalikan Data
                     </a>
                     <a href="{{url('/admin/category/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md">
-                        Delete
+                        Hapus Permanen
                     </a>
                 </td>
             </tr>
@@ -40,19 +40,24 @@
         </tbody>
     </table>
 </div>
-<script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
+@stop
+@section('scripts')
+
 <script type="text/javascript" src="{{URL::asset('/js/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/datatables.bootstrap.min.js')}}"></script>
 
 <script>
     $('#table').DataTable({
       'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
+      'lengthChange': true,
+      'searching'   : true,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      'aoColumnDefs': [{
+        'bSortable': false,
+        'aTargets': ['nosort']
+        }]
     });
 </script>
-@endsection
+@stop

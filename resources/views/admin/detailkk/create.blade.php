@@ -2,10 +2,10 @@
 
 @section('htmlheader_title')
 	{{ trans('adminlte_lang::message.home') }}
+    <link href="{{asset('vendor/select2/css/select2.css')}}" rel="stylesheet"/>
 @endsection
 
 @section('contentheader_title', 'Detail Kartu Keluarga')
-
 @section('main-content')
     <div class="container-fluid spark-screen">
 		<div class="row">
@@ -16,8 +16,7 @@
                            <div class="col-md-6">
                               <div class="form-group">
                                  <label for="">Kartu Keluarga</label>
-                                 <select name="kartuKeluarga" id="" class="form-control">
-                                    <option selected>Pilih Kartu Keluarga...</option>
+                                 <select name="kartuKeluarga" id="kartuKeluarga" class="form-control">
                                     @foreach($datakk as $kk)
                                        <option value="{{$kk->no_kk}}">{{ucfirst($kk->no_kk)}}</option>
                                     @endforeach
@@ -139,4 +138,14 @@
             </div>
         </div>
     </div>
-@endsection
+@stop
+@section('scripts')
+    <script type="text/javascript" src="{{asset('vendor/select2/js/select2.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+             $('#kartuKeluarga').select2({
+                 theme: 'bootstrap'
+             });
+        });
+    </script>
+@stop
