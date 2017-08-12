@@ -15,8 +15,8 @@
         <i class="fa fa-plus"></i> Tambah Data
     </a>
 </div>
-<br>    
-<div class="col-lg-6">
+<br>  
+
     <table class="table table-striped table-hover table-responsive" id="table">
         <thead>
             <tr>
@@ -46,7 +46,6 @@
             @endforeach
         </tbody>
     </table>
-</div>
 <script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/jquery.dataTables.min.js')}}"></script>
