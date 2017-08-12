@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Edit Artikel')
+@section('contentheader_title', 'Ubah Artikel')
 
 @section('main-content')
 

@@ -23,6 +23,7 @@ class frontController extends Controller
                 ->orderBy('article.id','desc')
                 ->limit(4)
                 ->get();
+
         $Listarticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
                 ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
                 ->orderBy('article.id','desc')
@@ -43,9 +44,15 @@ class frontController extends Controller
 
      public function article_view($slug)
      {    
-          $article  = ArticleModel::where('slug','=', $slug)->get();
-          $category = KategoriArticleModel::get();
-          return view('detail-index', compact("article", "category","image"));
+        $article    = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+
+        $articleInti    = ArticleModel::where('slug','=', $slug)->get();
+        $category   = KategoriArticleModel::get();
+        return view('detail-index', compact("article", "category","image", "articleInti"));
 
      }
     
@@ -60,7 +67,7 @@ class frontController extends Controller
     public function category_article($slug)
      {  
         $kategori = KategoriArticleModel::where('slug','=',$slug)->first();
-
+        // dd($kategori);
         $listArticle  =  ArticleModel::select('category.category','article.slug','article.id','article.title',
                      'article.description','article.images','article.created_at')
                      ->join('category','category.id','=','article.category')
@@ -68,10 +75,11 @@ class frontController extends Controller
                      ->paginate(6);
 
         $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->select('article.id', 'article.title' , 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category','article.slug')
                 ->orderBy('article.id','desc')
                 ->limit(4)
                 ->get();
+
         // dd($listArticle,$article);
         $category = KategoriArticleModel::get();
         return view('detail-post', compact("kategori","category","article","listArticle"));
