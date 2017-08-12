@@ -4,12 +4,13 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Edit Master Category')
+@section('contentheader_title', 'Ubah Kategori')
 
 @section('main-content')
+<br>
 <div class=" col-md-6">
-    <div class="panel panel-primary">
-        <div class="panel-heading">Edit</div>
+    <div class="panel panel-primary" style="box-shadow: 3px 3px 7px #888888">
+        <div class="panel-heading">Ubah</div>
         <div class="panel-body">
             <form method="post" action="/admin/category/{{$data->id}}">
                 {{csrf_field()}}
@@ -28,32 +29,6 @@
             </form>
         </div>
     </div>
-</div>
-<div class="col-md-6">
-    <table class="table">
-        <tr>
-            <th>No</th>
-            <th>Kategori</th>
-            <th>Aksi</th>
-        </tr>
-        
-        @foreach($category as $list)
-        <tr>
-            <td></td>
-            <td>{{$list->category}}</td>
-            <td>
-            <form method="post" action="/admin/category/{{$list->id}}">
-                {{csrf_field()}}
-                {{method_field('DELETE')}}
-                <button class="btn btn-danger pull-left">
-                    <span class="fa fa-trash"> Hapus</span>
-                </button>
-            </form>
-                <a class="btn btn-warning pull-left" href="/admin/category/{{$list->id}}/edit"><span class="fa fa-pencil"> Ubah</span></a>
-            </td>
-        </tr>
-        @endforeach
-    </table>
 </div>
 
 

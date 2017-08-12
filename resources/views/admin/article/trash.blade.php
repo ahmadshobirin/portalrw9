@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Trash')
+@section('contentheader_title', 'Sampah Artikel')
 
 @section('main-content')
 
@@ -35,7 +35,7 @@
                             Kembalikan Data
                         </a>
                         <a href="{{url('/admin/article/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md">
-                            Hapus
+                            Hapus Permanen
                         </a>
                     </td>
                 </tr>

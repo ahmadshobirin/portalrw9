@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
     <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
-@section('contentheader_title', 'Data Warga')
+@section('contentheader_title', 'Sampah Data Warga')
 
 @section('main-content')
     <br>    

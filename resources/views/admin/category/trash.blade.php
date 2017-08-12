@@ -5,13 +5,12 @@
 @endsection
 
 
-@section('contentheader_title', 'Trash Artikel')
+@section('contentheader_title', 'Sampah Kategori')
 
 @section('main-content')
 	<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
 <br>    
-<div class="col-lg-6">
     <table class="table table-striped table-hover table-responsive" id="table">
         <thead>
             <tr>
@@ -32,14 +31,13 @@
                         Kembalikan Data
                     </a>
                     <a href="{{url('/admin/category/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md">
-                        Delete
+                        Hapus Permanen
                     </a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-</div>
 <script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/jquery.dataTables.min.js')}}"></script>
