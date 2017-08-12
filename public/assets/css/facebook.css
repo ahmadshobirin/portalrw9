@@ -327,7 +327,7 @@ small.text-muted {
 
 @media screen and (max-width: 1024px and min-width: 720px) {
 
-/*  .column .padding {
+ .column .padding {
     padding: 7px;
   }
 
@@ -340,7 +340,7 @@ small.text-muted {
     top:0;
     width:100%;
     position:relative;
-  }*/
+  }
 
   .footer-bottom {
     background-color: #388E3C;
