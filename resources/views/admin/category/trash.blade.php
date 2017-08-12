@@ -5,13 +5,16 @@
 @endsection
 
 
-@section('contentheader_title', 'Trash Artikel')
+@section('contentheader_title', 'Sampah Kategori')
 
 @section('main-content')
 	<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
 <br>    
+<<<<<<< HEAD
 <div class="">
+=======
+>>>>>>> 7a5f453e29c28153b45f3d55a4f44bca50910af4
     <table class="table table-striped table-hover table-responsive" id="table">
         <thead>
             <tr>
@@ -39,10 +42,15 @@
             @endforeach
         </tbody>
     </table>
+<<<<<<< HEAD
 </div>
 @stop
 @section('scripts')
 
+=======
+<script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
+>>>>>>> 7a5f453e29c28153b45f3d55a4f44bca50910af4
 <script type="text/javascript" src="{{URL::asset('/js/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/datatables.bootstrap.min.js')}}"></script>
 

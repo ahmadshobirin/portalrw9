@@ -2,7 +2,7 @@
 
 @section('body')
 
-	@forelse($article as $list)
+	@forelse($articleInti as $list)
 			<div class="panel panel-default">
 			   <div class="panel-thumbnail"><img src="/storage/{{$list->images}}" class="img-responsive" style="width: 100%; max-height: 400px;">
 			   </div>
