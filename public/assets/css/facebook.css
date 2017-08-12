@@ -299,6 +299,11 @@ small.text-muted {
     padding: 7px;
   }
 
+  .container {
+    margin-bottom: 40%;
+  }
+
+
   .full{
 	padding-top:20px;
   }
@@ -317,17 +322,18 @@ small.text-muted {
   .footer-bottom {
     background-color: #388E3C;
     width: 100%;
-    position: fixed;
+    position: absolute;
     right: 0;
     margin-top: 20px;
     left: 0;
     padding: 1rem;
+    bottom: 0;
 }
 }
 
 @media screen and (max-width: 1024px and min-width: 720px) {
 
- .column .padding {
+/* .column .padding {
     padding: 7px;
   }
 
@@ -340,16 +346,21 @@ small.text-muted {
     top:0;
     width:100%;
     position:relative;
+  }*/
+
+  .container {
+    margin-bottom: 40%;
   }
 
   .footer-bottom {
     background-color: #388E3C;
     width: 100%;
-    position: fixed;
+    position: absolute;
     right: 0;
     margin-top: 20px;
     left: 0;
     padding: 1rem;
+    bottom: 0;
 }
 
  #copyright {
@@ -375,6 +386,7 @@ small.text-muted {
     left: 33%;
   }
 
+
   .row-offcanvas-left.active .sidebar-offcanvas {
     left: -33%;
     position: absolute;
@@ -391,13 +403,19 @@ small.text-muted {
     padding-left:3px;
   }
 
+  .container {
+    margin-top: 10px; 
+  }
+
   .footer-bottom {
     background-color: #388E3C;
     width: 100%;
-    position: fixed;
+    position: absolute;
     right: 0;
     left: 0;
     padding: 1rem;
+    bottom: 0;
+}
 }
 
 .topik
