@@ -36,7 +36,7 @@
                     <td>{{ $list->keluar_tgl }}</td>
                     <td>
                         <div class="">
-                            <a class="btn btn-warning btn-sm" href="{{url('/admin/warga/restore/'.$list->id)}}"><span class="fa fa-pencil"></span></a>
+                            <a class="btn btn-warning btn-sm" href="{{url('/admin/warga/restore/'.$list->id)}}"><span class="fa fa-undo"></span></a>
                             <a class="btn btn-danger btn-sm" href="{{url('/admin/warga/permanent/delete/'.$list->id)}}"><span class="fa fa-trash"></span></a>
                         </div>
                     </td>
