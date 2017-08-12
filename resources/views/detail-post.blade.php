@@ -4,7 +4,7 @@
     
     @forelse($listArticle as $list)
         <div class="thumbnail">
-            <a href="{{url('article/category/'.$list->slug)}}">
+            <a href="{{url('article/post/'.$list->slug)}}">
                 <h2 class="title">{{ $list->title }}</h2>
                 <img src="{{URL::asset('storage/'.$list->images)}}" class="img-responsive">
             </a>
