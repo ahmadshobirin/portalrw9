@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/admin/article','articleController');
     Route::resource('/admin/category','categoryController');
     Route::resource('/admin/warga','kkController');
+    Route::get('/admin/pengaturan','UserController@password');
+    Route::post('/admin/pengaturan','UserController@updatePassword');
     Route::get('/admin/warga/{id}/delete','kkController@destroy');
     Route::post('/admin/warga/create/ajax','kkController@store');
     Route::get('/admin','HomeController@index');
