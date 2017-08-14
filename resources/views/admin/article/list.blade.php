@@ -14,6 +14,9 @@
     <a href="{{url('/admin/article/create')}}" class="btn btn-success btn-md">
         <i class="fa fa-plus"></i> Tambah Data
     </a>
+    <a href="{{url('/admin/articletrash')}}" class="btn btn-danger btn-md">
+        <i class="fa fa-trash"></i> Lihat Data Sampah
+    </a>
 </div>
 <br>    
 
