@@ -66,7 +66,7 @@
                                       <div style="padding-left: 4%;">
                                         Untuk informasi selengkapnya, silahkan menghubungi rw9ratim.com melalui <br>
                                          email: 
-                                      <br>&emsp; info@rw9ratim.com atau rw9ratim@gmail.com
+                                      <br>&emsp; <a href="#">info@rw9ratim.com</a> atau <a href="#">rw9ratim@gmail.com </a>
                                       </div>
                                       
                                  </p>

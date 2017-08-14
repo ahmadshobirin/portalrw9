@@ -147,7 +147,7 @@
                                 <p> &emsp;Nah itu tadi panduan lengkap menulis di rw9ratim.com. <br>
                                     &emsp;Jika Anda membutuhkan bantuan, silahkan 
                                     kirim email ke: 
-                                    <br>&emsp;&emsp;info@ rw9ratim.com / rw9ratim@gmail.com. 
+                                    <br>&emsp;&emsp;<a href="#">info@ rw9ratim.com</a> / <a href="#">rw9ratim@gmail.com</a>. 
                                 </p>
 
                                 <h5 style="text-align: center;"> Kami sangat senang membantu Anda. </h5>
