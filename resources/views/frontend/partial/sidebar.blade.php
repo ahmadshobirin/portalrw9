@@ -1,13 +1,13 @@
 
 
-   <div class="panel panel-default">
+   <div class="panel panel-default side">
       <h4 style="padding-left: 10px;padding-right: 9px;"> Artikel Baru!</h4>
       @forelse($article as $list)
 
             <div class="panel-body topik">
                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
                   <a href="{{url('article/post/'.$list->slug)}}">
-                     <img src="{{URL::asset('/storage/'.$list->images)}}" style="width: 85px; height: 85px;">
+                     <img src="{{URL::asset('/storage/'.$list->images)}}" class="img-responsive" {{-- style="width: 85px; height: 85px;" --}}>
                   </a>
                </div>
                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">

@@ -24,21 +24,21 @@
 
                   <div class="row" style="margin-top: 5%;">
                      <div class="container">
-                        <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                        <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12" id="main">
                           <!-- CONTENT -->
                             @section ('body')
                             @show
 
                           <!-- END CONTENT -->
                         </div>
-                        <div class="col-md-4 col-lg-8 col-sm-12 col-xs-12">
+                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                         <!-- SIDE BAR -->
                           @include('frontend.partial.sidebar')
                         <!-- END SIDE BAR -->
                         </div>
                      </div>
                   </div> 
-                  <div class="col-md-12 col-lg-8 col-sm-12 col-xs-12">
+                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     @include('frontend.partial.footer')
                   </div>
             </div>
