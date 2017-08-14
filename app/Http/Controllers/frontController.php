@@ -153,4 +153,28 @@ class frontController extends Controller
         return view('ketentuan-layanan', compact("birthday","article","category"));
     }
 
+    public function kebijakan()
+    {
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $category = KategoriArticleModel::get(); 
+        return view('kebijakan-privasi', compact("birthday","article","category"));
+    }
+
+    public function panduan()
+    {
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $category = KategoriArticleModel::get(); 
+        return view('panduan-menulis', compact("birthday","article","category"));
+    }
+
 }
