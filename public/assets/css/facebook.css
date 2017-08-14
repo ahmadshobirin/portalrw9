@@ -311,8 +311,8 @@ div#redaksi {
         bottom: 0;
     }
 
-    div.content{
-      margin-bottom: 10%;
+    div#content{
+      margin-bottom: 12%;
     }
   
     div.container {
@@ -368,7 +368,7 @@ div#redaksi {
         padding-left: 3px;
     }
     div.side {
-        margin-bottom: 18%;
+        margin-bottom: 23%;
     }
 
     div.container {
@@ -385,7 +385,7 @@ div#redaksi {
     }
 
     div#content1{
-      margin-bottom: 15%;
+      margin-bottom: 19%;
     }
 
 }
@@ -401,7 +401,7 @@ div#redaksi {
 }
 
   div.side {
-    margin-bottom: 35%;
+    margin-bottom: 47%;
   }
 
   div.design{
@@ -414,7 +414,7 @@ div#redaksi {
   }
 
   div#content1{
-      margin-bottom: 25%;
+      margin-bottom: 38%;
     }
 
   h3{
@@ -464,7 +464,7 @@ div#redaksi {
   }
 
   div#content1{
-      margin-bottom: 1%;
+      margin-bottom: 2%;
     }
 
   h3{

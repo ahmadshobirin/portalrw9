@@ -28,19 +28,20 @@
                                  <hr>
                                   
                                   <div class="col-md-12">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6" id="redaksi">
                                     <p>
                                       &emsp;"RW 09 Ratim" adalah sebuah organisasi sosial kemasyarakatan, atau Lembaga Swadaya Masyarakat (LSM) tertua didunia, bergeraknya roda organisasi ini sepenuhnya atas biaya dari warga RW 09 Rungkut Asri timur, Kelurahan Rungkut Kidul, Kota Madya Surabaya, dengan kode pos 60293.
                                     </p>
                                     </div>
 
-                                    <div class="col-md-6" style="border-left: 1px solid #e6e6e6;">
+                                    <div class="col-md-6 col-sm-6" >
                                     <p>
                                       &emsp;Diinspirasi dari fenomena tradisi masyarakat Indonesia, khususnya warga RW 09 Ratim yang suka ber-WA-ria (WAG “Guyub RW 09 Ratim”), dan sudah menjadi sarana komunikasi utama, bertukar informasi antar warga penghuni perumahan (komplek). 
                                     </p>
                                     </div>
 
                                   </div>
+                                  <br><br>
                                   <hr>
                                   <p>
                                     &emsp;"RW 09 Ratim" adalah sebuah komplek perumahan yang kami beri nama “Kampoeng Guyub”, dikarenakan keguyuban antar warganya, beberapa prestasi pernah disandang antara lain……
@@ -62,7 +63,7 @@
                                   <hr>
 
                                   <div class="col-sm-12">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6" id="redaksi">
                                       <h4>Alamat Kantor: </h4>
                                       <p>&emsp;Jl. Rungkut Asri timur 6 No.22, Surabaya-60293, Jawa Timur, Indonesia. </p>
 
@@ -73,7 +74,7 @@
                                       <p>&emsp;info@rw9ratim.com, redaksi@rw9ratim.com </p> 
                                     </div>
 
-                                    <div class="col-sm-6" style="border-left: 1px solid #e6e6e6;">
+                                    <div class="col-sm-6" >
                                       <h4>Gmail: </h4>
                                       <p>&emsp;rw9ratim@gmail.com </p>
 
