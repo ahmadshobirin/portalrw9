@@ -445,7 +445,7 @@ div#redaksi {
     border-right: none;
     border-bottom: 1px solid #e6e6e6;
   }
-  
+
   ul.navbar-right {
       padding-right: 0px;
   }
@@ -556,7 +556,7 @@ div#redaksi {
     -ms-transform: translate(-50%, -50%);
 }
 #copyright {
-  text-align: right;
+  text-align: center;
 }
 .overlay {
     position: absolute;
