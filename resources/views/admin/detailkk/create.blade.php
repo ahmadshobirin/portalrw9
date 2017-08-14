@@ -2,7 +2,11 @@
 
 @section('htmlheader_title')
 	{{ trans('adminlte_lang::message.home') }}
+@endsection
+
+@section('customstyle')
     <link href="{{asset('vendor/select2/css/select2.css')}}" rel="stylesheet"/>
+    <link href="{{asset('vendor/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet"/>
 @endsection
 
 @section('contentheader_title', 'Detail Kartu Keluarga')
@@ -17,6 +21,7 @@
                               <div class="form-group">
                                  <label for="">Kartu Keluarga</label>
                                  <select name="kartuKeluarga" id="kartuKeluarga" class="form-control">
+                                    <option value=""></option>
                                     @foreach($datakk as $kk)
                                        <option value="{{$kk->no_kk}}">{{ucfirst($kk->no_kk)}}</option>
                                     @endforeach
@@ -110,8 +115,8 @@
                                  </div>
                                  <div class="col-md-4">
                                     <div class="form-group">
-                                       <label for="">kitap</label>
-                                       <input type="text" name="kitap" class="form-control" placeholder="kitap">
+                                       <label for="">kitab</label>
+                                       <input type="text" name="kitap" class="form-control" placeholder="kitab">
                                     </div>
                                  </div>
                               </div>
@@ -144,7 +149,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
              $('#kartuKeluarga').select2({
-                 theme: 'bootstrap'
+                 theme: 'bootstrap',
+                 placeholder: 'Cari Kartu Keluarga...',
              });
         });
     </script>

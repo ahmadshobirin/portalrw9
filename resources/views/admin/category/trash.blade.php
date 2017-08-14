@@ -11,10 +11,7 @@
 	<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
 <br>    
-<<<<<<< HEAD
 <div class="">
-=======
->>>>>>> 7a5f453e29c28153b45f3d55a4f44bca50910af4
     <table class="table table-striped table-hover table-responsive" id="table">
         <thead>
             <tr>
@@ -42,15 +39,10 @@
             @endforeach
         </tbody>
     </table>
-<<<<<<< HEAD
 </div>
 @stop
 @section('scripts')
 
-=======
-<script type="text/javascript" src="{{URL::asset('/js/jquery.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
->>>>>>> 7a5f453e29c28153b45f3d55a4f44bca50910af4
 <script type="text/javascript" src="{{URL::asset('/js/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('/js/datatables.bootstrap.min.js')}}"></script>
 
@@ -62,6 +54,21 @@
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false,
+      "language": {
+        "emptyTable"    : "Data Kosong",
+        "info"          : "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+        "infoEmpty"     : "Menampilkan 0 sampai 0 dari 0 data",
+        "infoFiltered"  : "(disaring dari _MAX_ total data)",
+        "search"        : "Cari:",
+        "lengthMenu"    : "Tampilkan _MENU_ Data",
+        "zeroRecords"   : "Tidak Ada Data yang Ditampilkan",
+        "oPaginate"     : {
+                            "sFirst":    "Awal",
+                            "sLast":    "Akhir",
+                            "sNext":    "Selanjutnya",
+                            "sPrevious": "Sebelumnya"
+                         },
+                },
       'aoColumnDefs': [{
         'bSortable': false,
         'aTargets': ['nosort']

@@ -4,10 +4,13 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
     <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
-@section('contentheader_title', 'Sampah Detail Kartu Keluarga '.$kepalaKeluarga->kepala_keluarga)
+@section('contentheader_title', 'Sampah DetailKartu Keluarga '.$kepalaKeluarga->kepala_keluarga)
 
 @section('main-content')
-    <br>    
+    <div class="pull-left">
+        <a href="{{url('admin/detailkk/'.$nokk)}}" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Detail Kartu Keluarga</a>
+    </div>
+    <br>
     <table id="table" class="table table-striped table-hover table-responsive" style="font-size:13">
         <thead>
             <tr>
@@ -59,6 +62,21 @@
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false,
+      "language": {
+        "emptyTable"    : "Data Kosong",
+        "info"          : "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+        "infoEmpty"     : "Menampilkan 0 sampai 0 dari 0 data",
+        "infoFiltered"  : "(disaring dari _MAX_ total data)",
+        "search"        : "Cari:",
+        "lengthMenu"    : "Tampilkan _MENU_ Data",
+        "zeroRecords"   : "Tidak Ada Data yang Ditampilkan",
+        "oPaginate"     : {
+                            "sFirst":    "Awal",
+                            "sLast":    "Akhir",
+                            "sNext":    "Selanjutnya",
+                            "sPrevious": "Sebelumnya"
+                         },
+                },
       'aoColumnDefs': [{
         'bSortable': false,
         'aTargets': ['nosort']
