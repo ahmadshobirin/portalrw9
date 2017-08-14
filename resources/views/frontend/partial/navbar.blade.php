@@ -20,11 +20,22 @@
                            </div>
                         </form>  --}}
                         {{-- //menu --}}
+<<<<<<< HEAD
                         <ul class="nav navbar-nav navbar-right">
                              <li class="@if(Request::is('/')) active @endif" ><a href="{{url('/')}}">Beranda</a></li> 
                              @foreach($category as $list)
                                 <li class="@if(Request::is('article/category/'.$list->slug)) active @endif"><a href="{{url('article/category/'.$list->slug)}}">{{$list->category}}</a></li>
                              @endforeach
+=======
+                        <ul class="nav navbar-nav navbar-right" style="padding-right: 40px;">
+                            @if (Auth::check())
+                                <li><a href="{{url('home')}}">Dasbor</a></li>
+                            @endif
+                            <li class="@if(Request::is('/')) active @endif" ><a href="{{url('/')}}">Beranda</a></li> 
+                            @foreach($category as $list)
+                               <li class="@if(Request::is('article/category/'.$list->slug)) active @endif"><a href="{{url('article/category/'.$list->slug)}}">{{$list->category}}</a></li>
+                            @endforeach
+>>>>>>> 2826e2c61ad604e7dec6fa6a3ea7ed4ee291f3c4
                         </ul>
                      </nav>
                   </div>
