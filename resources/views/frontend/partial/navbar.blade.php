@@ -20,7 +20,7 @@
                            </div>
                         </form>  --}}
                         {{-- //menu --}}
-                        <ul class="nav navbar-nav navbar-right" style="padding-right: 40px;">
+                        <ul class="nav navbar-nav navbar-right">
                             @if (Auth::check())
                                 <li><a href="{{url('home')}}">Dasbor</a></li>
                             @endif
