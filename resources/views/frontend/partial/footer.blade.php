@@ -15,7 +15,7 @@
 				 	<a href="{{url('ketentuan-layanan')}}">Ketentuan Layanan</a>
 				</div>
 				<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
-				 	<a href="{{url('kebijakan-privasi')}}">Ketentuan & Kebijakan Privasi</a>
+				 	<a href="{{url('kebijakan-privasi')}}">Kebijakan Privasi</a>
 				</div>
 				<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
 				 	<a href="{{url('panduan-dan-bantuan-menulis')}}">Panduan & Bantuan Menulis</a>

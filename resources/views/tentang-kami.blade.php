@@ -24,7 +24,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content" id="content1">
                            <div class="panel panel-default">
                               <div class="caption panel-body">
-                                 <h3 style="color: black;">TENTANG KAMI</h3>
+                                 <h3 style="color: black;text-align: center;">TENTANG KAMI</h3>
                                  <hr>
                                   
                                   <div class="col-md-12">

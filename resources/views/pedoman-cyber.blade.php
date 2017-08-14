@@ -24,7 +24,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
                            <div class="panel panel-default">
                               <div class="caption panel-body">
-                                 <h3 style="color: black;">PEDOMAN MEDIA CYBER</h3>
+                                 <h3 style="color: black;text-align: center;">PEDOMAN MEDIA CYBER</h3>
                                  <hr>
 
                                  <p>
