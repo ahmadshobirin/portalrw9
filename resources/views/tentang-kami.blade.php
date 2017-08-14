@@ -21,7 +21,7 @@
                   <div class="row">
                      <div class="container">
                         <!-- CONTENT -->
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="content">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content" id="content1">
                            <div class="panel panel-default">
                               <div class="caption panel-body">
                                  <h3 style="color: black;">TENTANG KAMI</h3>
@@ -34,11 +34,12 @@
                         </div>
                         <!-- END CONTENT -->
 
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          @include('frontend.partial.footer')
-                        </div>
+                        
                      </div>
                   </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          @include('frontend.partial.footer')
+                        </div>
                   
                </div>
             </div>

@@ -14,14 +14,14 @@
    <body style="position:relative;">
          <div class="box">
             <div class="row row-offcanvas row-offcanvas-left">
-               <div class="column col-sm-12 col-xs-12" id="main" style="height: 100%;">
+               <div class="column col-sm-12 col-xs-12" id="main" style="height: 100%;" id="content1">
                   <!-- NAVBAR -->
                   @include('frontend.partial.navbar')
                   <!-- END NAVBAR -->
                   <div class="row">
                      <div class="container">
                         <!-- CONTENT -->
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="content">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
                            <div class="panel panel-default">
                               <div class="caption panel-body">
                                  <h3 style="color: black;">PEDOMAN MEDIA CYBER</h3>
@@ -34,12 +34,12 @@
                         </div>
                         <!-- END CONTENT -->
 
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          @include('frontend.partial.footer')
-                        </div>
+                        
                      </div>
                   </div>
-                  
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          @include('frontend.partial.footer')
+                        </div>
                </div>
             </div>
          </div>

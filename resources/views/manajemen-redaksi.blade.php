@@ -21,7 +21,7 @@
                   <div class="row">
                      <div class="container">
                         <!-- CONTENT -->
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="content">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content" id="content1">
                            <div class="panel panel-default">
                               <div class="caption panel-body">
                                 <div style="padding-left: 2px;">
@@ -61,7 +61,7 @@
                                     <hr>
 
                                     <div class="col-sm-12">
-                                      <div class="pull-left col-sm-6" style="border-right: 1px solid #e6e6e6;">
+                                      <div class="pull-left col-sm-6" id="redaksi">
                                       <h4>Alamat Redaksi: </h4>
                                        <p>&emsp;Jl. Rungkut Asri timur 6 No.22, Surabaya-60293, Jawa Timur, Indonesia. </p>
                                         <h4>Email Redaksi: </h4>
@@ -80,12 +80,12 @@
                         </div>
                         <!-- END CONTENT -->
 
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          @include('frontend.partial.footer')
-                        </div>
+                        
                      </div>
                   </div>
-                  
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          @include('frontend.partial.footer')
+                        </div>
                </div>
             </div>
          </div>
