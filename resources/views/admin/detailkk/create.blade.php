@@ -20,7 +20,7 @@
                            <div class="col-md-6">
                               <div class="form-group">
                                  <label for="">Kartu Keluarga</label>
-                                 <select name="kartuKeluarga" id="kartuKeluarga" class="form-control">
+                                 <select name="kartuKeluarga" id="kartuKeluarga" class="form-control" lang="id">
                                     <option value=""></option>
                                     @foreach($datakk as $kk)
                                        <option value="{{$kk->no_kk}}">{{ucfirst($kk->no_kk)}}</option>
@@ -147,11 +147,14 @@
 @section('scripts')
     <script type="text/javascript" src="{{asset('vendor/select2/js/select2.js')}}"></script>
     <script type="text/javascript">
+    var langId = "{{asset('vandor/select2/js/i18n/id.js')}}";
         $(document).ready(function () {
-            $.fn.select2.defaults.set('language', 'id');
+            //$.fn.select2.defaults.set('language', 'id');
+            //$.fn.select2.defaults.set('amdLanguageBase', langId);
              $('#kartuKeluarga').select2({
-                 theme: 'bootstrap',
-                 placeholder: 'Cari Kartu Keluarga...',
+                theme: 'bootstrap',
+                placeholder: 'Cari Kartu Keluarga...',
+                language: 'id'
              });
         });
     </script>
