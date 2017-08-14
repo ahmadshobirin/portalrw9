@@ -7,7 +7,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         </button>
-                        <a href="{{url('/')}}" class="navbar-brand logo">b</a>
+                        <a href="{{url('/')}}" class="navbar-brand"> <img class="img-responsive" src="{{URL::asset('assets/img/logo.jpg')}}" alt="" style="max-width:50px; max-height: 50px; "></a>
                      </div>
                      <nav class="collapse navbar-collapse" role="navigation">
                         {{--  <form class="navbar-form navbar-right" style="padding-right: 40px;">
@@ -20,7 +20,7 @@
                            </div>
                         </form>  --}}
                         {{-- //menu --}}
-                        <ul class="nav navbar-nav navbar-right" style="padding-right: 40px;">
+                        <ul class="nav navbar-nav navbar-right">
                              <li class="@if(Request::is('/')) active @endif" ><a href="{{url('/')}}">Beranda</a></li> 
                              @foreach($category as $list)
                                 <li class="@if(Request::is('article/category/'.$list->slug)) active @endif"><a href="{{url('article/category/'.$list->slug)}}">{{$list->category}}</a></li>
