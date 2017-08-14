@@ -61,14 +61,14 @@
                                     <hr>
 
                                     <div class="col-sm-12">
-                                      <div class="pull-left col-sm-6" id="redaksi">
+                                      <div class="pull-left col-sm-6">
                                       <h4>Alamat Redaksi: </h4>
                                        <p>&emsp;Jl. Rungkut Asri timur 6 No.22, Surabaya-60293, Jawa Timur, Indonesia. </p>
                                         <h4>Email Redaksi: </h4>
                                         <p>&emsp;redaksi@rw9ratim.com</p>                            
                                     </div>
 
-                                    <div class="pull-right col-sm-6">
+                                    <div class="pull-right col-sm-6" style="border-left: 1px solid #e6e6e6;">
                                       <h4> Tim Kolaborasi dan Engagement </h4>
                                       <p> Redaktur Pelaksana </p>
                                     </div>  
