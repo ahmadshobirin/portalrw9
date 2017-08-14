@@ -5723,3 +5723,48 @@ S2.define('jquery.select2',[
   // Return the Select2 instance for anyone who is importing it.
   return select2;
 }));
+$.fn.select2.amd.define('select2/i18n/id',[],function () {
+    // Russian
+    return {
+        errorLoading: function () {
+            return 'Hasilnya tidak dapat dimuat.';
+        },
+        inputTooLong: function (args) {
+            var overChars = args.input.length - args.maximum;
+            var message = 'Hapus ' + overChars + ' Simbol';
+            if (overChars >= 2 && overChars <= 4) {
+                message += 'а';
+            } else if (overChars >= 5) {
+                message += 'ов';
+            }
+            return message;
+        },
+        inputTooShort: function (args) {
+            var remainingChars = args.minimum - args.input.length;
+
+            var message = 'masukkan' + remainingChars + 'atau lebih karakter';
+
+            return message;
+        },
+        loadingMore: function () {
+            return 'Muat Lainnya ...';
+        },
+        maximumSelected: function (args) {
+            var message = 'Anda dapat memilih' + args.maximum + ' elemen';
+
+            if (args.maximum  >= 2 && args.maximum <= 4) {
+                message += 'а';
+            } else if (args.maximum >= 5) {
+                message += 'ов';
+            }
+
+            return message;
+        },
+        noResults: function () {
+          return 'tidak ada yang Ditemukan';
+        },
+        searching: function () {
+          return 'Cari ...';
+        }
+    };
+});
