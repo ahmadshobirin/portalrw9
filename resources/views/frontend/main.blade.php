@@ -4,7 +4,7 @@
         <!-- STYLE CSS -->
       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
       <meta charset="utf-8">
-      <link rel="icon" type="image/jpg" href="{{URL::asset('assets/img/portal.jpg')}}">
+      <link rel="icon" type="image/jpg" href="{{URL::asset('assets/img/logo.jpg')}}">
       <title>Rw9Ratim</title>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link href="{{URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -22,9 +22,9 @@
                   @include('frontend.partial.navbar')
                 <!-- END NAVBAR -->
 
-                  <div class="row" style="margin-top: 5%;">
+                  <div class="row" >
                      <div class="container">
-                        <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12" id="main">
+                        <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12" id="content">
                           <!-- CONTENT -->
                             @section ('body')
                             @show

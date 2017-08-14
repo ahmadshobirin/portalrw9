@@ -164,6 +164,11 @@ hr {
 .color-footer {
     color: white;
 }
+
+a.navbar-brand{
+  padding-top: 0px;
+  padding-left: 0px;
+}
 .footer-bottom {
     background-color: #388E3C;
     width: 100%;
@@ -175,9 +180,6 @@ hr {
     line-height: 30px;
     min-height: 30px;
     padding: 7px 0;
-}
-#copyright {
-    text-align: right;
 }
 .footer-bottom a {
     color: #fff;
@@ -276,16 +278,25 @@ a.category {
 small.text-muted {
     font-family: courier, courier-new, monospace;
 }
+
+div.container {
+  margin-top: 4%;
+}
+ul.navbar-right {
+      padding-right: 40px;
+}
 /* adjust the contents on smaller devices */
 
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
+    ul.navbar-right {
+      padding-right: 30px;
+    }
+
     div.side {
         margin-bottom: 18%;
     }
 
-    div#main {
-        margin-bottom: 8%;
-    }
+
     .footer-bottom {
         background-color: #388E3C;
         width: 100%;
@@ -296,12 +307,13 @@ small.text-muted {
         padding: 1rem;
         bottom: 0;
     }
-    #copyright {
-        text-align: center;
+
+    div#content{
+      margin-bottom: 8%;
     }
   
-        div.container {
-      margin-top: 1%;
+    div.container {
+      margin-top: 6%;
     }
   
     div.design {
@@ -312,18 +324,14 @@ small.text-muted {
       font-size: 12px;
     }
 }
-/*
- * off canvas sidebar
- * --------------------------------------------------
- */
 
+@media only screen and (max-width: 769px) and (min-width: 425px) {
+    ul.navbar-right {
+      padding-right: 20px;
+    }
 
-@media only screen and (max-width: 768px) and (min-width: 425px;) {
     .column .padding {
         padding: 7px;
-    }
-    div.side {
-        margin-bottom: 18%;
     }
     .full {
         padding-top: 20px;
@@ -350,20 +358,18 @@ small.text-muted {
         width: 33%;
         margin-left: 5px;
     }
-    div#copyright {
-        text-align: center;
-    }
 
     #sidebar,
     #sidebar a,
     #sidebar-footer a {
         padding-left: 3px;
     }
-    div.container {
-        margin-top: 5%;
-    }
     div.side {
         margin-bottom: 18%;
+    }
+
+    div.container {
+      margin-top: 0;
     }
     .footer-bottom {
         background-color: #388E3C;
@@ -374,6 +380,135 @@ small.text-muted {
         padding: 1rem;
         bottom: 0;
     }
+}
+
+@media only screen and (max-width: 425px) and (min-width: 375px) {
+  ul.navbar-right {
+      padding-right: 0px;
+  }
+
+  div.side {
+    margin-bottom: 35%;
+  }
+
+  div.design{
+    font-size: 10px;
+  }
+
+  div#copyright{
+    text-align: center;
+    font-size: 10px;
+  }
+
+  h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  div.panel-body {
+    padding: 10px;
+  }
+
+  a.category{
+    font-size: 15px;
+  }
+
+  div.container {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  p.text-muted{
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+  ul.navbar-right {
+      padding-right: 0px;
+  }
+
+  div.side {
+    margin-bottom: 5%;
+  }
+
+  div.design{
+    font-size: 8px;
+  }
+
+  div#copyright{
+    text-align: center;
+    font-size: 10px;
+  }
+
+  h3{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 21px;
+  }
+
+  div.panel-body {
+    padding: 5px;
+  }
+
+  a.category{
+    font-size: 12px;
+  }
+
+  div.container {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 15%;
+  }
+
+  p.text-muted{
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  ul.navbar-right {
+      padding-right: 0px;
+  }
+  
+  div.side {
+    margin-bottom: 5%;
+  }
+
+  div.design{
+    font-size: 8px;
+  }
+
+  div#copyright{
+    text-align: center;
+    font-size: 10px;
+  }
+
+  h3{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 21px;
+  }
+
+  div.panel-body {
+    padding: 5px;
+  }
+
+  a.category{
+    font-size: 12px;
+  }
+
+  div.container {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 18%;
+  }
+
+  p.text-muted{
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
 }
 
 .topik {
@@ -393,6 +528,9 @@ small.text-muted {
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+}
+#copyright {
+  text-align: right;
 }
 .overlay {
     position: absolute;
