@@ -148,6 +148,7 @@
     <script type="text/javascript" src="{{asset('vendor/select2/js/select2.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $.fn.select2.defaults.set('language', 'id');
              $('#kartuKeluarga').select2({
                  theme: 'bootstrap',
                  placeholder: 'Cari Kartu Keluarga...',
