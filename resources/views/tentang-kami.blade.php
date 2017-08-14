@@ -70,7 +70,9 @@
                                       <p>&emsp;(031) 8710230</p>  
 
                                       <h4>Email: </h4>
-                                      <p>&emsp;info@rw9ratim.com, redaksi@rw9ratim.com </p> 
+                                      <p>&emsp;<a href="#">info@rw9ratim.com</a>, 
+                                              <a href="#">redaksi@rw9ratim.com</a>
+                                      </p> 
                                     </div>
 
                                     <div class="col-sm-6" style="border-left: 1px solid #e6e6e6;">
