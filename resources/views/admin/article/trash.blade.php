@@ -17,8 +17,8 @@
             <tr>
                 <th>No.</th>
                 <th>Judul</th>
-                <th>Sampul</th>
                 <th>Kategori</th>
+                <th>Sampul</th>
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
@@ -28,8 +28,8 @@
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>{{$list->title}}</td>
-                    <td><img src="{{asset('images/'.$list->images)}}" style="max-width:100px"></td>
                     <td>{{$list->category}}</td>
+                    <td><img src="{{asset('images/'.$list->images)}}" style="max-width:100px"></td>
                     <td>
                         <a href="{{url('/admin/article/restore/'.$list->id)}}" class="btn btn-success btn-md">
                             Kembalikan Data

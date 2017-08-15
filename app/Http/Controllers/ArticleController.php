@@ -158,8 +158,10 @@ class ArticleController extends Controller
 
     public function trash()
     {
-        $item = ArticleModel::onlyTrashed()->get();
-        return view('admin.article.trash', compact('item'));
+        $item = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->onlyTrashed()
+                ->get();
+        return view('admin.article.trash', compact('item', 'category'));
     }
 
 
