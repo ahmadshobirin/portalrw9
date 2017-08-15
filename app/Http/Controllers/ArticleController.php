@@ -173,9 +173,8 @@ class ArticleController extends Controller
     public function permanentDelete($id)
     {
         $articleDelete = ArticleModel::withTrashed()->where('id','=',$id)->first();
-        //dd($articleDelete->images,public_path('images'.'/'.$articleDelete->images));
-        $cek = File::delete($articleDelete->images);
-        var_dump($cek);
-
+        @unlink(public_path('images/'.$articleDelete->images));      
+        $articleDelete->forceDelete();
+        return redirect()->back();
     }
 }
