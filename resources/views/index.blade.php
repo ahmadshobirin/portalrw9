@@ -13,14 +13,14 @@
   @forelse($Listarticle as $list)
       <div class="panel panel-default">
           <a href="{{url('article/post/'.$list->slug)}}">
-            <div class="panel-thumbnail"><img src="/storage/{{$list->images}}" class="img-responsive" style="width: 100%; max-height: 400px;">
+            <div class="panel-thumbnail"><img src="{{asset('images/'.$list->images)}}" class="img-responsive" style="width: 100%; max-height: 400px;">
             </div>
           </a>
             <div class="caption panel-body">
               <p class="text-muted">POSTED BY ADMIN | {{$list->created_at->diffForHumans()}}</p>
               <a href="{{url('article/post/'.$list->slug)}}"> <h3>{{$list->title}}</h3> </a>
               <p class="text-left">{{$list->description}}</p>
-              <span> <a href="#" class="category">{{$list->category}}</a></span>
+              <span> <a href="{{url('/article/category/'.$list->category)}}" class="category">{{$list->category}}</a></span>
             </div>
       </div>
     @empty

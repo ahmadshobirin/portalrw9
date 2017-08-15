@@ -55,7 +55,7 @@
                     
                     <tr>
                         <th>Kodepos</th>
-                        <td><input type="text" name="kodepos" class="form-control"  required=""></td>
+                        <td><input type="text" name="kodepos" class="form-control"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' required=""></td>
                         <th>Provinsi</th>
                         <td><input type="text" name="provinsi" class="form-control" required=""></td>
                     </tr>

@@ -44,7 +44,7 @@ class frontController extends Controller
 
      public function article_view($slug)
      {    
-        $article    = ArticleModel::join('category', 'category.id', '=', 'article.category')
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
                 ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
                 ->orderBy('article.id','desc')
                 ->limit(4)
@@ -55,20 +55,11 @@ class frontController extends Controller
         return view('detail-index', compact("article", "category","image", "articleInti"));
 
      }
-    
-     // public function category_article($id)
-     // {    
-     //      $article = ArticleModel::where("category", "=", $id)->get();
-     //      $page_title = KategoriArticleModel::find($id);
-     //      $category = KategoriArticleModel::get();
-     //      return view('category_article', compact("article", "category", "page_title"));
-     // }
   
     public function category_article($slug)
      {  
-        $kategori = KategoriArticleModel::where('slug','=',$slug)->first();
-        // dd($kategori);
-        $listArticle  =  ArticleModel::select('category.category','article.slug','article.id','article.title',
+        $kategori     = KategoriArticleModel::where('slug','=',$slug)->first();
+        $listArticle  = ArticleModel::select('category.category','article.slug','article.id','article.title',
                      'article.description','article.images','article.created_at')
                      ->join('category','category.id','=','article.category')
                      ->where('article.category','=',$kategori->id)
@@ -79,10 +70,8 @@ class frontController extends Controller
                 ->orderBy('article.id','desc')
                 ->limit(4)
                 ->get();
-
-        // dd($listArticle,$article);
         $category = KategoriArticleModel::get();
-        return view('detail-post', compact("kategori","category","article","listArticle"));
+        return view('category', compact("articleInti","kategori","category","article","listArticle"));
      }
     
     public function birthday()
@@ -96,13 +85,6 @@ class frontController extends Controller
         $category = KategoriArticleModel::get();
         // dd($birthdayTomorrow, $birthdayNow);
         return view('ultah', compact("birthday","article","category"));
-    }
-
-    public function detail()
-    {
-        $article = ArticleModel::get();
-        $category = KategoriArticleModel::get();
-        return view('detail-post',compact('article','category'));
     }
 
     public function tentangkami()

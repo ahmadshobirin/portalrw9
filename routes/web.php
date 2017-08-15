@@ -16,12 +16,9 @@
 |
 */
 
-Route::get('/detail','frontController@detail');
-
-Route::get('/welcome','frontController@index');
-
 Route::get('/','frontController@index');
-Route::get('/article/post/{slug}','frontController@article_view');
+Route::get('/article/category/{slug}','frontController@category_article');
+Route::get('/article/post/{slug}','frontController@article_view'); 
 Route::get('/birthday','frontController@birthday');
 Route::get('/tentang-kami','frontController@tentangkami');
 Route::get('/pedoman-media-cyber','frontController@pedoman');
@@ -29,7 +26,6 @@ Route::get('/manajemen-redaksi','frontController@manajemen');
 Route::get('/ketentuan-layanan','frontController@ketentuan');
 Route::get('/kebijakan-privasi','frontController@kebijakan');
 Route::get('/panduan-dan-bantuan-menulis','frontController@panduan');
-Route::get('/article/category/{slug}','frontController@category_article');
 
 Route::group(['middleware' => 'auth'], function () {
     
