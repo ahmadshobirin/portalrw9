@@ -13,7 +13,6 @@
         <!-- END STYLE CSS -->
    </head>
    <body>
-      <div class="wrapper">
          <div class="box">
             <div class="row row-offcanvas row-offcanvas-left">
                <div class="column col-sm-12 col-xs-12" id="main" style="height: 100%;">

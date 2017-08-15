@@ -11,6 +11,9 @@
         <a href="{{ url('admin/warga/create') }}" class="btn btn-success btn-md">
             <i class="fa fa-plus"></i> Tambah Data
         </a>
+        <a href="{{url('/admin/wargatrash')}}" class="btn btn-danger btn-md">
+        <i class="fa fa-trash"></i> Lihat Data Sampah
+    </a>
     </div>
     <br>    
     <table id="table" class="table table-striped table-hover table-responsive" style="font-size:12px">

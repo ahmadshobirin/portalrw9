@@ -280,10 +280,14 @@ small.text-muted {
 }
 
 div.container {
-  margin-top: 4%;
+  margin-top: 5%;
 }
 ul.navbar-right {
       padding-right: 40px;
+}
+
+div#redaksi {
+    border-right: 1px solid #e6e6e6;
 }
 /* adjust the contents on smaller devices */
 
@@ -295,7 +299,6 @@ ul.navbar-right {
     div.side {
         margin-bottom: 18%;
     }
-
 
     .footer-bottom {
         background-color: #388E3C;
@@ -309,11 +312,11 @@ ul.navbar-right {
     }
 
     div#content{
-      margin-bottom: 8%;
+      margin-bottom: 12%;
     }
   
     div.container {
-      margin-top: 6%;
+      margin-top: 8%;
     }
   
     div.design {
@@ -365,7 +368,7 @@ ul.navbar-right {
         padding-left: 3px;
     }
     div.side {
-        margin-bottom: 18%;
+        margin-bottom: 23%;
     }
 
     div.container {
@@ -380,6 +383,11 @@ ul.navbar-right {
         padding: 1rem;
         bottom: 0;
     }
+
+    div#content1{
+      margin-bottom: 19%;
+    }
+
 }
 
 @media only screen and (max-width: 425px) and (min-width: 375px) {
@@ -387,8 +395,13 @@ ul.navbar-right {
       padding-right: 0px;
   }
 
+  div#redaksi {
+    border-right: none;
+    border-bottom: 1px solid #e6e6e6;
+}
+
   div.side {
-    margin-bottom: 35%;
+    margin-bottom: 47%;
   }
 
   div.design{
@@ -399,6 +412,10 @@ ul.navbar-right {
     text-align: center;
     font-size: 10px;
   }
+
+  div#content1{
+      margin-bottom: 38%;
+    }
 
   h3{
     margin-top: 5px;
@@ -424,6 +441,11 @@ ul.navbar-right {
 }
 
 @media only screen and (max-width: 375px) and (min-width: 320px) {
+  div#redaksi {
+    border-right: none;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
   ul.navbar-right {
       padding-right: 0px;
   }
@@ -440,6 +462,10 @@ ul.navbar-right {
     text-align: center;
     font-size: 10px;
   }
+
+  div#content1{
+      margin-bottom: 2%;
+    }
 
   h3{
     margin-top: 3px;
@@ -458,7 +484,7 @@ ul.navbar-right {
   div.container {
     padding-right: 0px;
     padding-left: 0px;
-    margin-top: 15%;
+    margin-top: 17%;
   }
 
   p.text-muted{
@@ -530,7 +556,7 @@ ul.navbar-right {
     -ms-transform: translate(-50%, -50%);
 }
 #copyright {
-  text-align: right;
+  text-align: center;
 }
 .overlay {
     position: absolute;

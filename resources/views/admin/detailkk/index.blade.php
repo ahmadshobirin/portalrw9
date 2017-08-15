@@ -12,7 +12,7 @@
             <i class="fa fa-plus"></i> Tambah Data
         </a>
         <a href="{{ url('admin/detailkktrash/'.$nokk) }}" class="btn btn-danger btn-md">
-            <i class="fa fa-trash"></i> Lihat Sampah
+            <i class="fa fa-trash"></i> Lihat Data Sampah
         </a>
     </div>
   
