@@ -172,6 +172,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'Image' => Intervention\Image\Facades\Image::class,
         
     ],
 

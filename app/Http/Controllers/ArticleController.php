@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use App\ArticleModel;
 use App\KategoriArticleModel;
 use DB;
+use File;
+use Image;
 
 class ArticleController extends Controller
 {
@@ -57,14 +59,24 @@ class ArticleController extends Controller
                 'content' => 'required',
             ]);      
         $item =  new ArticleModel;
+        $item->user_id = auth()->user()->id;
         $item->category = $request->category;
         $item->title = $request->title;
         $item->slug = str_slug($request->title,'-');
-        $path = $request->file('images')->store('public/img');
-        $item->images = "img/".$request->file('images')->hashName();
+        // $path = $request->file('images')->store('public/img');
+        // $item->images = $request->file('images')->hashName();
+        if($request->hasFile('images')){ 
+            $file = $request->file('images');
+            $filename = time().'-'.$file->getClientOriginalName();
+            $location = public_path('images/'.$filename);
+            Image::make($file)->resize(800,400)->save($location);
+        }
+        //$images->move('images/',$filename);
+        $item->images = $filename;
         $item->view = 0;
         $item->description = $request->description;
         $item->content = $request->content;
+        //dd($item);
         $item->save();
         return redirect('/admin/article');
         //return $request->file('images')->getClientOriginalName();
@@ -112,16 +124,22 @@ class ArticleController extends Controller
                 'content' => 'required',
             ]); 
         $item->category = $request->category;
-        if(empty($request->images)){
-            $item->images = $item->images;
-        }else{
-            //deleteimagefunction
-            $path = $request->file('images')->store('public/img');
-            $item->images = "img/".$request->file('images')->hashName();
-        }
         $item->title = $request->title;
         $item->description = $request->description;
         $item->content = $request->content;
+        if($request->hasFile('images'))
+        {
+            $file = $request->file('images');
+            $filename = time().'-'.$file->getClientOriginalName();
+            $location = public_path('images/'.$filename);
+            Image::make($file)->resize(800,400)->save($location);
+            $oldFile = $item->images;
+
+            $item->images = $filename;
+
+            File::delete(public_path('images/'.$oldFile));
+        }
+        //dd($item);
         $item->save();
         return redirect('/admin/article');
     }
@@ -154,9 +172,10 @@ class ArticleController extends Controller
 
     public function permanentDelete($id)
     {
-        $dt = ArticleModel::withTrashed()->where('id','=',$id)->first();
-        Storage::delete($dt->images);
-        $dt->forceDelete();
-        return redirect()->back();
+        $articleDelete = ArticleModel::withTrashed()->where('id','=',$id)->first();
+        //dd($articleDelete->images,public_path('images'.'/'.$articleDelete->images));
+        $cek = File::delete($articleDelete->images);
+        var_dump($cek);
+
     }
 }

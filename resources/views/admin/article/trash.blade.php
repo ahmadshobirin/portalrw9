@@ -28,13 +28,13 @@
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>{{$list->title}}</td>
-                    <td><img src="/storage/{{$list->images}}" style="max-width:100px"></td>
+                    <td><img src="{{asset('images/'.$list->images)}}" style="max-width:100px"></td>
                     <td>{{$list->category}}</td>
                     <td>
                         <a href="{{url('/admin/article/restore/'.$list->id)}}" class="btn btn-success btn-md">
                             Kembalikan Data
                         </a>
-                        <a href="{{url('/admin/article/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md">
+                        <a href="{{url('/admin/article/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md" onclick="return confirm('Hapus Artikel Selamanya ?')">
                             Hapus Permanen
                         </a>
                     </td>

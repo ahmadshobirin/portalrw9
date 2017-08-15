@@ -30,7 +30,7 @@
             <th>Gambar Sampul</th>
             <td>
                 <input type="file" name="images" class="form-control">
-                <img src="/storage/{{$article->images}}" style="max-width:100px">
+                <img src="{{asset('images/'.$article->images)}}" style="max-width:100px">
             </td>
         </tr>
         <tr>
@@ -54,6 +54,5 @@
     </table>
 </form>
 @ckeditor('content')
-
 
 @endsection

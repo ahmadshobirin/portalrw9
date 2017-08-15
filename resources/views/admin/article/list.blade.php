@@ -33,7 +33,7 @@
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>{{$list->title}}</td>
-                    <td><img src="{{asset('storage/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
+                    <td><img src="{{asset('images/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
                     <td>{{$list->category}}</td>
                     <td>
                         <form method="post" action="/admin/article/{{$list->id}}">

@@ -25,7 +25,6 @@
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
-
         <tbody>
             <?php $i=1 ?>
             @foreach($category as $list)
