@@ -2,7 +2,7 @@
 
    <div class="panel panel-default side">
       <h4 style="padding-left: 10px;padding-right: 9px;"> Artikel Baru!</h4>
-      @forelse($article as $list)
+      @forelse($latestArticle as $list)
 
             <div class="panel-body topik">
                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">

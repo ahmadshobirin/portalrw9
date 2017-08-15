@@ -2,13 +2,14 @@
 
 @section('body')
 
-	@forelse($articleInti as $list)
+	@forelse($listArticle as $list)
 			<div class="panel panel-default">
-			   <div class="panel-thumbnail"><img src="/storage/{{$list->images}}" class="img-responsive" style="width: 100%; max-height: 400px;">
+			   <div class="panel-thumbnail"><img src="{{asset('images/'.$list->images)}}" class="img-responsive" style="width: 100%; max-height: 400px;">
 			   </div>
 			   <div class="caption panel-body">
 			      <h3>{{$list->title}}</h3>
 			      <p class="text-muted">POSTED BY ADMIN | {{$list->created_at->diffForHumans()}}</p>
+			      <span class="category pull-right">{{$list->category}}</span>
 			      {!! $list->content !!}
 			   </div>
 			</div>
