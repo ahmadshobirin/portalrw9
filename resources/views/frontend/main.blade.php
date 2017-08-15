@@ -88,7 +88,7 @@
                   if (nsec <= 9) nsec = "0" + nsec;
 
                   //document.getElementById('clockboxhour').innerHTML = "" + tday[nday] + ", " + ndate + " " + tmonth[nmonth] + " " + nyear + " " + nhour + ":" + nmin + ":" + nsec + " WIB";
-                  if (nhour + "." + nmin == 16.06) player.play();
+                  if (nhour + "." + nmin == 06.00) player.play();
               }
 
               window.onload = function() {
