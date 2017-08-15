@@ -43,20 +43,20 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>desa/kelurahan</th>
+                        <th>Desa/Kelurahan</th>
                         <td colspan="3"><input type="text" name="desa_kelurahan" class="form-control"  required=""></td>
                     </tr>
                     <tr>
-                        <th>kecamatan</th>
+                        <th>Kecamatan</th>
                         <td><input type="text" name="kecamatan" class="form-control"  required=""></td>
-                        <th>kabupaten/kota</th>
+                        <th>Kabupaten/kota</th>
                         <td><input type="text" name="kabupaten_kota" class="form-control"  required=""></td>
                     </tr>
                     
                     <tr>
-                        <th>kodepos</th>
+                        <th>Kodepos</th>
                         <td><input type="text" name="kodepos" class="form-control"  required=""></td>
-                        <th>provinsi</th>
+                        <th>Provinsi</th>
                         <td><input type="text" name="provinsi" class="form-control" required=""></td>
                     </tr>
                     <tr>
@@ -161,7 +161,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                <label for="">kitab</label>
+                                                <label for="">Kitab</label>
                                                 <input type="text" name="kitap" class="form-control" placeholder="kitab">
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@
                         <th>Aksi</th>
                         <th>Nama</th>
                         <th>Nik</th>
-                        <th>Tmpt Lahir</th>
+                        <th>Tempat Lahir</th>
                         <th>Tanggal Lahir</th>
                         <th>Pendidikan</th>
                         <th>Status Pernikahan</th>
@@ -205,11 +205,11 @@
                 </table>
                 <table class="table table-responsive table-bordered table-hover" id="tbl2">
                     <tr>
-                        <th>Jk</th>
+                        <th>Jenis Kelamin</th>
                         <th>Status Keluarga</th>
                         <th>Kewarganegaraan</th>
                         <th>Pasport</th>
-                        <th>Kitap</th>
+                        <th>Kitab</th>
                         <th>Ayah</th>
                         <th>Ibu</th>
                     </tr>
@@ -292,12 +292,78 @@
                         counter: {
                                 number:true,
                                 required:true
-                            }
+                            },
+                        no_kk:{
+                                required:true,
+                        },
+                        kepala_keluarga:{
+                                required:true,
+                        },
+                        rt:{
+                                required:true,
+                        },
+                        rw:{
+                                required:true,
+                        },
+                        kodepos:{
+                                required:true,
+                        },
+                        desa_kelurahan:{
+                                required:true,
+                        },
+                        kecamatan:{
+                                required:true,
+                        },
+                        kabupaten_kota:{
+                                required:true,
+                        },
+                        provinsi:{
+                                required:true,
+                        },
+                        keluarTanggal:{
+                                required:true,
+                        },
+                        alamat:{
+                                required:true,
+                        },
                     },
                     messages:{
                         counter:{
                             required: "Detail KK tidak boleh kosong"
-                        }
+                        },
+                        no_kk:{
+                                required:"No KK belum diisi"
+                        },
+                        kepala_keluarga:{
+                                required:"Kepala Keluarga belum diisi"
+                        },
+                        rt:{
+                                required:"RT belum diisi"
+                        },
+                        rw:{
+                                required:"RW belum diisi"
+                        },
+                        kodepos:{
+                                required:"Kodepos belum diisi"
+                        },
+                        desa_kelurahan:{
+                                required:"Desa/Kelurahan belum diisi"
+                        },
+                        kecamatan:{
+                                required:"Kecamatan belum diisi"
+                        },
+                        kabupaten_kota:{
+                                required:"Kabupaten/Kota belum diisi"
+                        },
+                        provinsi:{
+                                required:"Provinsi belum diisi"
+                        },
+                        keluarTanggal:{
+                                required:"Tanggal belum diisi"
+                        },
+                        alamat:{
+                                required:"Alamat belum diisi"
+                        },
                     },
                     submitHandler: function (form) {
                         var no_kk =  $("[name='no_kk']").val();
