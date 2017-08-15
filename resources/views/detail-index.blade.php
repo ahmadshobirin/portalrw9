@@ -8,8 +8,7 @@
 			   </div>
 			   <div class="caption panel-body">
 			      <h3>{{$list->title}}</h3>
-			      <p class="text-muted">POSTED BY ADMIN | {{$list->created_at->diffForHumans()}}</p>
-			      <span class="category pull-right">{{$list->category}}</span>
+			      <p class="text-muted">POSTED BY ADMIN | {{$list->created_at->diffForHumans()}} | <a href="{{url('/article/category/'.$list->category)}}">{{$list->category}}</a></p>
 			      {!! $list->content !!}
 			   </div>
 			</div>

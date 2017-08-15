@@ -16,7 +16,8 @@
                         <p style="font-size: 15px;"> {{$list->title}} </p>
                      </a>
                   </b>
-                  <p style="font-size: 12px;"> &emsp;{{$list->description}}</p>
+                  <p style="font-size: 12px;"> &emsp;{{str_limit($list->description,25)}}</p>
+                  <p style="font-size: 12px;"> &emsp;<a href="{{url('/article/category/'.$list->category)}}">{{$list->category}}</a></p>
                </div>
             </div>
 

@@ -10,7 +10,7 @@
             </a>
             <div class="caption">
                 <p class="text-muted">Posted By Admin | {{ $list->created_at->diffForHumans() }}</p>
-                <span class="category pull-right">{{$list->category}}</span>
+                <span class="category pull-right"><a href="{{url('/article/category/'.$list->category)}}">{{$list->category}}</a></span>
                 <p class="text-left">{{ $list->description }}</p>
             </div>
         </div>
