@@ -17,7 +17,7 @@
                     @include('adminlte::layouts.partials.displayerror')
                     <div class="form-group">
                         <label for="">Password Lama</label>
-                        <input type="password" name="pass_lama" required="" class="form-control">
+                        <input type="password" name="pass_lama" required="" class="form-control" autofocus>
                     </div>
                     <div class="form-group">
                         <label for="">Password Baru</label>

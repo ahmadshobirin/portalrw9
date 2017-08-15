@@ -42,7 +42,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{ url('/admin/pengaturan') }}" class="btn btn-default btn-flat">Update Password</a>
+                                    <a href="{{ url('/admin/pengaturan') }}" class="btn btn-default btn-flat">Ubah Password</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat" id="logout"
