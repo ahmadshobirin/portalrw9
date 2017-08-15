@@ -129,6 +129,9 @@ return [
         'nis' => 'NIS',
         'bapak' => 'Bapak', 
         'ibu' => 'Ibu',
+        'pass_lama' => 'Password lama',
+        'pass_baru' => 'Password baru',
+        'konfirmasi_pass' => 'Konfirmasi password baru'
     ],
 
 ];
