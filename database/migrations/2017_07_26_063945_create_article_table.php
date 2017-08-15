@@ -23,6 +23,7 @@ class CreateArticleTable extends Migration
             $table->string('description');
             $table->text('content');
             $table->integer('view');
+            $table->enum('status',['aktif','nonaktif']);
             $table->timestamps();
             $table->softDeletes();
         });
