@@ -73,6 +73,7 @@ class DetailKkController extends Controller
         $kewarganegaraan = $request->kewarganegaraan ?  $request->kewarganegaraan : '' ;
         $pasport =  $request->pasport ?  $request->pasport : '';
         $kitap =  $request->kitap ?  $request->kitap : '';
+
         $update = DetailKkModel::find($id);
         $update->kartu_keluarga = $request->kartuKeluarga;
         $update->nik = $request->nik;
@@ -89,7 +90,9 @@ class DetailKkController extends Controller
         $update->ayah = $request->ayah;
         $update->ibu = $request->ibu;
         $update->save();
-        return redirect('admin/detailkk');
+
+       $dataDetailKk = DetailKkModel::where('kartu_keluarga','=',$request->kartuKeluarga)->get();
+        return redirect('admin/detailkk/'.$update->kartu_keluarga)->with('dataDetailKk',$dataDetailKk);
     }
 
     public function destroy($id)
