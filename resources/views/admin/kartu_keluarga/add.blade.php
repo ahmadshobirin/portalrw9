@@ -12,7 +12,7 @@
     <div class="box box-success">
         <div class="box-header">Data Kartu Keluarga</div>
         <div class="box-body">
-            <form id="formCreate" onsubmit="saveData()">
+            <form id="formCreate">
                 <table class="table table-responsive">
                     <tr>
                         <th>No.KK</th>
@@ -381,7 +381,7 @@
 
                         $.ajax({
                             type: "POST",
-                            url: '/admin/warga/create/ajax',
+                            url: "<?= url('/admin/warga/create/ajax') ?>",
                             data: { no_kk : no_kk, kepala_keluarga : kepala_keluarga, rt : rt, rw : rw, kodepos : kodepos,desa_kelurahan : desa_kelurahan, kecamatan : kecamatan, kabupaten_kota : kabupaten_kota, provinsi : provinsi, keluarTanggal : keluarTanggal, alamat : alamat, data : detailKeluarga, counter : counter, _token : "{{csrf_token()}}" },
                             success: function(msg) {
                                 alert(msg);

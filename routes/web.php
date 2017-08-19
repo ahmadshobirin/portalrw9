@@ -28,8 +28,8 @@ Route::get('/kebijakan-privasi','frontController@kebijakan');
 Route::get('/panduan-dan-bantuan-menulis','frontController@panduan');
 
 Route::group(['middleware' => 'auth'], function () {
-    
-    Route::resource('/admin/article','articleController');
+
+    Route::resource('/admin/article','ArticleController');
     Route::resource('/admin/category','categoryController');
     Route::resource('/admin/warga','kkController');
     Route::get('/admin/pengaturan','UserController@password');
@@ -45,9 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/detailkk/delete/{id}','DetailKkController@destroy');
     Route::get('admin/detailkk/{nokk}','DetailKkController@show');
 
-    Route::get('admin/articletrash', 'articleController@trash');
-    Route::get('admin/article/restore/{id}', 'articleController@restore');
-    Route::get('admin/article/permanent/delete/{id}', 'articleController@permanentDelete');
+    Route::get('admin/articletrash', 'ArticleController@trash');
+    Route::get('admin/article/restore/{id}', 'ArticleController@restore');
+    Route::get('admin/article/permanent/delete/{id}', 'ArticleController@permanentDelete');
 
     Route::get('admin/categorytrash', 'categoryController@trash');
     Route::get('admin/category/restore/{id}', 'categoryController@restore');
@@ -60,4 +60,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/detailkktrash/{nokk}', 'DetailKkController@trash');
     Route::get('admin/detailkk/restore/{id}', 'DetailKkController@restore');
     Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');    
+    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
+    #adminlte_routes
 });
