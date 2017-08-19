@@ -404,8 +404,14 @@ div#redaksi {
     margin-bottom: 47%;
   }
 
-  div.design{
+  #borderR{
+    border-right: 1px solid #e6e6e6;
+  }
+
+  .design div{
     font-size: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 0px;
   }
 
   div#copyright{
@@ -454,8 +460,14 @@ div#redaksi {
     margin-bottom: 5%;
   }
 
-  div.design{
+  #borderR{
+    border-right: 1px solid #e6e6e6;
+  }
+
+  .design div{
     font-size: 8px;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 0px;
   }
 
   div#copyright{
