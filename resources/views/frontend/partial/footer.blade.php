@@ -17,7 +17,7 @@
 				<div class="col-md-2 col-sm-2 col-xs-6 col-lg-2" id="borderR">
 				 	<a href="{{url('kebijakan-privasi')}}">Kebijakan Privasi</a>
 				</div>
-				<div class="col-md-2 col-sm-2 col-xs-6 col-lg-2">
+				<div class="col-md-2 col-sm-2 col-xs-6 col-lg-2" style="padding-left: 0;padding-right: 0;">
 				 	<a href="{{url('panduan-dan-bantuan-menulis')}}">Panduan & Bantuan Menulis</a>
 				</div>
 		</div>
