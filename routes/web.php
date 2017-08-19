@@ -29,9 +29,10 @@ Route::get('/panduan-dan-bantuan-menulis','frontController@panduan');
 
 Route::group(['middleware' => 'auth'], function () {
     
-    Route::resource('/admin/article','articleController');
+    Route::resource('/admin/article','ArticleController');
     Route::resource('/admin/category','categoryController');
     Route::resource('/admin/warga','kkController');
+    Route::resource('/admin/slider','SliderContoller');
     Route::get('/admin/pengaturan','UserController@password');
     Route::post('/admin/pengaturan','UserController@updatePassword');
     Route::get('/admin/warga/{id}/delete','kkController@destroy');
@@ -45,9 +46,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/detailkk/delete/{id}','DetailKkController@destroy');
     Route::get('admin/detailkk/{nokk}','DetailKkController@show');
 
-    Route::get('admin/articletrash', 'articleController@trash');
-    Route::get('admin/article/restore/{id}', 'articleController@restore');
-    Route::get('admin/article/permanent/delete/{id}', 'articleController@permanentDelete');
+    Route::get('admin/articletrash', 'ArticleController@trash');
+    Route::get('admin/article/restore/{id}', 'ArticleController@restore');
+    Route::get('admin/article/permanent/delete/{id}', 'ArticleController@permanentDelete');
 
     Route::get('admin/categorytrash', 'categoryController@trash');
     Route::get('admin/category/restore/{id}', 'categoryController@restore');
@@ -59,5 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('admin/detailkktrash/{nokk}', 'DetailKkController@trash');
     Route::get('admin/detailkk/restore/{id}', 'DetailKkController@restore');
-    Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');    
+    Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');   
+
+    Route::get('admin/slidertrash', 'SliderContoller@trash');
+    Route::get('admin/slidertrash/restore/{id}', 'SliderContoller@restore');
+    Route::get('admin/slidertrash/permanent/delete/{id}', 'SliderContoller@permanentDelete');
 });

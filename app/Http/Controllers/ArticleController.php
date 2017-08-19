@@ -115,7 +115,6 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = ArticleModel::find($id);
         $this->validate($request,[
                 'category' => 'required|not_in:--Kategori--',
                 'title' => 'required', 
@@ -123,6 +122,7 @@ class ArticleController extends Controller
                 'description' => 'required',
                 'content' => 'required',
             ]); 
+        $item = ArticleModel::find($id);
         $item->category = $request->category;
         $item->title = $request->title;
         $item->description = $request->description;
