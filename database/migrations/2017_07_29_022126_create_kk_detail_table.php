@@ -15,8 +15,8 @@ class CreateKkDetailTable extends Migration
     {
         Schema::create('detail_kartu_keluarga', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("kartu_keluarga");
-            $table->integer("nik");
+            $table->string("kartu_keluarga");
+            $table->string("nik");
             $table->string("nama");
             $table->enum("jk",['laki-laki','perempuan']);
             $table->string("tempat_lahir");

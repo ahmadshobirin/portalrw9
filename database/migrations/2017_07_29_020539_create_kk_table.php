@@ -15,7 +15,7 @@ class CreateKkTable extends Migration
     {
         Schema::create('kartu_keluarga', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("no_kk");
+            $table->string("no_kk");
             $table->string("kepala_keluarga");
             $table->text("alamat");
             $table->string("rt");

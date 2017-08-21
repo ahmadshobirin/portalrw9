@@ -284,8 +284,6 @@
 
             $(document).ready(function() {
                 $('#formCreate').validate({
-                    errorElement: 'span', 
-                    errorClass: 'help-block', 
                     focusInvalid: false, 
                     ignore: "",
                     rules: {
@@ -384,7 +382,7 @@
                             url: "<?= url('/admin/warga/create/ajax') ?>",
                             data: { no_kk : no_kk, kepala_keluarga : kepala_keluarga, rt : rt, rw : rw, kodepos : kodepos,desa_kelurahan : desa_kelurahan, kecamatan : kecamatan, kabupaten_kota : kabupaten_kota, provinsi : provinsi, keluarTanggal : keluarTanggal, alamat : alamat, data : detailKeluarga, counter : counter, _token : "{{csrf_token()}}" },
                             success: function(msg) {
-                                alert(msg);
+                                //alert(msg);
                                 if(msg == "success"){ 
                                     window.location.href = "<?= url('admin/warga')?>";
                                 }else{

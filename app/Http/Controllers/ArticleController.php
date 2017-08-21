@@ -20,14 +20,18 @@ class ArticleController extends Controller
      */
     public function index()
     {
-    //$article = DB::table("article")->get();
-    //$article = ArticleModel::get();
+        //ini contoh untuk join mas, jangan lupa di ->get()
         $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.view', 'category.category')
+                ->select('article.id', 'article.title', 'article.images', 
+                'article.description', 'article.content', 'article.view', 'category.category')
                 ->get();
+
+        //ini untuk count() tanpa ->get()
         $total = ArticleModel::count();
-        //dd($article);
-        //$article = ArticleModel::onlyTrashed()->get();
+
+        //ini untuk ngecek berhasil gak querynya
+        dd($article);
+
         return view("admin.article.list", compact("article"));
     }
 

@@ -44,18 +44,18 @@ class kkController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->data,count($request->data));
+        // dd($request->data[0]['nik']);
         DB::beginTransaction();
         try {
-            DB::table('kartu_keluarga')->insert([
+             DB::table('kartu_keluarga')->insert([
                 'no_kk' => $request->no_kk,
                 'kepala_keluarga' => $request->kepala_keluarga,
                 'rt' => $request->rt,
                 'rw' => $request->rw,
+                'kodepos'    => $request->kodepos,
+                'desa_kelurahan' => $request->desa_kelurahan,
                 'kecamatan' => $request->kecamatan,
                 'kabupaten_kota' => $request->kabupaten_kota,
-                'desa_kelurahan' => $request->desa_kelurahan,
-                'kodepos'    => $request->kodepos,
                 'provinsi'   => $request->provinsi,
                 'keluar_tgl' => $request->keluarTanggal,
                 'alamat'     => $request->alamat,
@@ -80,7 +80,7 @@ class kkController extends Controller
                     'ayah'      => $request->data[$x]['ayah'],
                     'ibu'       => $request->data[$x]['ibu'],
                 ]);
-                //echo $request->data[$x][0]['nama']."<br>";
+                // echo $request->data[$x]['nik']."<br>";
             }
             DB::commit();
             $success = true;
@@ -90,7 +90,7 @@ class kkController extends Controller
         }
 
         if ($success) { return 'success';}
-        else { return 'gagal';}
+        else { return 'gagal';} 
     }
 
     /**

@@ -24,7 +24,7 @@
         @endif
 
         <div class="login-box-body">
-        <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
+        <p class="login-box-msg"> Log-in </p>
 
         <login-form name="{{ config('auth.providers.users.field','email') }}"
                     domain="{{ config('auth.defaults.domain','') }}"></login-form>
