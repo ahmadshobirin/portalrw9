@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	{{ trans('adminlte_lang::message.home') }}
+	Ubah Kategori
 @endsection
 
 @section('contentheader_title', 'Ubah Kategori')
