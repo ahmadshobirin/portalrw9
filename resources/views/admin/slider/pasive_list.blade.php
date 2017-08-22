@@ -28,30 +28,34 @@
             <tr>
                 <th>No.</th>
                 <th>Gambar</th>
+                <th>status</th>
                 <th>Deskripsi</th>
-                <th>Status</th>
+                <th>Link</th>
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
         <tbody>
-                <tr>
-                    <td>2</td>
-                    <td><img src="assets/img/hbd2.jpg" alt="" style="max-midth:120px; max-height:120px;"></td>
-                    <td>deskripsi</td>
-                    <td>pasif</td>
-                    <td>
-                        <form method="post" action="#">
-                            {{csrf_field()}}
-                            {{method_field('DELETE')}}
-                            <button class="btn btn-danger pull-left">
-                                <span class="fa fa-trash"> Hapus</span>
-                            </button>
-                        </form>
-                        <a class="btn btn-warning pull-left" href="#"><span class="fa fa-pencil"> Ubah</span></a>
-                        <a class="btn btn-success pull-left" href="#"><span class="fa fa-check"> Aktifkan</span></a>
-                    </td>
-                </tr>
-
+            <?php $i=1 ?>
+                @foreach($pictures as $list)
+                    <tr>
+                        <td>{{$i++}}</td>
+                        <td><img src="{{url('images/slider/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
+                        <td>{{$list->status}}</td>
+                        <td>{{$list->description}}</td>
+                        <td>{{$list->link}}</td>
+                        <td>
+                            <form method="post" action="/admin/slider/{{$list->id}}">
+                                {{csrf_field()}}
+                                {{method_field('DELETE')}}
+                                <button class="btn btn-danger pull-left">
+                                    <span class="fa fa-trash"> Hapus</span>
+                                </button>
+                            </form>
+                            <a class="btn btn-warning pull-left" href="{{url('/admin/sliderpassive/'.$list->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
+                            <a class="btn btn-success pull-left" href="{{url('/admin/slider/show/'.$list->id.'/edit')}}"><span class="fa fa-check"> Aktifkan</span></a>
+                        </td>
+                    </tr>
+                @endforeach
         </tbody>
     </table>
 

@@ -102,7 +102,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = ArticleModel::find($id);
-        $category = KategoriArticleModel::select('id','category')->get();;
+        $category = KategoriArticleModel::select('id','category')->get();
         return view("admin.article.edit", compact("article","category"));
     }
 

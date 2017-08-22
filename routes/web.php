@@ -32,7 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/admin/article','ArticleController');
     Route::resource('/admin/category','categoryController');
     Route::resource('/admin/warga','kkController');
-    Route::resource('/admin/slider','SliderContoller');
+    Route::resource('/admin/slider','SliderController');
+
+
     Route::get('/admin/pengaturan','UserController@password');
     Route::post('/admin/pengaturan','UserController@updatePassword');
     Route::get('/admin/warga/{id}/delete','kkController@destroy');
@@ -62,7 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/detailkk/restore/{id}', 'DetailKkController@restore');
     Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');   
 
-    Route::get('admin/slidertrash', 'SliderContoller@trash');
-    Route::get('admin/slidertrash/restore/{id}', 'SliderContoller@restore');
-    Route::get('admin/slidertrash/permanent/delete/{id}', 'SliderContoller@permanentDelete');
+    Route::get('admin/slidertrash', 'SliderController@trash');
+    Route::get('admin/slider/restore/{id}', 'SliderController@restore');
+    Route::get('admin/slider/permanent/delete/{id}', 'SliderController@permanentDelete');
+    Route::get('/admin/slider/setstatus/{id}/{status}','SliderController@setStatus');
 });

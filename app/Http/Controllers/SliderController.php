@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;    
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use App\SliderModel;
-
 use Image;
+use File;
 
-class SliderContoller extends Controller
+class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,8 @@ class SliderContoller extends Controller
      */
     public function index()
     {
-        return view('admin.slider.active_list');
+        $pictures = SliderModel::orderBy('status','asc')->get();
+        return view("admin.slider.active_list", compact("pictures"));
     }
 
     /**
@@ -51,6 +52,7 @@ class SliderContoller extends Controller
             Image::make($file)->resize(800,400)->save($location);
         }
         $store->images = $filename;
+        $store->status = 'pasif';
         $store->description = $request->description;
         $store->link = $request->link;
         $store->save();
@@ -65,7 +67,8 @@ class SliderContoller extends Controller
      */
     public function show($id)
     {
-        return view('admin.slider.pasive_list');
+        $pictures = SliderModel::where('status', 'pasif')->get();
+        return view('admin.slider.pasive_list', compact("pictures"));
     }
 
     /**
@@ -76,7 +79,8 @@ class SliderContoller extends Controller
      */
     public function edit($id)
     {
-        return view('admin.slider.edit');
+        $pictures = SliderModel::find($id);
+        return view("admin.slider.active-edit",compact("pictures"));
     }
 
     /**
@@ -98,8 +102,12 @@ class SliderContoller extends Controller
             $filename = time().'-'.$file->getClientOriginalName();
             $location = public_path('images/slider/'.$filename);
             Image::make($file)->resize(800,400)->save($location);
+            $oldFile = $update->images;
+
+            $update->images = $filename;
+
+            File::delete(public_path('images/slider/'.$oldFile));
         }
-        $update->images = $filename;
         $update->description = $request->description;
         $update->link = $request->link;
         $update->save();
@@ -127,7 +135,7 @@ class SliderContoller extends Controller
 
     public function restore($id)
     {
-        SliderModel::withTrashed()->where('id','=',$id)->restore();
+        SLiderModel::withTrashed()->where('id','=',$id)->restore();
         return redirect()->back();
 
     }
@@ -135,8 +143,15 @@ class SliderContoller extends Controller
     public function permanentDelete($id)
     {
         $sliderDelete = SliderModel::withTrashed()->where('id','=',$id)->first();
-        @unlink(public_path('images/'.$sliderDelete->images));      
+        @unlink(public_path('images/slider/'.$sliderDelete->images));
         $sliderDelete->forceDelete();
+        return redirect()->back();
+    }
+
+    public function setStatus($id,$status)
+    {
+        // dd($status);
+        SliderModel::where('id','=', $id)->update(['status' => $status]);
         return redirect()->back();
     }
 }

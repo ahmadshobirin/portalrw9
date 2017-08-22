@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Gambar Aktif di Slider')
+@section('contentheader_title', 'Gambar di Slider')
 
 @section('main-content')
 
@@ -17,9 +17,6 @@
     <a href="{{url('/admin/slidertrash')}}" class="btn btn-danger btn-md">
         <i class="fa fa-trash"></i> Lihat Data Sampah
     </a>
-    <a href="{{url('/admin/slider/show')}}" class="btn btn-default btn-md">
-        <i class="fa fa-minus"></i> Lihat Gambar yang Pasif
-    </a>
 </div>
 <br>    
 
@@ -30,27 +27,33 @@
                 <th>Gambar</th>
                 <th>Deskripsi</th>
                 <th>Status</th>
+                <th>Link</th>
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
         <tbody>
+        <?php $i=1 ?>
+            @foreach($pictures as $list)
                 <tr>
-                    <td>1</td>
-                    <td><img src="assets/img/hbd2.jpg" alt="" style="max-midth:120px; max-height:120px;"></td>
-                    <td>deskripsi</td>
-                    <td>aktif</td>
+                    <td>{{$i++}}</td>
+                    <td><img src="{{asset('images/slider/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
+                    <td>{{$list->description}}</td>
+                    <td>{{$list->status}}</td>
+                    <td>{{$list->link}}</td>
                     <td>
-                        <form method="post" action="#">
+                        <form method="post" action="/admin/slider/{{$list->id}}">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
                             <button class="btn btn-danger pull-left">
                                 <span class="fa fa-trash"> Hapus</span>
                             </button>
                         </form>
-                        <a class="btn btn-warning pull-left" href="#"><span class="fa fa-pencil"> Ubah</span></a>
-                        <a class="btn btn-default pull-left" href="#"><span class="fa fa-minus"> Pasifkan</span></a>
+                        <a class="btn btn-warning pull-left" href="{{url('/admin/slider/'.$list->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
+                        <a class="btn btn-default pull-left" href="{{url('/admin/slider/setstatus/'.$list->id.'/pasif')}}"><span class="fa fa-minus"> Pasifkan</span></a>
+                        <a class="btn btn-info pull-left"  href="{{url('/admin/slider/setstatus/'.$list->id.'/aktif')}}"><span class="fa fa-check"> Aktifkan</span></a>
                     </td>
                 </tr>
+            @endforeach
         </tbody>
     </table>
 

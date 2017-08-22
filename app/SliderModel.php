@@ -11,5 +11,4 @@ class SliderModel extends Model
     protected $table = 'slider';
     protected $dates = ['deleted_at'];
  
-
 }

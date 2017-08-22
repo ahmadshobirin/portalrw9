@@ -14,8 +14,8 @@
     <a href="{{url('/admin/slider/create')}}" class="btn btn-success btn-md">
         <i class="fa fa-plus"></i> Tambah Data
     </a>
-    <a href="{{url('/admin/slidertrash')}}" class="btn btn-danger btn-md">
-        <i class="fa fa-trash"></i> Lihat Data Sampah
+    <a href="{{url('/admin/slider')}}" class="btn btn-info btn-md">
+        <i class="fa fa-check"></i> Lihat Gambar
     </a>
 </div>
 <br>    
@@ -25,24 +25,31 @@
             <tr>
                 <th>No.</th>
                 <th>Gambar</th>
-                <th>deskripsi</th>
+                <th>Deskripsi</th>
+                <th>link</th>
+                <th>Status</th>
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
         <tbody>
+        <?php $i=1; ?>
+            @foreach($trash as $list)
                 <tr>
-                    <td>1</td>
-                    <td><img src="assets/img/hbd2.jpg" alt="" style="max-midth:120px; max-height:120px;"></td>
-                    <td>deskripsi</td>
+                    <td>{{$i++}}</td>
+                    <td><img src="{{asset('images/slider/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
+                    <td>{{$list->description}}</td>
+                    <td>{{$list->link}}</td>
+                    <td>{{$list->status}}</td>
                     <td>
-                        <form method="post" action="#">
-                            <button class="btn btn-danger pull-left">
-                                <span class="fa fa-trash"> Hapus</span>
-                            </button>
-                        </form>
-                        <a class="btn btn-warning pull-left" href="#"><span class="fa fa-pencil"> Kembalikan Data</span></a>
+                        <a href="{{url('/admin/slider/restore/'.$list->id)}}" class="btn btn-success btn-md">
+                            Kembalikan Data
+                        </a>
+                        <a href="{{url('/admin/slider/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md" onclick="return confirm('Hapus Artikel Selamanya ?')">
+                            Hapus Permanen
+                        </a>
                     </td>
                 </tr>
+            @endforeach
         </tbody>
     </table>
 
