@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	{{ trans('adminlte_lang::message.home') }}
+	Kartu Keluarga
 @endsection
     <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 @section('contentheader_title', 'Data Warga')

@@ -1,21 +1,24 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Artikel
+	Slider Pasif
 @endsection
 
-@section('contentheader_title', 'Artikel')
+@section('contentheader_title', 'Gambar Pasif di Slider')
 
 @section('main-content')
 
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
 <div class="">
-    <a href="{{url('/admin/article/create')}}" class="btn btn-success btn-md">
+    <a href="{{url('/admin/slider/create')}}" class="btn btn-success btn-md">
         <i class="fa fa-plus"></i> Tambah Data
     </a>
-    <a href="{{url('/admin/articletrash')}}" class="btn btn-danger btn-md">
+    <a href="{{url('/admin/slidertrash')}}" class="btn btn-danger btn-md">
         <i class="fa fa-trash"></i> Lihat Data Sampah
+    </a>
+    <a href="{{url('/admin/slider')}}" class="btn btn-info btn-md">
+        <i class="fa fa-check"></i> Lihat Gambar yang Aktif
     </a>
 </div>
 <br>    
@@ -24,31 +27,34 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Judul</th>
-                <th>Sampul</th>
-                <th>Kategori</th>
+                <th>Gambar</th>
+                <th>status</th>
+                <th>Deskripsi</th>
+                <th>Link</th>
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
         <tbody>
-        <?php $i=1 ?>
-            @foreach($article as $list)
-                <tr>
-                    <td>{{ $i++ }}</td>
-                    <td>{{$list->title}}</td>
-                    <td><img src="{{asset('images/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
-                    <td>{{$list->category}}</td>
-                    <td>
-                        <form method="post" action="/admin/article/{{$list->id}}">
-                            {{csrf_field()}}
-                            {{method_field('DELETE')}}
-                            <button class="btn btn-danger pull-left">
-                                <span class="fa fa-trash"> Hapus</span>
-                            </button>
-                        </form>
-                        <a class="btn btn-warning pull-left" href="/admin/article/{{$list->id}}/edit"><span class="fa fa-pencil"> Ubah</span></a>
-                    </td>
-                </tr>
+            <?php $i=1 ?>
+                @foreach($pictures as $list)
+                    <tr>
+                        <td>{{$i++}}</td>
+                        <td><img src="{{url('images/slider/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
+                        <td>{{$list->status}}</td>
+                        <td>{{$list->description}}</td>
+                        <td>{{$list->link}}</td>
+                        <td>
+                            <form method="post" action="/admin/slider/{{$list->id}}">
+                                {{csrf_field()}}
+                                {{method_field('DELETE')}}
+                                <button class="btn btn-danger pull-left">
+                                    <span class="fa fa-trash"> Hapus</span>
+                                </button>
+                            </form>
+                            <a class="btn btn-warning pull-left" href="{{url('/admin/sliderpassive/'.$list->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
+                            <a class="btn btn-success pull-left" href="{{url('/admin/slider/show/'.$list->id.'/edit')}}"><span class="fa fa-check"> Aktifkan</span></a>
+                        </td>
+                    </tr>
                 @endforeach
         </tbody>
     </table>

@@ -4,8 +4,8 @@
       <!-- STYLE CSS -->
       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
       <meta charset="utf-8">
-      <link rel="icon" type="image/jpg" href="{{URL::asset('assets/img/portal.jpg')}}">
-      <title>Portal RW 9</title>
+      <link rel="icon" type="image/jpg" href="{{URL::asset('assets/img/logo.jpg')}}">
+      <title>Rw09Ratim - Panduan Menulis</title>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link href="{{URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
       <link href="{{URL::asset('assets/css/facebook.css')}}" rel="stylesheet">

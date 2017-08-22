@@ -28,10 +28,17 @@ Route::get('/kebijakan-privasi','frontController@kebijakan');
 Route::get('/panduan-dan-bantuan-menulis','frontController@panduan');
 
 Route::group(['middleware' => 'auth'], function () {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aa9a39f815f8c224189bb881b7f6b7b7c9fc3f11
     Route::resource('/admin/article','ArticleController');
     Route::resource('/admin/category','categoryController');
     Route::resource('/admin/warga','kkController');
+    Route::resource('/admin/slider','SliderController');
+
+
     Route::get('/admin/pengaturan','UserController@password');
     Route::post('/admin/pengaturan','UserController@updatePassword');
     Route::get('/admin/warga/{id}/delete','kkController@destroy');
@@ -59,7 +66,22 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('admin/detailkktrash/{nokk}', 'DetailKkController@trash');
     Route::get('admin/detailkk/restore/{id}', 'DetailKkController@restore');
+<<<<<<< HEAD
     Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');    
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+=======
+    Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');   
+
+<<<<<<< HEAD
+    Route::get('admin/slidertrash', 'SliderContoller@trash');
+    Route::get('admin/slidertrash/restore/{id}', 'SliderContoller@restore');
+    Route::get('admin/slidertrash/permanent/delete/{id}', 'SliderContoller@permanentDelete');
+>>>>>>> aa9a39f815f8c224189bb881b7f6b7b7c9fc3f11
+=======
+    Route::get('admin/slidertrash', 'SliderController@trash');
+    Route::get('admin/slider/restore/{id}', 'SliderController@restore');
+    Route::get('admin/slider/permanent/delete/{id}', 'SliderController@permanentDelete');
+    Route::get('/admin/slider/setstatus/{id}/{status}','SliderController@setStatus');
+>>>>>>> 8f44b160130aadda7e4569a04bf0ce2641e348da
 });

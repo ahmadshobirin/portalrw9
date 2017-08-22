@@ -1,49 +1,58 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Kartu Keluarga
+	Slider
 @endsection
-    <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
-@section('contentheader_title', 'Sampah Data Warga')
+
+@section('contentheader_title', 'Gambar Slider di Trash')
 
 @section('main-content')
-    <br>    
-    <table id="table" class="table table-striped table-hover table-responsive" style="font-size:12px">
+
+<link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
+
+<div class="">
+    <a href="{{url('/admin/slider/create')}}" class="btn btn-success btn-md">
+        <i class="fa fa-plus"></i> Tambah Data
+    </a>
+    <a href="{{url('/admin/slider')}}" class="btn btn-info btn-md">
+        <i class="fa fa-check"></i> Lihat Gambar
+    </a>
+</div>
+<br>    
+
+    <table class="table table-striped table-hover table-responsive" id="table">
         <thead>
             <tr>
-                <th>No</th>
-                <th>No KK</th>
-                <th>Kepala Keluarga</th>
-                <th>Alamat</th>
-                <th>RT/RW</th>
-                <th>Desa</th>
-                <th>Kota/Kabupaten</th>
-                <th>Dikeluarkan Tanggal</th>
-                <th class="nosort">Action</th>
+                <th>No.</th>
+                <th>Gambar</th>
+                <th>Deskripsi</th>
+                <th>link</th>
+                <th>Status</th>
+                <th class="nosort">Aksi</th>
             </tr>
         </thead>
         <tbody>
-            <?php $i= 1 ?>
-             @foreach($item as $list)
+        <?php $i=1; ?>
+            @foreach($trash as $list)
                 <tr>
-                    <td>{{ $i++ }}</td>
-                    <td><a href="{{url('admin/detailkk/'.$list->no_kk)}}">{{ $list->no_kk }}</a></td>
-                    <td>{{ $list->kepala_keluarga }}</td>
-                    <td>{{ $list->alamat }}</td>
-                    <td>{{ $list->rt}}/{{$list->rw }}</td>
-                    <td>{{ $list->desa_kelurahan }}</td>
-                    <td>{{ $list->kabupaten_kota }}</td>
-                    <td>{{ $list->keluar_tgl }}</td>
+                    <td>{{$i++}}</td>
+                    <td><img src="{{asset('images/slider/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
+                    <td>{{$list->description}}</td>
+                    <td>{{$list->link}}</td>
+                    <td>{{$list->status}}</td>
                     <td>
-                        <div class="">
-                            <a class="btn btn-warning btn-sm" href="{{url('/admin/warga/restore/'.$list->id)}}"><span class="fa fa-undo"></span></a>
-                            <a class="btn btn-danger btn-sm" href="{{url('/admin/warga/permanent/delete/'.$list->id)}}"><span class="fa fa-trash"></span></a>
-                        </div>
+                        <a href="{{url('/admin/slider/restore/'.$list->id)}}" class="btn btn-success btn-md">
+                            Kembalikan Data
+                        </a>
+                        <a href="{{url('/admin/slider/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md" onclick="return confirm('Hapus Artikel Selamanya ?')">
+                            Hapus Permanen
+                        </a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
 @stop
 @section('scripts')
 

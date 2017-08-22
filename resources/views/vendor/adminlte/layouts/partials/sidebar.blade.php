@@ -16,6 +16,15 @@
             </li>
 
             <li class="treeview">
+                <a href="#"><i class='fa fa-picture-o'></i> <span>Gambar di Slide</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/slider')}}"><i class='fa fa-file-image-o'></i>Semua Gambar</a></li> 
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/slider/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/slidertrash')}}"><i class='fa fa-trash'></i>Sampah</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
                 <a href="#"><i class='fa fa-tag'></i> <span>Kategori</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li style="padding-left: 20px;"><a href="{{ url('/admin/category') }}"><i class='fa fa-tags'></i>Kategori Artikel</a></li>

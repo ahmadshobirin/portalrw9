@@ -1,47 +1,62 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Artikel
+	Slider Aktif
 @endsection
 
-@section('contentheader_title', 'Sampah Artikel')
+@section('contentheader_title', 'Gambar di Slider')
 
 @section('main-content')
 
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
+<div class="">
+    <a href="{{url('/admin/slider/create')}}" class="btn btn-success btn-md">
+        <i class="fa fa-plus"></i> Tambah Data
+    </a>
+    <a href="{{url('/admin/slidertrash')}}" class="btn btn-danger btn-md">
+        <i class="fa fa-trash"></i> Lihat Data Sampah
+    </a>
+</div>
 <br>    
 
     <table class="table table-striped table-hover table-responsive" id="table">
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Judul</th>
-                <th>Kategori</th>
-                <th>Sampul</th>
+                <th>Gambar</th>
+                <th>Deskripsi</th>
+                <th>Status</th>
+                <th>Link</th>
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
         <tbody>
         <?php $i=1 ?>
-            @foreach($item as $list)
+            @foreach($pictures as $list)
                 <tr>
-                    <td>{{ $i++ }}</td>
-                    <td>{{$list->title}}</td>
-                    <td>{{$list->category}}</td>
-                    <td><img src="{{asset('images/'.$list->images)}}" style="max-width:100px"></td>
+                    <td>{{$i++}}</td>
+                    <td><img src="{{asset('images/slider/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
+                    <td>{{$list->description}}</td>
+                    <td>{{$list->status}}</td>
+                    <td>{{$list->link}}</td>
                     <td>
-                        <a href="{{url('/admin/article/restore/'.$list->id)}}" class="btn btn-success btn-md">
-                            Kembalikan Data
-                        </a>
-                        <a href="{{url('/admin/article/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md" onclick="return confirm('Hapus Artikel Selamanya ?')">
-                            Hapus Permanen
-                        </a>
+                        <form method="post" action="/admin/slider/{{$list->id}}">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <button class="btn btn-danger pull-left">
+                                <span class="fa fa-trash"> Hapus</span>
+                            </button>
+                        </form>
+                        <a class="btn btn-warning pull-left" href="{{url('/admin/slider/'.$list->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
+                        <a class="btn btn-default pull-left" href="{{url('/admin/slider/setstatus/'.$list->id.'/pasif')}}"><span class="fa fa-minus"> Pasifkan</span></a>
+                        <a class="btn btn-info pull-left"  href="{{url('/admin/slider/setstatus/'.$list->id.'/aktif')}}"><span class="fa fa-check"> Aktifkan</span></a>
                     </td>
                 </tr>
-                @endforeach
+            @endforeach
         </tbody>
     </table>
+
 @stop
 @section('scripts')
 

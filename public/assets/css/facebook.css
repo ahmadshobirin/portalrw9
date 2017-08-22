@@ -289,6 +289,10 @@ ul.navbar-right {
 div#redaksi {
     border-right: 1px solid #e6e6e6;
 }
+
+.slider{
+  margin-bottom: 15px;
+}
 /* adjust the contents on smaller devices */
 
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
@@ -324,7 +328,7 @@ div#redaksi {
     }
   
     div#copyright{
-      font-size: 12px;
+      font-size: 10px;
     }
 }
 
@@ -515,7 +519,7 @@ div#redaksi {
   }
 
   div.design{
-    font-size: 8px;
+    font-size: 11px;
   }
 
   div#copyright{
