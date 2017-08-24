@@ -146,6 +146,19 @@ hr {
     text-shadow: 0 0 1px;
     border-radius: 2px;
 }
+.gallery {
+  padding: 0;
+}
+
+.gallery > div {
+  padding: 0;
+  vertical-align: middle;
+}
+
+div.thumbnail{
+  margin-bottom: 0;
+}
+
 #sidebar-footer {
     background-color: #444;
     position: absolute;
