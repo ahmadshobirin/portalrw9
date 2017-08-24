@@ -26,6 +26,7 @@
                 <th>JK</th>
                 <th>Tempat-Tgl Lahir</th>
                 <th>Pendidikan</th>
+                <th>Jenis Pekerjaan</th>
                 <th>Kewarganegaraan</th>
                 <th>Ayah</th>
                 <th>Ibu</th>
@@ -42,6 +43,7 @@
                     <td>{{ $list->jk }}</td>
                     <td>{{ $list->tempat_lahir }}, {{ $list->tanggal_lahir->toDateString() }}</td>
                     <td>{{ $list->pendidikan }}</td>
+                    <td>{{ $list->jenis_pekerjaan }}</td>
                     <td>{{ $list->kewarganegaraan }}</td>
                     <td>{{ $list->ayah }}</td>
                     <td>{{ $list->ibu }}</td>

@@ -70,7 +70,7 @@ class kkController extends Controller
                     'jk'    => $request->data[$x]['jk'],
                     'tempat_lahir'      => $request->data[$x]['tpt_lahir'],
                     'tanggal_lahir'     => $request->data[$x]['tgl_lahir'],
-                    'jenis_pekerjaan'   => $request->data[$x]['pendidikan'],
+                    'jenis_pekerjaan'   => $request->data[$x]['jenisPekerjaan'],
                     'status_pernikahan' => $request->data[$x]['statusPernikahan'],
                     'status_keluarga'   => $request->data[$x]['statusKeluarga'],
                     'kewarganegaraan'   => $request->data[$x]['kewarganegaraan'],
@@ -199,27 +199,25 @@ class kkController extends Controller
                 'alamat'     => $request->alamat,
             ]);
 
-            for($x=0; $x < count($request->data); $x++){
-
-                DB::table('detail_kartu_keluarga')->insert([
-                    'kartu_keluarga' => $request->no_kk,
-                    'nik'   => $request->data[$x]['nik'],
-                    'nama'  => $request->data[$x]['nama'],
-                    'jk'    => $request->data[$x]['jk'],
-                    'tempat_lahir'      => $request->data[$x]['tpt_lahir'],
-                    'tanggal_lahir'     => $request->data[$x]['tgl_lahir'],
-                    'jenis_pekerjaan'   => $request->data[$x]['pendidikan'],
-                    'status_pernikahan' => $request->data[$x]['statusPernikahan'],
-                    'status_keluarga'   => $request->data[$x]['statusKeluarga'],
-                    'kewarganegaraan'   => $request->data[$x]['kewarganegaraan'],
-                    'pendidikan'        => $request->data[$x]['pendidikan'],
-                    'pasport'   => $request->data[$x]['pasport'],
-                    'kitap'     => $request->data[$x]['kitap'],
-                    'ayah'      => $request->data[$x]['ayah'],
-                    'ibu'       => $request->data[$x]['ibu'],
-                ]);
+            DB::table('detail_kartu_keluarga')->insert([
+                'kartu_keluarga' => $request->no_kk,
+                'nik'   => $request->nik,
+                'nama'  => $request->nama,
+                'jk'    => $request->jk,
+                'tempat_lahir'      => $request->tempatLahir,
+                'tanggal_lahir'     => $request->tanggalLahir,
+                'jenis_pekerjaan'   => $request->jenisPekerjaan,
+                'status_pernikahan' => $request->statusPernikahan,
+                'status_keluarga'   => $request->statusKeluarga,
+                'kewarganegaraan'   => $request->kewarganegaraan,
+                'pendidikan'        => $request->pendidikan,
+                'pasport'   => $request->pasport,
+                'kitap'     => $request->kitap,
+                'ayah'      => $request->ayah,
+                'ibu'       => $request->ibu,
+            ]);
                 // echo $request->data[$x]['nik']."<br>";
-            }
+            
             DB::commit();
             $success = true;
         } catch (\Exception $e) {

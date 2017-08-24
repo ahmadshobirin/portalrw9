@@ -11,6 +11,8 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\ArticleModel;
 use App\kkModel;
+use App\GalleryModel;
+use App\SliderModel;
 
 /**
  * Class HomeController
@@ -38,6 +40,8 @@ class HomeController extends Controller
         $article = ArticleModel::count();
         $articleTrash = ArticleModel::onlyTrashed()->count();
         $kk = kkModel::count();
-        return view('adminlte::home',compact("article","articleTrash","kk"));
+        $galleries = GalleryModel::count();
+        $pictures = SliderModel::count();
+        return view('adminlte::home',compact("article","articleTrash","kk","galleries","pictures"));
     }
 }

@@ -4,7 +4,7 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
-@section('contentheader_title', 'Tambah Kartu Keluarga')
+@section('contentheader_title', 'Tambah Kartu Keluarga Individu')
 
 @section('main-content')
 

@@ -9,8 +9,13 @@
 @section('main-content')
     <div class="">
         <a href="{{ url('admin/warga/create') }}" class="btn btn-success btn-md">
-            <i class="fa fa-plus"></i> Tambah Data
+            <i class="fa fa-plus"></i> Tambah Data Multiple
         </a>
+
+        <a href="{{ url('admin/warga/add/one') }}" class="btn btn-success btn-md">
+            <i class="fa fa-plus"></i> Tambah Data Individu
+        </a>
+
         <a href="{{url('/admin/wargatrash')}}" class="btn btn-danger btn-md">
         <i class="fa fa-trash"></i> Lihat Data Sampah
     </a>

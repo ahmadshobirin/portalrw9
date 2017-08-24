@@ -4,7 +4,7 @@
 	Tambah KK
 @endsection
 
-@section('contentheader_title', 'Tambah Kartu Keluarga')
+@section('contentheader_title', 'Tambah Kartu Keluarga Multiple')
 
 @section('main-content')
 
@@ -206,6 +206,7 @@
                 <table class="table table-responsive table-bordered table-hover" id="tbl2">
                     <tr>
                         <th>Jenis Kelamin</th>
+                        <th>Jenis Pekerjaan</th>
                         <th>Status Keluarga</th>
                         <th>Kewarganegaraan</th>
                         <th>Pasport</th>
@@ -246,13 +247,13 @@
                 var kewarganegaraan     = $("[name='kewarganegaraan']").val();
                 var statusPernikahan    = $("[name='statusPernikahan']").val();
 
-                detailKeluarga.push({i,nama,nik,jk,tpt_lahir,tgl_lahir,jk,pendidikan,statusPernikahan,statusKeluarga,kewarganegaraan,pasport,kitap,ayah,ibu});
+                detailKeluarga.push({i,nama,nik,jk,tpt_lahir,tgl_lahir,jenisPekerjaan,pendidikan,statusPernikahan,statusKeluarga,kewarganegaraan,pasport,kitap,ayah,ibu});
                 //data.push(detailKeluarga[i]);
 
                 //detailKeluarga[i] = [{ nama : nama, nik :nik,tpt_lahir: tpt_lahir,tgl_lahir:tgl_lahir,jk:jk,pendidikan:pendidikan,statusPernikahan:statusPernikahan,statusKeluarga:statusKeluarga,kewarganegaraan:kewarganegaraan,pasport:pasport,kitap:kitap,ayah:ayah,ibu:ibu }];
 
                 $("#tbl").append("<tr id="+i+"><td><button type='button' class='btn btn-sm btn-danger' class='btn' onclick ='deleteRow("+i+")'>remove</button></td><td>"+nama+"</td><td>"+nik+"</td><td>"+tpt_lahir+"</td><td>"+tgl_lahir+"</td><td>"+pendidikan+"</td><td>"+statusPernikahan+"</td></tr>");
-                $('#tbl2').append("<tr id="+i+"><td>"+jk+"</td><td>"+statusKeluarga+"</td><td>"+kewarganegaraan+"</td><td>"+pasport+"</td><td>"+kitap+"</td><td>"+ayah+"</td><td>"+ibu+"</td></tr>");
+                $('#tbl2').append("<tr id="+i+"><td>"+jk+"</td><td>"+jenisPekerjaan+"</td><td>"+statusKeluarga+"</td><td>"+kewarganegaraan+"</td><td>"+pasport+"</td><td>"+kitap+"</td><td>"+ayah+"</td><td>"+ibu+"</td></tr>");
 
                 allInputs = $("div#content input.form-control");
                 $(allInputs).val('');
