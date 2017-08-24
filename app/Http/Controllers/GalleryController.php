@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;    
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
-use App\SliderModel;
+use App\GalleryModel;
 use Image;
 use File;
 
-class SliderController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $pictures = SliderModel::orderBy('status','asc')->get();
-        return view("admin.slider.active_list", compact("pictures"));
+        $galleries = GalleryModel::get();
+        return view('admin.gallery.list', compact('galleries'));
     }
 
     /**
@@ -29,7 +29,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('admin.slider.add');
+        return view('admin.gallery.add');
     }
 
     /**
@@ -41,22 +41,18 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-                'images' => 'required|image|mimes:jpeg,bmp,png,jpg',
-                'description' => 'required|max:25',
+                'images' => 'required|image|mimes:jpg,jpeg,png,bmp',
             ]);
-        $store = new SliderModel;
-        if($request->hasFile('images')){ 
+        $store = new GalleryModel;
+        if($request->hasFile('images')){
             $file = $request->file('images');
             $filename = time().'-'.$file->getClientOriginalName();
-            $location = public_path('images/slider/'.$filename);
-            Image::make($file)->resize(800,400)->save($location);
+            $location = public_path('images/gallery/'.$filename);
+            Image::make($file)->resize(800,800)->save($location); 
         }
         $store->images = $filename;
-        $store->status = 'pasif';
-        $store->description = $request->description;
-        $store->link = $request->link;
-        $store->save();
-        return redirect('/admin/slider');
+        $store->save(); 
+        return redirect('/admin/gallery');
     }
 
     /**
@@ -67,8 +63,7 @@ class SliderController extends Controller
      */
     public function show($id)
     {
-        $pictures = SliderModel::where('status', 'aktif')->get();
-        return view('frontend.partial.slider', compact("pictures"));
+        //
     }
 
     /**
@@ -79,8 +74,8 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        $pictures = SliderModel::find($id);
-        return view("admin.slider.active-edit",compact("pictures"));
+        $galleries = GalleryModel::find($id);
+        return view('admin.gallery.trash', compact('galleries'));
     }
 
     /**
@@ -93,25 +88,22 @@ class SliderController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-                'images' => 'image|mimes:jpeg,bmp,png,jpg',
-                'description' => 'max:25',
+                'images' => 'required|image|mimes:jpg,jpeg,png,bmp',
             ]);
-        $update = SliderModel::find($id);
-        if($request->hasFile('images')){ 
+        $update = GalleryModel::find($id);
+        if ($request->hasFile('images')) {
             $file = $request->file('images');
             $filename = time().'-'.$file->getClientOriginalName();
-            $location = public_path('images/slider/'.$filename);
-            Image::make($file)->resize(800,400)->save($location);
+            $location = public_path('images/gallery/'.$filename);
+            Image::make($file)->resize(800,800)->save($location);
             $oldFile = $update->images;
 
             $update->images = $filename;
 
-            File::delete(public_path('images/slider/'.$oldFile));
+            File::delete(public_path('images/gallery/'.$oldFile));
         }
-        $update->description = $request->description;
-        $update->link = $request->link;
         $update->save();
-        return redirect('/admin/slider');
+        return redirect('/admin/gallery');
     }
 
     /**
@@ -122,36 +114,29 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        $destroy = SliderModel::find($id)->delete();
+        $destroy = GalleryModel::find($id)->delete();
         return redirect()->back();
     }
 
     public function trash()
     {
-        $trash = SliderModel::onlyTrashed()->get();
-        return view('admin.slider.trash', compact('trash'));
+        $trash = GalleryModel::onlyTrashed()->get();
+        return view('admin.gallery.trash', compact('trash'));
     }
 
 
     public function restore($id)
     {
-        SLiderModel::withTrashed()->where('id','=',$id)->restore();
+        GalleryModel::withTrashed()->where('id','=',$id)->restore();
         return redirect()->back();
 
     }
 
     public function permanentDelete($id)
     {
-        $sliderDelete = SliderModel::withTrashed()->where('id','=',$id)->first();
-        @unlink(public_path('images/slider/'.$sliderDelete->images));
-        $sliderDelete->forceDelete();
-        return redirect()->back();
-    }
-
-    public function setStatus($id,$status)
-    {
-        // dd($status);
-        SliderModel::where('id','=', $id)->update(['status' => $status]);
+        $galleryDelete = GalleryModel::withTrashed()->where('id','=',$id)->first();
+        @unlink(public_path('images/gallery/'.$galleryDelete->images));
+        $galleryDelete->forceDelete();
         return redirect()->back();
     }
 }
