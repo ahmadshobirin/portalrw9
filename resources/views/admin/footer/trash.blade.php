@@ -1,10 +1,10 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Footer
+	Footer Trash
 @endsection
 
-@section('contentheader_title', 'Footer')
+@section('contentheader_title', 'Footer Trash')
 
 @section('main-content')
 

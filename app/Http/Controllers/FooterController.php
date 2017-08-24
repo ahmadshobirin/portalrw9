@@ -24,7 +24,7 @@ class FooterController extends Controller
      */
     public function create()
     {
-        return view('admin.footer.create');
+        return view('admin.footer.add');
     }
 
     /**
@@ -57,7 +57,7 @@ class FooterController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -69,7 +69,7 @@ class FooterController extends Controller
     public function edit($id)
     {
         $dataFooter = FooterModel::find($id);
-        return view('admin.footer.index');
+        return view('admin.footer.edit');
     }
 
     /**
@@ -93,5 +93,24 @@ class FooterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function trash()
+    {
+        $trash = FooterModel::onlyTrashed()->get();
+        return view('admin.footer.trash', compact('trash'));
+    }
+
+
+    public function restore($id)
+    {
+        FooterModel::withTrashed()->where('id','=',$id)->restore();
+        return redirect()->back();
+    }
+
+    public function permanentDelete($id)
+    {
+        $galleryDelete = FooterModel::withTrashed()->where('id','=',$id)->first();
+        return redirect()->back();
     }
 }

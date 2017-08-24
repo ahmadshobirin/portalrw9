@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/admin/warga','kkController');
     Route::resource('/admin/slider','SliderController');
     Route::resource('/admin/gallery','GalleryController');
+    Route::resource('/admin/footer','FooterController');
     
     Route::get('/admin/pengaturan','UserController@password');
     Route::post('/admin/pengaturan','UserController@updatePassword');
@@ -74,5 +75,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('admin/gallerytrash', 'GalleryController@trash');
     Route::get('admin/gallery/restore/{id}', 'GalleryController@restore');
-    Route::get('admin/gallery/permanent/delete/{id}', 'GalleryController@permanentDelete');   
+    Route::get('admin/gallery/permanent/delete/{id}', 'GalleryController@permanentDelete');  
+
+    Route::get('admin/footertrash', 'FooterController@trash');
+    Route::get('admin/footer/restore/{id}', 'FooterController@restore');
+    Route::get('admin/footer/permanent/delete/{id}', 'FooterController@permanentDelete');   
 });
