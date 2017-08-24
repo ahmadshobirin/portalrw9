@@ -24,7 +24,7 @@
     <div class="small-box bg-purple">
         <div class="inner">
             <h3>{{$kk}}</h3>
-            <p>JUMLAH KK RW9</p>
+            <p>JUMLAH KARTU KELUARGA</p>
         </div>
         <div class="icon"><i class="fa fa-users"></i></div>
         <a href="{{url('/admin/warga')}}" class="small-box-footer" >More info <i class="fa fa-arrow-circle-right"></i></a>

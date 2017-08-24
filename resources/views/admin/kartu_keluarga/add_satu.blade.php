@@ -11,10 +11,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="box box-success">
-            <div class="box-header">FORM KARTU KELUARGA</div>
+            <div class="box-header">Data Kartu Keluarga</div>
                 <div class="box-body" id="box">
                     <div class="box-body">
-                        <form id="formCreate" onsubmit="saveData()" action="{{url('/admin/warga/add/one')}}" method="post">                
+                        <form id="formCreate" action="{{url('/admin/warga/add/one')}}" method="post">                
                                 <div class="row" id="content">
                                     <div class="col-md-12">
                                         <div class="form-group">

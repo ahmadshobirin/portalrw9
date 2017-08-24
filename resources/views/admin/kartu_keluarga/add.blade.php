@@ -12,62 +12,78 @@
     <div class="box box-success">
         <div class="box-header">Data Kartu Keluarga</div>
         <div class="box-body">
-            <form id="formCreate">
-                <table class="table table-responsive">
-                    <tr>
-                        <th>No.KK</th>
-                        <td colspan="3"><input type="text" name="no_kk" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  required=""></td>
-                    </tr>
-                    <tr>
-                        <th>Kepala keluarga</th>
-                        <td colspan="3"><input type="text" name="kepala_keluarga" class="form-control"  required=""></td>
-                    </tr>
-                    <tr>
-                        <th>RT</th>
-                        <td>
-                            <select name="rt" id="" class="form-control"  required="">
-                                <option selected>Pilih Rt..</option>
-                                @for($i=1; $i <= 10; $i++)
-                                    <option value="{{ $i }}">{{ $i }}</option>
-                                @endfor
-                            </select>
-                        </td>
-                        <th>RW</th>
-                        <td>
-                            <select name="rw" id="" class="form-control"  required="">
-                                <option selected>Pilih Rw..</option>
-                                @for($i=1; $i <= 10; $i++)
-                                    <option value="{{ $i }}">{{ $i }}</option>
-                                @endfor
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Desa/Kelurahan</th>
-                        <td colspan="3"><input type="text" name="desa_kelurahan" class="form-control"  required=""></td>
-                    </tr>
-                    <tr>
-                        <th>Kecamatan</th>
-                        <td><input type="text" name="kecamatan" class="form-control"  required=""></td>
-                        <th>Kabupaten/kota</th>
-                        <td><input type="text" name="kabupaten_kota" class="form-control"  required=""></td>
-                    </tr>
-                    
-                    <tr>
-                        <th>Kodepos</th>
-                        <td><input type="text" name="kodepos" class="form-control"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' required=""></td>
-                        <th>Provinsi</th>
-                        <td><input type="text" name="provinsi" class="form-control" required=""></td>
-                    </tr>
-                    <tr>
-                        <th>Dikeluarkan Tanggal</th>
-                        <td><input type="date" name="keluarTanggal" class="form-control"  required=""></td>
-                    </tr>
-                    <tr>
-                        <th>Alamat</th>
-                        <td colspan="3"><textarea name="alamat" class="form-control"  required=""></textarea></td>
-                    </tr>
-                </table>
+            <form id="formCreate" action="{{url('/admin/warga/create')}}" method="post" onsubmit="saveData()">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                                <label for="">No KK</label>
+                                <input type="text" name="no_kk" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  required="" placeholder="No KK..." autofocus>
+                        </div>
+                        <div class="form-group">
+                                <label for="">Kepala Keluarga</label>
+                                <input type="text" name="kepala_keluarga" class="form-control" placeholder="Kepala Keluarga..." id="nama">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">RT</label>   
+                                        <select name="rt" id="" class="form-control"  required="">
+                                            <option selected>Pilih Rt..</option>
+                                            @for($i=1; $i <= 10; $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                        </select>    
+                                </div>  
+
+                                <div class="form-group">
+                                    <label>Desa/Kelurahan</label>
+                                    <input type="text" name="desa_kelurahan" class="form-control"  required="" placeholder="Desa/Kelurahan...">
+                                </div>   
+
+                                <div class="form-group">
+                                    <label>Kecamatan</label>
+                                    <input type="text" name="kecamatan" class="form-control"  required="" placeholder="Kecamatan...">
+                                </div>          
+
+                                <div class="form-group">
+                                    <label>Kabupaten/Kota</label>
+                                    <input type="text" name="kabupaten_kota" class="form-control"  required="" placeholder="Kabupaten/Kota">
+                                </div>                                    
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">RW</label>
+                                        <select name="rw" id="" class="form-control"  required="">
+                                            <option selected>Pilih Rw..</option>
+                                            @for($i=1; $i <= 10; $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                        </select>                                                    
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Provinsi</label>
+                                    <input type="text" name="provinsi" class="form-control" required="" placeholder="Provinsi...">
+                                </div>   
+
+                                <div class="form-group">
+                                    <label>Kode Pos</label>
+                                    <input type="text" name="kodepos" class="form-control"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' required="" placeholder="Kodepos...">
+                                </div>      
+
+                                <div class="form-group">
+                                    <label>Dikeluarkan Tanggal</label>
+                                    <input type="date" name="keluarTanggal" class="form-control"  required="">
+                                </div>                                                
+                            </div>                                           
+                        </div>
+
+                        <div class="form-group">
+                                <label for="">Alamat</label>
+                                <textarea name="alamat" class="form-control"  required="" placeholder="Alamat..."></textarea>
+                        </div>
+                    </div>
 
                 <hr>
 
@@ -215,7 +231,7 @@
                         <th>Ibu</th>
                     </tr>
                 </table>
-                    <input type="submit" value="Simpan Data" class="btn btn-success btn-block btn-md" id="submit">
+                <input type="submit" value="Simpan Data" class="btn btn-success btn-block btn-md" id="submit">
             </form>
         </div>{{--  end-box-body-first  --}}
     </div>
