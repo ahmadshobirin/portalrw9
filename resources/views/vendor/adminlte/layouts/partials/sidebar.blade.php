@@ -16,6 +16,15 @@
             </li>
 
             <li class="treeview">
+                <a href="#"><i class='fa fa-tag'></i> <span>Kategori</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li style="padding-left: 20px;"><a href="{{ url('/admin/category') }}"><i class='fa fa-tags'></i>Kategori Artikel</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/category/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/categorytrash')}}"><i class='fa fa-trash'></i>Sampah</a></li>
+                </ul>
+            </li>
+            
+            <li class="treeview">
                 <a href="#"><i class='fa fa-picture-o'></i> <span>Gambar di Slide</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li style="padding-left: 20px;"><a href="{{url('/admin/slider')}}"><i class='fa fa-file-image-o'></i>Semua Gambar</a></li> 
@@ -25,14 +34,14 @@
             </li>
 
             <li class="treeview">
-                <a href="#"><i class='fa fa-tag'></i> <span>Kategori</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-columns'></i> <span>Gambar di Galeri</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li style="padding-left: 20px;"><a href="{{ url('/admin/category') }}"><i class='fa fa-tags'></i>Kategori Artikel</a></li>
-                    <li style="padding-left: 20px;"><a href="{{url('/admin/category/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
-                    <li style="padding-left: 20px;"><a href="{{url('/admin/categorytrash')}}"><i class='fa fa-trash'></i>Sampah</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/gallery')}}"><i class='fa fa-th'></i>Semua Gambar</a></li> 
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/gallery/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/gallerytrash')}}"><i class='fa fa-trash'></i>Sampah</a></li>
                 </ul>
             </li>
-            
+
             <li class="treeview">
                 <a href="#"><i class='fa fa-address-book'></i> <span>Kartu Keluarga</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">

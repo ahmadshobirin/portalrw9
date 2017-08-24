@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/admin/category','categoryController');
     Route::resource('/admin/warga','kkController');
     Route::resource('/admin/slider','SliderController');
+    Route::resource('/admin/gallery','GalleryController');
     
     Route::get('/admin/pengaturan','UserController@password');
     Route::post('/admin/pengaturan','UserController@updatePassword');
@@ -67,4 +68,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/slider/restore/{id}', 'SliderController@restore');
     Route::get('admin/slider/permanent/delete/{id}', 'SliderController@permanentDelete');
     Route::get('/admin/slider/setstatus/{id}/{status}','SliderController@setStatus');
+
+    Route::get('admin/gallerytrash', 'GalleryController@trash');
+    Route::get('admin/gallery/restore/{id}', 'GalleryController@restore');
+    Route::get('admin/gallery/permanent/delete/{id}', 'GalleryController@permanentDelete');   
 });

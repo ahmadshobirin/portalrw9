@@ -2,13 +2,11 @@
 
 @section('body')
 
-    <!-- <div class="panel-thumbnail">
+    <div class="panel-thumbnail">
         <a href="{{url('/birthday')}}"> 
         <img src="assets/img/hbd2.jpg" class="img-responsive hokya" style="width: 100%; max-height: 250px; padding-bottom: 10px;">
         </a>
-    </div> -->
-
-
+    </div>
 
   @forelse($Listarticle as $list)
       <div class="panel panel-default">
