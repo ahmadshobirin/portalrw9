@@ -15,7 +15,7 @@ class CreateFooterTable extends Migration
     {
         Schema::create('footer', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('judul');
+            $table->string('title');
             $table->string('slug');
             $table->string('content');
             $table->timestamps();

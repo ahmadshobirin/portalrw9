@@ -1,5 +1,12 @@
 @extends('frontend.main')
 
+<<<<<<< HEAD
+@section('slider')
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 slider">  
+      @include('frontend.partial.slider')
+    </div>
+@endsection
+=======
 @section('body')
 
     <div class="panel-thumbnail">
@@ -7,7 +14,9 @@
         <img src="assets/img/hbd2.jpg" class="img-responsive hokya" style="width: 100%; max-height: 250px; padding-bottom: 10px;">
         </a>
     </div>
+>>>>>>> e69684a0821bddc3d3f3ac9595ae860dfeb40d72
 
+@section('body')
   @forelse($Listarticle as $list)
       <div class="panel panel-default">
           <a href="{{url('article/post/'.$list->slug)}}">
@@ -27,4 +36,12 @@
       </div>
   @endforelse
   {!! $Listarticle->links() !!}
+@endsection
+
+@section('scripts')
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("item")[0].addClass("active");
+    })
+  </script>
 @endsection

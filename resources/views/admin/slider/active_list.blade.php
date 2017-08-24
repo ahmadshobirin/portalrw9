@@ -49,8 +49,11 @@
                             </button>
                         </form>
                         <a class="btn btn-warning pull-left" href="{{url('/admin/slider/'.$list->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
-                        <a class="btn btn-default pull-left" href="{{url('/admin/slider/setstatus/'.$list->id.'/pasif')}}"><span class="fa fa-minus"> Pasifkan</span></a>
-                        <a class="btn btn-info pull-left"  href="{{url('/admin/slider/setstatus/'.$list->id.'/aktif')}}"><span class="fa fa-check"> Aktifkan</span></a>
+                        @if($list->status == 'aktif')
+                            <a class="btn btn-default pull-left" href="{{url('/admin/slider/setstatus/'.$list->id.'/pasif')}}"><span class="fa fa-minus"> Pasifkan</span></a>
+                        @else
+                            <a class="btn btn-info pull-left"  href="{{url('/admin/slider/setstatus/'.$list->id.'/aktif')}}"><span class="fa fa-check"> Aktifkan</span></a>
+                        @endif
                     </td>
                 </tr>
             @endforeach

@@ -11,6 +11,7 @@ use App\ArticleModel;
 use App\SliderModel;
 use App\KategoriArticleModel;
 use App\DetailKkModel;
+use App\SliderModel;
 use Carbon\Carbon;
 use DB;
 use Image;
@@ -44,7 +45,12 @@ class frontController extends Controller
                 $countBirthday++;
             }
         }
+<<<<<<< HEAD
+        $slider = SliderModel::where('status','aktif')->get();
+        return view('index', compact("latestArticle", "category","category","countBirthday","Listarticle","slider"));
+=======
         return view('index', compact("latestArticle", "category","category","countBirthday","Listarticle","pictures"));
+>>>>>>> e69684a0821bddc3d3f3ac9595ae860dfeb40d72
     }
 
      public function article_view($slug)
