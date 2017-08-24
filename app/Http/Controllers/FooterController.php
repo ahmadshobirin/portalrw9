@@ -14,7 +14,8 @@ class FooterController extends Controller
      */
     public function index()
     {
-        return view('admin.footer.index');
+        $footers = FooterModel::get();
+        return view('admin.footer.index', compact('footers'));
     }
 
     /**
@@ -36,17 +37,18 @@ class FooterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'title' => 'required|min:4|max:25',
+            'judul' => 'required|min:4|max:25',
             'content' => 'required'
         ]);
 
         $create = new FooterModel();
-        $create->title = $request->judul;
+        $create->judul = $request->judul;
         $create->slug  = str_slug($request->judul,'-');
-        $create->content = $request->isi;
+        $create->content = $request->content;
         $create->save();
         
-        return view('admin.footer.index');
+        $footers = FooterModel::all();
+        return redirect('/admin/footer')->with('footers',$footers);
     }
 
     /**
@@ -69,7 +71,7 @@ class FooterController extends Controller
     public function edit($id)
     {
         $dataFooter = FooterModel::find($id);
-        return view('admin.footer.edit');
+        return view('admin.footer.edit', compact('dataFooter'));
     }
 
     /**
@@ -81,7 +83,17 @@ class FooterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+                'judul' => 'min:4|max:5',
+                'content' => 'min:4',
+            ]);
+        $update = FooterModel::find($id);
+        $update->judul = $request->judul;
+        $update->content = $request->content;
+        $update->save();
+
+        $footers = FooterModel::all();
+        return redirect('/admin/footer')->with('footers',$footers);
     }
 
     /**
@@ -92,7 +104,8 @@ class FooterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy = FooterModel::find($id)->delete();
+        return redirect()->back();
     }
 
     public function trash()
@@ -110,7 +123,7 @@ class FooterController extends Controller
 
     public function permanentDelete($id)
     {
-        $galleryDelete = FooterModel::withTrashed()->where('id','=',$id)->first();
+        $footerDelete = FooterModel::withTrashed()->where('id','=',$id)->forceDelete();
         return redirect()->back();
     }
 }

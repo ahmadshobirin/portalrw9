@@ -22,7 +22,7 @@
                             <table class="table table:hover">
                                 <tr>
                                     <th>Judul</th>
-                                    <td><input type="text" name="title" class="form-control" required autofocus></td>
+                                    <td><input type="text" name="judul" class="form-control" required autofocus></td>
                                 </tr>
                                 <tr>
                                     <th>Konten</th>
