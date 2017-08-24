@@ -10,6 +10,7 @@
       <link href="{{URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
       <link href="{{URL::asset('assets/css/facebook.css')}}" rel="stylesheet">
       <style> .active{ background:#1B5E20;}</style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" />
         <!-- END STYLE CSS -->
    </head>
    <body>
@@ -32,6 +33,9 @@
                           <!-- END CONTENT -->
                         </div>
                         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                        {{-- GALLERY --}}
+                          @include('frontend.partial.gallery')
+                        {{-- END GALLERY --}}
                         <!-- SIDE BAR -->
                           @include('frontend.partial.sidebar')
                         <!-- END SIDE BAR -->
@@ -100,6 +104,7 @@
               }
          });
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox-plus-jquery.min.js"></script>
       <!-- END JS -->
    </body>
 </html>
