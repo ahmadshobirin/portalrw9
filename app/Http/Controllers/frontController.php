@@ -8,11 +8,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ArticleModel;
+use App\SliderModel;
 use App\KategoriArticleModel;
 use App\DetailKkModel;
 use Carbon\Carbon;
 use DB;
 use Image;
+
 
 class frontController extends Controller
 {
@@ -32,6 +34,8 @@ class frontController extends Controller
         $category = KategoriArticleModel::get();
         $countBirthday = 0;
         $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $pictures = SliderModel::where('status','aktif')->get();
+
 
         foreach($birthdayNow as $data)
         {
@@ -40,7 +44,7 @@ class frontController extends Controller
                 $countBirthday++;
             }
         }
-        return view('index', compact("latestArticle", "category","category","countBirthday","Listarticle"));
+        return view('index', compact("latestArticle", "category","category","countBirthday","Listarticle","pictures"));
     }
 
      public function article_view($slug)
