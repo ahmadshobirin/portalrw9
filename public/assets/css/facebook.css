@@ -148,11 +148,12 @@ hr {
 }
 .gallery {
   padding: 0;
+  height: 200px;
+  overflow-y: scroll;
 }
 
 .gallery > div {
   padding: 0;
-  vertical-align: middle;
 }
 
 div.thumbnail{
@@ -362,6 +363,10 @@ div#redaksi {
         width: 100%;
         position: relative;
     }
+    .gallery {
+      height: 300px;
+      padding: 0;
+    }
     .row-offcanvas {
         position: relative;
         -webkit-transition: all 0.25s ease-out;
@@ -411,7 +416,10 @@ div#redaksi {
   ul.navbar-right {
       padding-right: 0px;
   }
-
+  .gallery {
+    height: 250px;
+    padding: 0;
+  }
   div#redaksi {
     border-right: none;
     border-bottom: 1px solid #e6e6e6;
@@ -468,7 +476,10 @@ div#redaksi {
     border-right: none;
     border-bottom: 1px solid #e6e6e6;
   }
-
+  .gallery {
+    height: 200px;
+    padding: 0;
+  }
   ul.navbar-right {
       padding-right: 0px;
   }
