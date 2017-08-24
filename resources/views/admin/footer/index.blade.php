@@ -30,21 +30,24 @@
             </tr>
         </thead>
         <tbody>
+        <?php $i=1 ?>
+            @foreach($footers as $footer)
                 <tr>
-                    <td>1</td>
-                    <td>tentangkami</td>
-                    <td>isi</td>
+                    <td>{{$i++}}</td>
+                    <td>{{$footer->judul}}</td>
+                    <td>{{$footer->content}}</td>
                     <td>
-                        <form method="post" action="/admin/footer/id#">
+                        <form method="post" action="{{url('admin/footer/'.$footer->id)}}">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
                             <button class="btn btn-danger pull-left">
                                 <span class="fa fa-trash"> Hapus</span>
                             </button>
                         </form>
-                        <a class="btn btn-warning pull-left" href="/admin/footer/id/edit#"><span class="fa fa-pencil"> Ubah</span></a>
+                        <a class="btn btn-warning pull-left" href="{{url('admin/footer/'.$footer->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
                     </td>
                 </tr>
+            @endforeach
         </tbody>
     </table>
 

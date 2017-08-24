@@ -14,8 +14,8 @@
     <a href="{{url('/admin/footer/create')}}" class="btn btn-success btn-md">
         <i class="fa fa-plus"></i> Tambah Data
     </a>
-    <a href="{{url('/admin/footertrash')}}" class="btn btn-danger btn-md">
-        <i class="fa fa-trash"></i> Lihat Data Sampah
+    <a href="{{url('/admin/footer')}}" class="btn btn-info btn-md">
+        <i class="fa fa-th-large"></i> Lihat Data 
     </a>
 </div>
 <br>    
@@ -30,21 +30,22 @@
             </tr>
         </thead>
         <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>tentangkami</td>
-                    <td>isi</td>
-                    <td>
-                        <form method="post" action="/admin/footer/id#">
-                            {{csrf_field()}}
-                            {{method_field('DELETE')}}
-                            <button class="btn btn-danger pull-left">
-                                <span class="fa fa-trash"> Hapus</span>
-                            </button>
-                        </form>
-                        <a class="btn btn-warning pull-left" href="/admin/footer/id/edit#"><span class="fa fa-pencil"> Ubah</span></a>
-                    </td>
-                </tr>
+            <?php $i=1;?>
+                @foreach($trash as $list)
+                    <tr>
+                        <td>{{$i++}}</td>
+                        <td>{{$list->judul}}</td>
+                        <td>{{$list->content}}</td>
+                        <td>
+                            <a href="{{url('/admin/footer/restore/'.$list->id)}}" class="btn btn-success btn-md">
+                            Kembalikan Data
+                            </a>
+                            <a href="{{url('/admin/footer/permanent/delete/'.$list->id)}}" class="btn btn-danger btn-md" onclick="return confirm('Hapus Footer Selamanya ?')">
+                            Hapus Permanen
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
         </tbody>
     </table>
 

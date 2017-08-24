@@ -11,6 +11,7 @@ use App\ArticleModel;
 use App\SliderModel;
 use App\KategoriArticleModel;
 use App\DetailKkModel;
+use App\GalleryModel;
 use Carbon\Carbon;
 use DB;
 use Image;
@@ -43,8 +44,9 @@ class frontController extends Controller
             }
         }
 
+        $gallery = GalleryModel::orderBy('id','desc')->get();
         $slider = SliderModel::where('status','aktif')->get();
-        return view('index', compact("latestArticle", "category","category","countBirthday","Listarticle","slider"));
+        return view('index', compact("latestArticle", "category","category","countBirthday","Listarticle","slider","gallery"));
     }
 
      public function article_view($slug)
