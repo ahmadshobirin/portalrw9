@@ -30,7 +30,7 @@ class ArticleController extends Controller
         $total = ArticleModel::count();
 
         //ini untuk ngecek berhasil gak querynya
-        dd($article);
+        // dd($article);
 
         return view("admin.article.list", compact("article"));
     }
