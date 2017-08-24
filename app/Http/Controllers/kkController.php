@@ -89,8 +89,11 @@ class kkController extends Controller
             DB::rollback();
         }
 
-        if ($success) { return 'success';}
-        else { return 'gagal';} 
+        if ($success) { 
+            return 'success';
+        } else { 
+            return 'gagal';
+        } 
     }
 
     /**
@@ -224,8 +227,12 @@ class kkController extends Controller
             DB::rollback();
         }
 
-        if ($success) { return 'success';}
-        else { return 'gagal';} 
+        if ($success) { 
+            $kk = kkMOdel::get();
+            return view('admin.kartu_keluarga.index',compact('kk'));
+        } else { 
+            return view('admin.kartu_keluarga.add_satu');
+        } 
 
     }
 
