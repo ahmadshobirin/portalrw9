@@ -10,7 +10,9 @@
         <div class="carousel-inner" role="listbox">
             @foreach( $slider as $photo )
                 <div class="item {{ $loop->first ? ' active' : '' }}" >
-                    <img src="{{ asset('images/slider/'.$photo->images) }}" alt=""" class="img-responsive img-slider">
+                  <a href="{{ asset('images/slider/'.$photo->images) }}" data-type="image" target="_blank" data-lightbox="slider">
+                    <img src="{{ asset('images/slider/'.$photo->images) }}" alt="" class="img-responsive img-slider" style="max-height: 20%;">
+                  </a>
                 </div>
             @endforeach
         </div>
