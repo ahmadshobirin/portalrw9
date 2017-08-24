@@ -1,5 +1,5 @@
-    <div class="panel-thumbnail">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="panel-thumbnail ">
+      <div id="myCarousel" class="carousel slide slider" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
           @foreach( $slider as $photo )
@@ -10,7 +10,7 @@
         <div class="carousel-inner" role="listbox">
             @foreach( $slider as $photo )
                 <div class="item {{ $loop->first ? ' active' : '' }}" >
-                    <img src="{{ asset('images/slider/'.$photo->images) }}" alt="" style="min-width:100%; height:30%;" class="img-responsive">
+                    <img src="{{ asset('images/slider/'.$photo->images) }}" alt=""" class="img-responsive img-slider">
                 </div>
             @endforeach
         </div>
