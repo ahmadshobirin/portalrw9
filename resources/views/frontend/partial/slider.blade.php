@@ -2,24 +2,18 @@
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
+          @foreach( $slider as $photo )
+            <li data-target="#carousel-example-generic" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+          @endforeach
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="assets/img/hbd2.jpg" alt="Los Angeles">
-          </div>
-
-          <div class="item">
-            <img src="assets/img/hbd2.jpg" alt="Chicago">
-          </div>
-
-          <div class="item">
-            <img src="assets/img/hbd2.jpg" alt="New York">
-          </div>
+        <div class="carousel-inner" role="listbox">
+            @foreach( $slider as $photo )
+                <div class="item {{ $loop->first ? ' active' : '' }}" >
+                    <img src="{{ asset('images/slider/'.$photo->images) }}" alt="" style="min-width:100%; height:30%;" class="img-responsive">
+                </div>
+            @endforeach
         </div>
 
         <!-- Left and right controls -->

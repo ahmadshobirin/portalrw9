@@ -23,10 +23,7 @@
 
                   <div class="row" >
                      <div class="container">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 slider">
-                          
-                          @include('frontend.partial.slider')
-                        </div>
+                        @yield('slider')
                         <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12" id="content">
                           <!-- CONTENT -->
                             @section ('body')

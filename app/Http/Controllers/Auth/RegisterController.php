@@ -88,4 +88,14 @@ class RegisterController extends Controller
         }
         return User::create($fields);
     }
+
+    public function sendEMail()
+    {
+
+    }
+
+    public function verifyEmail()
+    {
+        
+    }
 }
