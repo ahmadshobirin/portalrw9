@@ -60,6 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/warga/restore/{id}', 'kkController@restore');
     Route::get('admin/warga/permanent/delete/{id}', 'kkController@permanentDelete');
 
+    Route::get('admin/warga/add/one','kkController@tambahSatu');
+    Route::post('admin/warga/add/one','kkController@simpanSatu');
+
     Route::get('admin/detailkktrash/{nokk}', 'DetailKkController@trash');
     Route::get('admin/detailkk/restore/{id}', 'DetailKkController@restore');
     Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');   

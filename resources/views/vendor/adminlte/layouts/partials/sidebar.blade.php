@@ -46,7 +46,12 @@
                 <a href="#"><i class='fa fa-address-book'></i> <span>Kartu Keluarga</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li style="padding-left: 20px;"><a href="{{url('/admin/warga')}}"><i class='fa fa-files-o'></i>Semua KK</a></li>
-                    <li style="padding-left: 20px;"><a href="{{url('/admin/warga/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/warga/add/one')}}">
+                        <i class='fa fa-pencil'></i>Tambah Baru (individu)</a>
+                    </li>
+                    <li style="padding-left: 20px;"><a href="{{url('/admin/warga/create')}}">
+                        <i class='fa fa-pencil'></i>Tambah Baru (multyple)</a>
+                    </li>
                     <li style="padding-left: 20px;"><a href="{{url('/admin/wargatrash')}}"><i class='fa fa-trash'></i>Sampah</a></li>
                 </ul>
             </li>

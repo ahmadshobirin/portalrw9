@@ -14,7 +14,7 @@
             <div class="box-header">FORM KARTU KELUARGA</div>
                 <div class="box-body" id="box">
                     <div class="box-body">
-                        <form id="formCreate" onsubmit="saveData()">                
+                        <form id="formCreate" onsubmit="saveData()" action="{{url('/admin/warga/add/one')}}" method="post">                
                                 <div class="row" id="content">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -196,7 +196,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>        
+                                </div>    
+                               <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <input type="submit" value="Simpan Data" class="btn btn-success btn-block btn-md" id="submit">
                         </form>
                         {{--  end-box-body-first  --}}

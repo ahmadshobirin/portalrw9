@@ -172,6 +172,63 @@ class kkController extends Controller
         return redirect()->back();
     }
 
+    public function tambahSatu()
+    {
+        // dd('df');
+        return view('admin.kartu_keluarga.add_satu');
+    }
+
+    public function simpanSatu(request $request)
+    {
+         DB::beginTransaction();
+        try {
+             DB::table('kartu_keluarga')->insert([
+                'no_kk' => $request->no_kk,
+                'kepala_keluarga' => $request->kepala_keluarga,
+                'rt' => $request->rt,
+                'rw' => $request->rw,
+                'kodepos'    => $request->kodepos,
+                'desa_kelurahan' => $request->desa_kelurahan,
+                'kecamatan' => $request->kecamatan,
+                'kabupaten_kota' => $request->kabupaten_kota,
+                'provinsi'   => $request->provinsi,
+                'keluar_tgl' => $request->keluarTanggal,
+                'alamat'     => $request->alamat,
+            ]);
+
+            for($x=0; $x < count($request->data); $x++){
+
+                DB::table('detail_kartu_keluarga')->insert([
+                    'kartu_keluarga' => $request->no_kk,
+                    'nik'   => $request->data[$x]['nik'],
+                    'nama'  => $request->data[$x]['nama'],
+                    'jk'    => $request->data[$x]['jk'],
+                    'tempat_lahir'      => $request->data[$x]['tpt_lahir'],
+                    'tanggal_lahir'     => $request->data[$x]['tgl_lahir'],
+                    'jenis_pekerjaan'   => $request->data[$x]['pendidikan'],
+                    'status_pernikahan' => $request->data[$x]['statusPernikahan'],
+                    'status_keluarga'   => $request->data[$x]['statusKeluarga'],
+                    'kewarganegaraan'   => $request->data[$x]['kewarganegaraan'],
+                    'pendidikan'        => $request->data[$x]['pendidikan'],
+                    'pasport'   => $request->data[$x]['pasport'],
+                    'kitap'     => $request->data[$x]['kitap'],
+                    'ayah'      => $request->data[$x]['ayah'],
+                    'ibu'       => $request->data[$x]['ibu'],
+                ]);
+                // echo $request->data[$x]['nik']."<br>";
+            }
+            DB::commit();
+            $success = true;
+        } catch (\Exception $e) {
+            $success = false;
+            DB::rollback();
+        }
+
+        if ($success) { return 'success';}
+        else { return 'gagal';} 
+
+    }
+
     private function validateInput($request) {
         $this->validate($request, [
             'nama' => 'required',
@@ -181,4 +238,5 @@ class kkController extends Controller
             'ibu' => 'required', 
         ]);
     }
+
 }
