@@ -48,7 +48,7 @@ class GalleryController extends Controller
             $file = $request->file('images');
             $filename = time().'-'.$file->getClientOriginalName();
             $location = public_path('images/gallery/'.$filename);
-            Image::make($file)->resize(800,800)->save($location); 
+            Image::make($file)->save($location); 
         }
         $store->images = $filename;
         $store->save(); 
