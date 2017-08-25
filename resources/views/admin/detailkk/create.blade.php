@@ -20,7 +20,7 @@
                            <div class="col-md-6">
                               <div class="form-group">
                                  <label for="">Kartu Keluarga</label>
-                                 <select name="kartuKeluarga" id="kartuKeluarga" class="form-control" lang="id">
+                                 <select name="kartuKeluarga" id="kartuKeluarga" class="form-control form-group" lang="id">
                                     <option value=""></option>
                                     @foreach($datakk as $kk)
                                        <option value="{{$kk->no_kk}}">{{ucfirst($kk->no_kk)}}</option>
