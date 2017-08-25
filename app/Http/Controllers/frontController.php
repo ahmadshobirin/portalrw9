@@ -62,8 +62,9 @@ class frontController extends Controller
                 ->where('article.slug' ,'=',$slug)
                 ->get();
 
+        $gallery = GalleryModel::orderBy('id','desc')->get();
         $category   = KategoriArticleModel::get();
-        return view('detail-index', compact("listArticle", "category","image","latestArticle"));
+        return view('detail-index', compact("listArticle", "category","image","latestArticle","gallery"));
 
      }
   

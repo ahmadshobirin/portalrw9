@@ -8,8 +8,6 @@
 
 @section('main-content')
 
-<!--<script src="/ckeditor/ckeditor.js"></script>-->
-<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <form method="post" action="/admin/article/{{$article->id}}" enctype="multipart/form-data">
     {{csrf_field()}}
     {{method_field('put')}}
@@ -53,6 +51,16 @@
         </tr>
     </table>
 </form>
-@ckeditor('content')
 
+@endsection
+
+@section('scripts')
+    {{-- <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script> --}}
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'content', {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        });
+    </script>
 @endsection

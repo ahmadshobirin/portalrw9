@@ -9,7 +9,6 @@
 @section('main-content')
 
 <!--<script src="/ckeditor/ckeditor.js"></script>-->
-<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 
  <div class="container-fluid spark-screen">
        <div class="row">
@@ -59,8 +58,16 @@
             </div>
         </div>
  </div>
-    
-@ckeditor('content')
 
+@endsection
 
+@section('scripts')
+    {{-- <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script> --}}
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'content', {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        });
+    </script>
 @endsection
