@@ -160,12 +160,63 @@ h3:hover{
   overflow-y: scroll;
 }
 
+.see-more{
+  background-color: #FAFAFA;
+  text-align: center;
+  margin: 0px auto;
+  font-size: 20px;
+}
+
+.see-more:hover{
+  background-color: #4CAF50;
+  text-align: center;
+  color: #FAFAFA;
+  margin: 0px auto;
+  font-size: 20px;
+
+}
+
 .gallery > div {
   padding: 0;
 }
 
 div.thumbnail{
   margin-bottom: 0;
+}
+
+
+.grid{
+  position: relative;
+  height: 112px;
+  overflow: hidden;
+}
+
+.grid img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+
+.grid2{
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.grid2 img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
 }
 
 #sidebar-footer {
@@ -368,6 +419,11 @@ div#redaksi {
     ul.navbar-right {
       padding-right: 20px;
     }
+    .grid2{
+      position: relative;
+      height: 150px;
+      overflow: hidden;
+    }
     .img-slider {
       min-width: 100%;
       max-height: 0%;
@@ -434,6 +490,14 @@ div#redaksi {
 }
 
 @media only screen and (max-width: 425px) and (min-width: 375px) {
+  .grid2{
+      position: relative;
+      height: 90px;
+      overflow: hidden;
+    }
+  h2#title{
+    font-size: 20px;
+  }
   ul.navbar-right {
       padding-right: 0px;
   }
@@ -441,6 +505,7 @@ div#redaksi {
     height: 250px;
     padding: 0;
   }
+
   div#redaksi {
     border-right: none;
     border-bottom: 1px solid #e6e6e6;
@@ -493,6 +558,11 @@ div#redaksi {
 }
 
 @media only screen and (max-width: 375px) and (min-width: 320px) {
+  .grid2{
+      position: relative;
+      height: 70px;
+      overflow: hidden;
+    }
   div#redaksi {
     border-right: none;
     border-bottom: 1px solid #e6e6e6;
@@ -555,6 +625,14 @@ div#redaksi {
 }
 
 @media only screen and (max-width: 320px) {
+  h2#title{
+    font-size: 18px;
+  }
+  .grid2{
+      position: relative;
+      height: 60px;
+      overflow: hidden;
+    }
   ul.navbar-right {
       padding-right: 0px;
   }

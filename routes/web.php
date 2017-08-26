@@ -15,8 +15,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/','frontController@index');
+Route::get('/gallery', 'frontController@galleryDetail');
 Route::get('/article/category/{slug}','frontController@category_article');
 Route::get('/article/post/{slug}','frontController@article_view'); 
 Route::get('/birthday','frontController@birthday');

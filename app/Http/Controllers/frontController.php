@@ -178,4 +178,17 @@ class frontController extends Controller
         return view('panduan-menulis', compact("birthday","latestArticle","category"));
     }
 
+    public function galleryDetail()
+    {
+        $category = KategoriArticleModel::get(); 
+        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+        $latestArticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->orderBy('article.id','desc')
+                ->limit(4)
+                ->get();
+        $gallery = GalleryModel::orderBy('created_at','desc')->get();
+        return view('gallery-detail', compact('category','birthday','latestArticle','gallery'));
+    }
+
 }
