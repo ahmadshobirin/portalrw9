@@ -28,6 +28,10 @@
   {!! $Listarticle->links() !!}
 @endsection
 
+@section('galeri')
+  @include('frontend.partial.gallery')
+@endsection
+
 @section('scripts')
   <script type="text/javascript">
     $(document).ready(function(){

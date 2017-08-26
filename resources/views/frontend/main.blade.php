@@ -34,10 +34,10 @@
                         </div>
                         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                         {{-- GALLERY --}}
-                          @include('frontend.partial.gallery')
+                         @yield('galeri')
                         {{-- END GALLERY --}}
                         <!-- SIDE BAR -->
-                          @include('frontend.partial.sidebar')
+                         @include('frontend.partial.sidebar')
                         <!-- END SIDE BAR -->
                         </div>
                      </div>
