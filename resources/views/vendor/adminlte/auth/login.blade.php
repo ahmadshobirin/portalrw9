@@ -25,6 +25,8 @@
 
         <div class="login-box-body">
         <p class="login-box-msg"> Log-in </p>
+        
+        @include('partials.flash')
 
         <login-form name="{{ config('auth.providers.users.field','email') }}"
                     domain="{{ config('auth.defaults.domain','') }}"></login-form>

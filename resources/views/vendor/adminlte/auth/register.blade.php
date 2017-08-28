@@ -7,11 +7,13 @@
 @section('content')
 
 <body class="hold-transition register-page">
-    <div id="app" v-cloak>
+    <div>
         <div class="register-box">
             <div class="register-logo">
                 <a href="{{ url('/home') }}"><b>Portal</b>RW9</a>
             </div>
+
+            @include('adminlte::auth.partials.flash')
 
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
