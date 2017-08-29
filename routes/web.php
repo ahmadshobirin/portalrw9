@@ -34,6 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin','HomeController@index');
     Route::get('/admin/pengaturan','UserController@password');
     Route::post('/admin/pengaturan','UserController@updatePassword');
+    Route::get('/home/artikel','UserArtikelController@index');
+    Route::get('/home/artikel/tambah','UserArtikelController@create');
+    Route::get('/home/artikel/edit/{id}','UserArtikelController@edit');
 
     Route::middleware(['auth', 'admin'])->group(function () {
 

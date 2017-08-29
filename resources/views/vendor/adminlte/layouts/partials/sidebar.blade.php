@@ -6,6 +6,8 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li><a href="{{url('/')}}" target="_blank"><i class='fa fa-globe'></i> <span>Lihat Web</span></a></li> 
+
+
             @if(Auth::user()->is_admin == 1)
                 <li class="treeview">
                     <a href="#"><i class='fa fa-th-list'></i> <span>Artikel</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -66,6 +68,14 @@
                     </ul>
                 </li>
                 <li><a href="{{url('admin/detailkk/create')}}"><i class='fa fa-address-card'></i> <span>Tambah Detail KK</span></a></li> 
+            @else
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-check'></i> <span>Artikel Saya</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li style="padding-left: 20px;"><a href="{{url('/home/artikel')}}"><i class='fa fa-file-text-o'></i>Semua Artikel</a></li>
+                        <li style="padding-left: 20px;"><a href="{{url('/home/artikel/tambah')}}"><i class='fa fa-pencil'></i>Tambah Artikel</a></li>
+                    </ul>
+                </li>
             @endif
         </ul><!-- /.sidebar-menu -->
     </section>
