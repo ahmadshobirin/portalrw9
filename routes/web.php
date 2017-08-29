@@ -32,8 +32,11 @@ Route::group(['middleware' => 'auth'], function () {
     
     //user
     Route::get('/admin','HomeController@index');
-    Route::get('/admin/pengaturan','UserController@password');
-    Route::post('/admin/pengaturan','UserController@updatePassword');
+    Route::get('/home/pengaturan','UserController@config');
+    Route::get('/home/pengaturan/ubahPassword','UserController@password');
+    Route::post('/home/pengaturan/ubahPassword','UserController@updatePassword');
+    Route::get('/home/pengaturan/ubahakun','UserController@akun');
+    Route::post('/home/pengaturan/ubahakun','UserController@updateakun');
     Route::get('/home/artikel','UserArtikelController@index');
     Route::get('/home/artikel/tambah','UserArtikelController@create');
     Route::get('/home/artikel/edit/{id}','UserArtikelController@edit');

@@ -14,10 +14,27 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function config()
+    {
+        return view('users.pengaturan');
+    }
+
+    public function akun()
+    {
+        return view('users.ubah-akun');
+    }
+
+    public function updateakun()
+    {
+        // return view('users.pengaturan');
+    }
+
     public function password()
     {
-        return view('admin.ubah-pass');
+        return view('users.ubah-pass');
     }
+
 
     public function updatePassword(Request $request)
     {

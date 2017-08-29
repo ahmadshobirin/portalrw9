@@ -87,4 +87,5 @@ class UserArtikelController extends Controller
     {
         //
     }
+
 }

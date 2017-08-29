@@ -37,12 +37,13 @@
                                 <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />
                                 <p>
                                     {{ Auth::user()->name }}
+                                    <small>ini status</small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{ url('/admin/pengaturan') }}" class="btn btn-default btn-flat">Ubah Password</a>
+                                    <a href="{{ url('/home/pengaturan') }}" class="btn btn-default btn-flat">Ubah Profil Akun</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat" id="logout"
