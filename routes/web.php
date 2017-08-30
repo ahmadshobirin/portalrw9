@@ -16,7 +16,10 @@
 |
 */
 Route::get('/','frontController@index');
-Route::get('/gallery', 'frontController@galleryDetail');
+Route::get('/gallery', 'frontController@gallery');
+// ini ntar dibuat view gallery detail
+Route::get('/gallery/event', 'frontController@galleryEvent');
+// baris ini aja ^^^^^^^
 Route::get('/article/category/{slug}','frontController@category_article');
 Route::get('/article/post/{slug}','frontController@article_view'); 
 Route::get('/birthday','frontController@birthday');

@@ -32,7 +32,7 @@
                            <div class="caption panel-body">
                               @foreach($gallery as $list)
                               <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3 thumbnail grid2">
-                                 <a href="{{url('/gallery/event')}}" class="link">
+                                 <a href="{{asset('images/gallery/'.$list->images)}}" data-type="image" target="_blank" data-lightbox="photo">
                                  <img src="{{asset('images/gallery/'.$list->images)}}" alt="image" class="img-responsive">
                                  </a>
                               </div>
