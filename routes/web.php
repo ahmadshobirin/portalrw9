@@ -16,7 +16,10 @@
 |
 */
 Route::get('/','frontController@index');
-Route::get('/gallery', 'frontController@galleryDetail');
+Route::get('/gallery', 'frontController@gallery');
+// ini ntar dibuat view gallery detail
+Route::get('/gallery/event', 'frontController@galleryEvent');
+// baris ini aja ^^^^^^^
 Route::get('/article/category/{slug}','frontController@category_article');
 Route::get('/article/post/{slug}','frontController@article_view'); 
 Route::get('/birthday','frontController@birthday');
@@ -32,8 +35,14 @@ Route::group(['middleware' => 'auth'], function () {
     
     //user
     Route::get('/admin','HomeController@index');
-    Route::get('/admin/pengaturan','UserController@password');
-    Route::post('/admin/pengaturan','UserController@updatePassword');
+    Route::get('/home/pengaturan','UserController@config');
+    Route::get('/home/pengaturan/ubahPassword','UserController@password');
+    Route::post('/home/pengaturan/ubahPassword','UserController@updatePassword');
+    Route::get('/home/pengaturan/ubahakun','UserController@akun');
+    Route::post('/home/pengaturan/ubahakun','UserController@updateakun');
+    Route::get('/home/artikel','UserArtikelController@index');
+    Route::get('/home/artikel/tambah','UserArtikelController@create');
+    Route::get('/home/artikel/edit/{id}','UserArtikelController@edit');
 
     Route::middleware(['auth', 'admin'])->group(function () {
 

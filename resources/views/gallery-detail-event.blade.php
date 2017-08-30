@@ -11,7 +11,7 @@
       <link href="{{URL::asset('assets/css/facebook.css')}}" rel="stylesheet">
       <link href="{{URL::asset('assets/css/media-query.css')}}" rel="stylesheet">
       <link href="{{URL::asset('assets/css/footer.css')}}" rel="stylesheet">
-      <link href="{{URL::asset('assets/css/gallery.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/css/gallery-detail.css')}}" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" />
       <!-- END STYLE CSS -->
    </head>
@@ -35,14 +35,9 @@
                            <div class="caption panel-body">
                               @foreach($gallery as $list)
                               <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3 thumbnail grid2">
-                                 
-                                 <img src="{{asset('images/gallery/'.$list->images)}}" alt="image" class="img-responsive image">
-                                 
-                                 <a href="{{url('/gallery/event')}}" class="link">
-                                 <div class="overlay">
-                                  <div class="text">Hello World</div>
-                                </div>
-                                </a>
+                                 <a href="{{asset('images/gallery/'.$list->images)}}" data-type="image" target="_blank" data-lightbox="photo">
+                                 <img src="{{asset('images/gallery/'.$list->images)}}" alt="image" class="img-responsive">
+                                 </a>
                               </div>
                               @endforeach
                            </div>
