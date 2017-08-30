@@ -9,6 +9,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link href="{{URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
       <link href="{{URL::asset('assets/css/facebook.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/css/media-query.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/css/footer.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/css/gallery.css')}}" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" />
       <!-- END STYLE CSS -->
    </head>
