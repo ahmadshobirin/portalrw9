@@ -200,7 +200,7 @@ class frontController extends Controller
                 ->limit(4)
                 ->get();
         $gallery = GalleryModel::orderBy('created_at','desc')->get();
-        return view('gallery-detail', compact('category','birthday','latestArticle','gallery'));
+        return view('gallery-detail-event', compact('category','birthday','latestArticle','gallery'));
     }
 
 }
