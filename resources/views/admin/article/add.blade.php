@@ -7,9 +7,6 @@
 @section('contentheader_title', 'Tambah Artikel')
 
 @section('main-content')
-
-<!--<script src="/ckeditor/ckeditor.js"></script>-->
-
  <div class="container-fluid spark-screen">
        <div class="row">
             <div class="box box-success" style="box-shadow: 3px 3px 7px #888888">

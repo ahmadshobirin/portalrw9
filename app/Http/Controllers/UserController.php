@@ -7,10 +7,10 @@
  */
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\User;
+use Image;
 
 class UserController extends Controller
 {
@@ -25,9 +25,37 @@ class UserController extends Controller
         return view('users.ubah-akun');
     }
 
-    public function updateakun()
+    public function updateakun(Request $request)
     {
-        // return view('users.pengaturan');
+        $this->validate($request,[
+            'name' => 'min:3|max:20',
+            'bio'  => 'min:5|max:25',
+        ]);
+
+        $updateAkun = User::find(auth()->user()->id);
+        $nama = $request->nama == null ? $updateAkun->name : $request->nama;
+
+        $updateAkun->name = $nama;
+        $updateAkun->bio = $request->bio;
+
+        if($request->hasFile('images'))
+        {  
+            //hapusfile
+            $oldImages = $updateAkun->images;
+            if(!empty($oldImages)) { @unlink('images/users/'.$oldImages); }
+
+            //updateprofilimage
+            $file = $request->file('images');
+            $filename = time().'-'.$file->getClientOriginalname();
+            $location = public_path('images/users/'.$filename);
+            Image::make($file)->resize(84,84)->save($location);
+            
+            $updateAkun->images = $filename;
+        }
+        // dd($updateAkun);
+        $updateAkun->save();
+        return redirect('pengaturan');  
+        
     }
 
     public function password()
