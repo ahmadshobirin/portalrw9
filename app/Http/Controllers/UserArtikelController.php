@@ -38,7 +38,30 @@ class UserArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+                'category' => 'required|not_in:--Kategori--', 
+                'title' => 'required', 
+                'images' => 'required|image|mimes:jpeg,bmp,png,jpg', 
+                'description' => 'required',
+                'content' => 'required',
+            ]);
+        $store = new ArticleModel;
+        $item->user_id = auth()->user()->id;
+        $store->category = $request->category;
+        $store->title = $request->title;
+        $item->slug = str_slug($request->title,'-');
+        if($request->hasFile('images')){
+            $file = $request->file('images');
+            $filename = time().'-'.$file->getClientOriginalName();
+            $location = public_path('images/'.$filename);
+            Image::make($file)->resize(800,800)->save($location);
+        }
+        $store->description = $request->description;
+        $store->content = $request->content;
+        $store->view = 0;
+        $store->status = 'pending';
+        $store->save();
+        return redirect('/home/artikel');
     }
 
     /**

@@ -12,7 +12,6 @@ use App\User;
 use Mail;
 use Auth;
 
-
 class RegisterController extends Controller
 {
     /*
@@ -112,15 +111,7 @@ class RegisterController extends Controller
         User::whereToken($token)->firstOrFail()->hasVerified();
 
         Auth::loginUsingId($user_id);
-    }
 
-    public function sendEMail()
-    {
-
-    }
-
-    public function verifyEmail()
-    {
-        
+        return redirect('admin');
     }
 }

@@ -24,7 +24,7 @@
                                     <td>
                                         <select name="category" class="form-control" required>
                                             <option selected disabled>--Kategori--</option>
-                                            <option value=""></option>
+                                            <option value="Rembuk warga">Rembuk warga</option>
                                         </select>
                                     </td>
                                 </tr>
