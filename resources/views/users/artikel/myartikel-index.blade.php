@@ -23,7 +23,6 @@
                 <th>No.</th>
                 <th>Judul</th>
                 <th>Sampul</th>
-                <th>Kategori</th>
                 <th>status</th>
                 <th class="nosort">Aksi</th>
             </tr>
@@ -32,10 +31,9 @@
 
                 <tr>
                     <td></td>
-                    <td></td>
                     <td><img src="" alt="" style="max-midth:120px; max-height:120px;"></td>
                     <td></td>
-                    <td></td>
+                    <td>aktif | pending</td>
                     <td>
                         <form method="post" action="">
                             {{csrf_field()}}
