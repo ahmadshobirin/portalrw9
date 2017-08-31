@@ -4,15 +4,18 @@
 	Artikel
 @endsection
 
-@section('contentheader_title', 'Artikel')
+@section('contentheader_title', 'Artikel User')
 
 @section('main-content')
 
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
-<div>
-    <a href="{{url('/home/artikel/create')}}" class="btn btn-success btn-md">
+<div class="">
+    <a href="{{url('/admin/article/create')}}" class="btn btn-success btn-md">
         <i class="fa fa-plus"></i> Tambah Data
+    </a>
+    <a href="{{url('/admin/articletrash')}}" class="btn btn-danger btn-md">
+        <i class="fa fa-trash"></i> Lihat Data Sampah
     </a>
 </div>
 <br>    
@@ -23,7 +26,7 @@
                 <th>No.</th>
                 <th>Judul</th>
                 <th>Sampul</th>
-                <th>status</th>
+                <th>Kategori</th>
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
@@ -31,15 +34,22 @@
         <?php $i=1 ?>
             @foreach($article as $list)
                 <tr>
-                    <td>{{$i++}}</td>
+                    <td>{{ $i++ }}</td>
                     <td>{{$list->title}}</td>
                     <td><img src="{{asset('images/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
-                    <td>{{$list->status}}</td>
+                    <td>{{$list->category}}</td>
                     <td>
-                        <a class="btn btn-warning pull-left" href="{{url('/home/artikel/'.$list->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
+                        <form method="post" action="/admin/article/{{$list->id}}">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <button class="btn btn-danger pull-left">
+                                <span class="fa fa-trash"> Hapus</span>
+                            </button>
+                        </form>
+                        <a class="btn btn-warning pull-left" href="/admin/article/{{$list->id}}/edit"><span class="fa fa-pencil"> Ubah</span></a>
                     </td>
-            @endforeach
                 </tr>
+                @endforeach
         </tbody>
     </table>
 

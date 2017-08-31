@@ -82,8 +82,9 @@ class frontController extends Controller
                 ->orderBy('article.id','desc')
                 ->limit(4)
                 ->get();
+        $gallery = GalleryModel::orderBy('id','desc')->get();
         $category = KategoriArticleModel::get();
-        return view('category', compact("articleInti","kategori","category","latestArticle","listArticle"));
+        return view('category', compact("articleInti","kategori","category","latestArticle","listArticle","gallery"));
      }
     
     public function birthday()

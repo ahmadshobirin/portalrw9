@@ -41,9 +41,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengaturan/ubahakun','UserController@akun');
     Route::post('/pengaturan/ubahakun','UserController@updateakun');
     
-    Route::get('/home/artikel','UserArtikelController@index');
-    Route::get('/home/artikel/tambah','UserArtikelController@create');
-    Route::get('/home/artikel/edit/{id}','UserArtikelController@edit');
+    // Route::get('/home/artikel','UserArtikelController@index');
+    // Route::get('/home/artikel/tambah','UserArtikelController@create');
+    // Route::get('/home/artikel/edit/{id}','UserArtikelController@edit');
+    Route::resource('/home/artikel','UserArtikelController');
 
     Route::middleware(['auth', 'admin'])->group(function () {
 
@@ -52,6 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('admin/articletrash', 'ArticleController@trash');
         Route::get('admin/article/restore/{id}', 'ArticleController@restore');
         Route::get('admin/article/permanent/delete/{id}', 'ArticleController@permanentDelete');
+        Route::get('admin/artikeluser','ArticleController@articleUser');
 
         //categorycontroller
         Route::resource('/admin/category','categoryController');

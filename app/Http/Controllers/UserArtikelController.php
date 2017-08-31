@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use App\ArticleModel;
 use App\KategoriArticleModel;
+use DB;
+use File;
+use Image;
 
 class UserArtikelController extends Controller
 {
@@ -15,8 +20,12 @@ class UserArtikelController extends Controller
      */
     public function index()
     {
+        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
+            ->select('article.id', 'article.status','article.title', 'article.images', 
+            'article.description', 'article.content', 'article.view', 'category.category')
+            ->get();
+        return view("users.artikel.myartikel-index", compact("article"));
         // dd('s');
-        return view('users.artikel.myartikel-index');
     }
 
     /**
@@ -26,7 +35,7 @@ class UserArtikelController extends Controller
      */
     public function create()
     {
-        $category = KategoriArticleModel::get();
+        $category = KategoriArticleModel::where('category','Rembuk warga')->first();
         return view("users.artikel.myartikel-create", compact("category"));
     }
 
@@ -46,16 +55,17 @@ class UserArtikelController extends Controller
                 'content' => 'required',
             ]);
         $store = new ArticleModel;
-        $item->user_id = auth()->user()->id;
+        $store->user_id = auth()->user()->id;
         $store->category = $request->category;
         $store->title = $request->title;
-        $item->slug = str_slug($request->title,'-');
+        $store->slug = str_slug($request->title,'-');
         if($request->hasFile('images')){
             $file = $request->file('images');
             $filename = time().'-'.$file->getClientOriginalName();
             $location = public_path('images/'.$filename);
-            Image::make($file)->resize(800,800)->save($location);
+            Image::make($file)->resize(800,400)->save($location);
         }
+        $store->images = $filename;
         $store->description = $request->description;
         $store->content = $request->content;
         $store->view = 0;
@@ -72,7 +82,7 @@ class UserArtikelController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -83,9 +93,11 @@ class UserArtikelController extends Controller
      */
     public function edit($id)
     {
-        // $article = ArticleModel::find($id);
-        // $category = KategoriArticleModel::select('id','category')->get();
-        return view("users.artikel.myartikel-edit"/*, compact("article","category")*/);
+        $article = ArticleModel::find($id);
+        // dd($id);
+        // dd($article);
+        $category = KategoriArticleModel::select('id','category')->get();
+        return view('users.artikel.myartikel-edit', compact('article','category'));
     }
 
     /**
@@ -97,7 +109,30 @@ class UserArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+                'title' => 'required',
+                'images' => 'image',
+                'description' => 'required',
+                'description' => 'required',
+                'content' => 'required',
+            ]);
+        $update = ArticleModel::find($id);
+        $update->title = $request->title;
+        $update->description = $request->description;
+        $update->content = $request->content;
+        if($request->hasFile('images')){
+            $file = $request->imags;
+            $filename = time().'-'.$file->getClientOriginalName();
+            $location = public_path('images/'.$filename);
+            Image::make($file)->resize(800,400)->save($location);
+            $oldFile = $update->images;
+
+            $update->images = $filename;
+
+            File::delete(public_path('images/'.$oldFile));
+        }
+        $update->save();
+        return redirect('/home/artikel');
     }
 
     /**
