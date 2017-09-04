@@ -34,9 +34,10 @@ class UserController extends Controller
 
         $updateAkun = User::find(auth()->user()->id);
         $nama = $request->nama == null ? $updateAkun->name : $request->nama;
+        $bio = $request->bio == null ? $updateAkun->bio : $request->bio;
 
         $updateAkun->name = $nama;
-        $updateAkun->bio = $request->bio;
+        $updateAkun->bio = $bio;
 
         if($request->hasFile('images'))
         {  

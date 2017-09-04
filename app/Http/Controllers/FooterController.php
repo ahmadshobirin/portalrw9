@@ -37,7 +37,7 @@ class FooterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'judul' => 'required|min:4|max:25',
+            'judul' => 'required|min:4|max:35',
             'content' => 'required'
         ]);
 

@@ -22,7 +22,10 @@ Route::get('/gallery/event', 'frontController@galleryEvent');
 // baris ini aja ^^^^^^^
 Route::get('/article/category/{slug}','frontController@category_article');
 Route::get('/article/post/{slug}','frontController@article_view'); 
-Route::get('/birthday','frontController@birthday');
+
+// Route::get('/birthday','frontController@birthday');
+Route::get('footer/{slug}','frontController@footer');
+
 Route::get('/tentang-kami','frontController@tentangkami');
 Route::get('/pedoman-media-cyber','frontController@pedoman');
 Route::get('/manajemen-redaksi','frontController@manajemen');
