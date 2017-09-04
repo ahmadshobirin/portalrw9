@@ -27,7 +27,7 @@
                     <a href="{{ url('admin/view/setstatus/'.$dataArtikel->id.'/aktif') }}" class="btn btn-success btn-block">Layak</a>
                 </div>
                 <div class="col-md-6">
-                   <a href="#!" class="btn btn-warning btn-block">Revisi</a>
+                   <a href="{{ url('admin/view/setstatus/'.$dataArtikel->id.'/nonaktif') }}" class="btn btn-warning btn-block">Revisi</a>
                 </div>
             </div>
       </div>
