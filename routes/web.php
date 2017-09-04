@@ -41,9 +41,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengaturan/ubahakun','UserController@akun');
     Route::post('/pengaturan/ubahakun','UserController@updateakun');
     
-    Route::get('/home/artikel','UserArtikelController@index');
-    Route::get('/home/artikel/tambah','UserArtikelController@create');
-    Route::get('/home/artikel/edit/{id}','UserArtikelController@edit');
+    Route::get('/user/artikel','UserArtikelController@index');
+    Route::get('/user/artikel/tambah','UserArtikelController@create');
+    Route::post('/user/artikel/tambah','UserArtikelController@store');
+    Route::get('/user/artikel/ubah/{id}','UserArtikelController@edit');
+    Route::post('/user/artikel/ubah','UserArtikelController@update');
 
     Route::middleware(['auth', 'admin'])->group(function () {
 
@@ -53,6 +55,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('admin/article/restore/{id}', 'ArticleController@restore');
         Route::get('admin/article/permanent/delete/{id}', 'ArticleController@permanentDelete');
 
+        //articlereview
+        Route::get('admin/view/article','UserArtikelController@viewAdmin');
+        Route::get('admin/view/article/{id}','UserArtikelController@detailViewAdmin');
+        Route::get('admin/view/setstatus/{id}/{status}','UserArtikelController@setStatus');
+
+        
         //categorycontroller
         Route::resource('/admin/category','categoryController');
         Route::get('admin/categorytrash', 'categoryController@trash');

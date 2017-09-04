@@ -28,25 +28,26 @@ class frontController extends Controller
                 ->get();
 
         $Listarticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->join('users','users.id','=','article.user_id')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category','users.name')
                 ->orderBy('article.id','desc')
+                ->where('article.status', 'aktif')
                 ->paginate(6);
 
         $category = KategoriArticleModel::get();
-        $countBirthday = 0;
-        $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-
-        foreach($birthdayNow as $data)
-        {
-            if($data->tanggal_lahir->month == \Carbon\Carbon::now()->month && $data->tanggal_lahir->day == \Carbon\Carbon::now()->day)
-            {
-                $countBirthday++;
-            }
-        }
-
-        $gallery = GalleryModel::orderBy('id','desc')->get();
         $slider = SliderModel::where('status','aktif')->get();
-        return view('index', compact("latestArticle", "category","category","countBirthday","Listarticle","slider","gallery"));
+
+        return view('index', compact("latestArticle","category","Listarticle","slider"));
+        // $countBirthday = 0;
+        // $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+
+        // foreach($birthdayNow as $data)
+        // {
+        //     if($data->tanggal_lahir->month == \Carbon\Carbon::now()->month && $data->tanggal_lahir->day == \Carbon\Carbon::now()->day)
+        //     {
+        //         $countBirthday++;
+        //     }
+        // }
     }
 
      public function article_view($slug)

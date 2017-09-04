@@ -1,20 +1,14 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Artikel
+	Artikel User
 @endsection
 
-@section('contentheader_title', 'Artikel')
+@section('contentheader_title', 'Artikel User')
 
 @section('main-content')
 
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
-
-<div>
-    <a href="{{url('/user/artikel/tambah')}}" class="btn btn-success btn-md">
-        <i class="fa fa-plus"></i> Tambah Data
-    </a>
-</div>
 <br>    
 
     <table class="table table-striped table-hover table-responsive" id="table">
@@ -32,7 +26,7 @@
             @foreach($dataArtikel as $artikel)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $artikel->title }}</td>
+                    <td><a href="{{url('admin/view/article/'.$artikel->id )}}">{{ $artikel->title }}</a></td>
                     <td><img src="{{ asset('images/'.$artikel->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
                     <td>
                         @if($artikel->status == 'aktif')
@@ -42,13 +36,7 @@
                         @endif
                     </td>
                     <td>
-                        @if($artikel->status == 'pending')
-                           <h4><span class="label label-danger">belum direview</span></h4>
-                        @elseif($artikel->status == 'aktif')
-                            <h4><span class="label label-primary">sudah direview</span></h4>
-                        @else
-                        <a class="btn btn-warning pull-left btn-sm" href="{{url('/home/artikel/edit/')}}"><span class="fa fa-pencil"> Ubah</span></a>
-                        @endif
+                        aktifkan
                     </td>
                 </tr>
             @endforeach

@@ -15,7 +15,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@portalrw9.com',
             'password' => bcrypt('admin'),
-            'is_admin' => 1
+            'is_admin' => 1,
+            'is_status' => 1,
         ]);
     }
 }

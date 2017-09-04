@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ArticleModel;
 use App\KategoriArticleModel;
+use DB;
+use File;
+use Image;
 
 class UserArtikelController extends Controller
 {
@@ -15,8 +18,13 @@ class UserArtikelController extends Controller
      */
     public function index()
     {
-        // dd('s');
-        return view('users.artikel.myartikel-index');
+        $dataArtikel = DB::table('article')
+                     ->select('article.*','users.id','users.name','users.email')
+                     ->join('users','users.id','=','article.user_id')
+                     ->where('article.user_id',auth()->user()->id)
+                     ->where('users.is_admin','!=',1)
+                     ->get();
+        return view('users.artikel.myartikel-index',compact('dataArtikel'));
     }
 
     /**
@@ -26,8 +34,7 @@ class UserArtikelController extends Controller
      */
     public function create()
     {
-        $category = KategoriArticleModel::get();
-        return view("users.artikel.myartikel-create", compact("category"));
+        return view("users.artikel.myartikel-create");
     }
 
     /**
@@ -39,6 +46,36 @@ class UserArtikelController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[ 
+            'title' => 'required', 
+            'images' => 'required|image|mimes:jpeg,bmp,png,jpg', 
+            'description' => 'required',
+            'content' => 'required',
+        ]);
+    //idcategory
+    // $category = DB::table('category')->select('id')->where('category','=','rembug warga')->first(); 
+
+    $item =  new ArticleModel;
+    $item->user_id = auth()->user()->id;
+    $item->category = 4;
+    $item->title = $request->title;
+    $item->slug = str_slug($request->title,'-');
+    $item->description = $request->description;
+    $item->content = $request->content;
+    //storeimage
+        if($request->hasFile('images')){ 
+            $file = $request->file('images');
+            $filename = time().'-'.$file->getClientOriginalName();
+            $location = public_path('images/'.$filename);
+            Image::make($file)->resize(800,400)->save($location);
+        }
+   
+    $item->images = $filename;
+    auth()->user()->is_admin != 1 ? $item->status = 'pending' : $item->status = 'aktif';
+    $item->view = 0;
+    $item->save();
+
+    return redirect('/user/artikel');
     }
 
     /**
@@ -87,5 +124,36 @@ class UserArtikelController extends Controller
     {
         //
     }
+
+    public function viewAdmin()
+    {
+        $dataArtikel = DB::table('article')
+                    ->select('article.*','users.name','users.email')
+                    ->join('users','users.id','=','article.user_id')
+                    ->where('users.is_admin','!=',1)
+                    ->where('article.status','=','pending')
+                    ->get();
+        // dd($dataArtikel);
+        return view('admin.article.review',compact('dataArtikel'));                    
+    }
+
+    public function detailViewAdmin($id)
+    {
+        $dataArtikel = ArticleModel::join('users','users.id','=','article.user_id')
+                    ->select('article.*','users.name','users.email')
+                    ->first();
+        // dd($dataArtikel);
+        return view('admin.article.detail-review',compact('dataArtikel'));
+    }
+
+    public function setStatus($id,$status)
+    {
+        ArticleModel::where('id','=',$id)->update([
+            'status' => $status
+        ]);
+
+        return redirect('admin/view/article')->with('message','Artikel Sudah '.$status.'');
+    }
+
 
 }
