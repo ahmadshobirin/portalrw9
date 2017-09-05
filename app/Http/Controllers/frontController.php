@@ -12,6 +12,7 @@ use App\SliderModel;
 use App\KategoriArticleModel;
 use App\DetailKkModel;
 use App\GalleryModel;
+use App\FooterModel;
 use Carbon\Carbon;
 use DB;
 use Image;
@@ -28,25 +29,24 @@ class frontController extends Controller
                 ->get();
 
         $Listarticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+                ->join('users','users.id','=','article.user_id')
+                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category','users.name')
                 ->orderBy('article.id','desc')
+                ->where('article.status', 'aktif')
                 ->paginate(6);
-
-        $category = KategoriArticleModel::get();
-        $countBirthday = 0;
-        $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-
-        foreach($birthdayNow as $data)
-        {
-            if($data->tanggal_lahir->month == \Carbon\Carbon::now()->month && $data->tanggal_lahir->day == \Carbon\Carbon::now()->day)
-            {
-                $countBirthday++;
-            }
-        }
-
-        $gallery = GalleryModel::orderBy('id','desc')->get();
         $slider = SliderModel::where('status','aktif')->get();
-        return view('index', compact("latestArticle", "category","category","countBirthday","Listarticle","slider","gallery"));
+
+        return view('index', compact("latestArticle","Listarticle","slider"));
+        // $countBirthday = 0;
+        // $birthdayNow = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+
+        // foreach($birthdayNow as $data)
+        // {
+        //     if($data->tanggal_lahir->month == \Carbon\Carbon::now()->month && $data->tanggal_lahir->day == \Carbon\Carbon::now()->day)
+        //     {
+        //         $countBirthday++;
+        //     }
+        // }
     }
 
      public function article_view($slug)
@@ -63,8 +63,7 @@ class frontController extends Controller
                 ->get();
 
         $gallery = GalleryModel::orderBy('id','desc')->get();
-        $category   = KategoriArticleModel::get();
-        return view('detail-index', compact("listArticle", "category","image","latestArticle","gallery"));
+        return view('detail-index', compact("listArticle","image","latestArticle","gallery"));
 
      }
   
@@ -82,102 +81,33 @@ class frontController extends Controller
                 ->orderBy('article.id','desc')
                 ->limit(4)
                 ->get();
+<<<<<<< HEAD
         $gallery = GalleryModel::orderBy('id','desc')->get();
         $category = KategoriArticleModel::get();
         return view('category', compact("articleInti","kategori","category","latestArticle","listArticle","gallery"));
+=======
+        return view('category', compact("articleInti","kategori","latestArticle","listArticle"));
+>>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
      }
     
-    public function birthday()
+    public function footer($slug)
     {
-        $latestArticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
-                ->orderBy('article.id','desc')
-                ->limit(4)
-                ->get();
-
-        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-        $category = KategoriArticleModel::get();
-        // dd($birthdayTomorrow, $birthdayNow);
-        return view('ultah', compact("birthday","latestArticle","category"));
+        $dataFooter = FooterModel::where('slug','=',$slug)->first();
+        return view('footer',compact('dataFooter'));
     }
 
-    public function tentangkami()
-    {
-        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
-                ->orderBy('article.id','desc')
-                ->limit(4)
-                ->get();
+//     public function birthday()
+//     {
+//         $latestArticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
+//                 ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
+//                 ->orderBy('article.id','desc')
+//                 ->limit(4)
+//                 ->get();
 
-        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-        $category = KategoriArticleModel::get();
-        return view('tentang-kami',compact("birthday","article","category"));
-    }
-
-    public function manajemen()
-    {
-        $latestArticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
-                ->orderBy('article.id','desc')
-                ->limit(4)
-                ->get();
-
-        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-        $category = KategoriArticleModel::get();
-        return view('manajemen-redaksi',compact("birthday","latestArticle","category"));
-    }
-
-    public function pedoman()
-    {
-        $latestArticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
-                ->orderBy('article.id','desc')
-                ->limit(4)
-                ->get();
-
-        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-        $category = KategoriArticleModel::get();   
-        return view('pedoman-cyber',compact("birthday","latestArticle","category"));
-    }
-
-    public function ketentuan()
-    {
-        $latestArticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
-                ->orderBy('article.id','desc')
-                ->limit(4)
-                ->get();
-
-        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-        $category = KategoriArticleModel::get(); 
-        return view('ketentuan-layanan', compact("birthday","latestArticle","category"));
-    }
-
-    public function kebijakan()
-    {
-        $latestArticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
-                ->orderBy('article.id','desc')
-                ->limit(4)
-                ->get();
-
-        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-        $category = KategoriArticleModel::get(); 
-        return view('kebijakan-privasi', compact("birthday","latestArticle","category"));
-    }
-
-    public function panduan()
-    {
-        $latestArticle = ArticleModel::join('category', 'category.id', '=', 'article.category')
-                ->select('article.id', 'article.title', 'article.images', 'article.description', 'article.content', 'article.slug', 'article.created_at','category.category')
-                ->orderBy('article.id','desc')
-                ->limit(4)
-                ->get();
-                
-        $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
-        $category = KategoriArticleModel::get(); 
-        return view('panduan-menulis', compact("birthday","latestArticle","category"));
-    }
+//         // $birthday = DetailKkModel::select('nama','tempat_lahir','tanggal_lahir')->get();
+//         // dd($birthdayTomorrow, $birthdayNow);
+//         return view('ultah', compact("birthday","latestArticle","category"));
+//     }
 
     public function gallery()
     {
@@ -191,6 +121,7 @@ class frontController extends Controller
         $gallery = GalleryModel::orderBy('created_at','desc')->get();
         return view('gallery-detail', compact('category','birthday','latestArticle','gallery'));
     }
+
     public function galleryEvent()
     {
         $category = KategoriArticleModel::get(); 

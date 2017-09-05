@@ -35,16 +35,16 @@
                 <tr>
                     <td>{{$i++}}</td>
                     <td>{{$footer->judul}}</td>
-                    <td>{{$footer->content}}</td>
+                    <td>{{str_limit($footer->content,160,'...')}}</td>
                     <td>
                         <form method="post" action="{{url('admin/footer/'.$footer->id)}}">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
-                            <button class="btn btn-danger pull-left">
+                            <button class="btn btn-danger pull-left btn-sm">
                                 <span class="fa fa-trash"> Hapus</span>
                             </button>
                         </form>
-                        <a class="btn btn-warning pull-left" href="{{url('admin/footer/'.$footer->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
+                        <a class="btn btn-warning pull-left btn-sm" href="{{url('admin/footer/'.$footer->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
                     </td>
                 </tr>
             @endforeach

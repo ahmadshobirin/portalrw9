@@ -1,24 +1,14 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Artikel
+	Artikel User
 @endsection
 
-@section('contentheader_title', 'Artikel')
+@section('contentheader_title', 'Artikel User')
 
 @section('main-content')
 
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
-
-<div>
-<<<<<<< HEAD
-    <a href="{{url('/home/artikel/create')}}" class="btn btn-success btn-md">
-=======
-    <a href="{{url('/user/artikel/tambah')}}" class="btn btn-success btn-md">
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
-        <i class="fa fa-plus"></i> Tambah Data
-    </a>
-</div>
 <br>    
 
     <table class="table table-striped table-hover table-responsive" id="table">
@@ -32,24 +22,11 @@
             </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
-        <?php $i=1 ?>
-            @foreach($article as $list)
-                <tr>
-                    <td>{{$i++}}</td>
-                    <td>{{$list->title}}</td>
-                    <td><img src="{{asset('images/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
-                    <td>{{$list->status}}</td>
-                    <td>
-                        <a class="btn btn-warning pull-left" href="{{url('/home/artikel/'.$list->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
-                    </td>
-            @endforeach
-=======
             <?php $no = 1;?>
             @foreach($dataArtikel as $artikel)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $artikel->title }}</td>
+                    <td><a href="{{url('admin/view/article/'.$artikel->id )}}">{{ $artikel->title }}</a></td>
                     <td><img src="{{ asset('images/'.$artikel->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
                     <td>
                         @if($artikel->status == 'aktif')
@@ -59,15 +36,8 @@
                         @endif
                     </td>
                     <td>
-                        @if($artikel->status == 'pending')
-                           <h4><span class="label label-danger">belum direview</span></h4>
-                        @elseif($artikel->status == 'aktif')
-                            <h4><span class="label label-primary">sudah direview</span></h4>
-                        @else
-                        <a class="btn btn-warning pull-left btn-sm" href="{{url('/home/artikel/edit/')}}"><span class="fa fa-pencil"> Ubah</span></a>
-                        @endif
+                        aktifkan
                     </td>
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
                 </tr>
             @endforeach
         </tbody>

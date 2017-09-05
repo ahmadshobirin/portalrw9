@@ -18,6 +18,8 @@
                         <li style="padding-left: 20px;"><a href="{{url('/admin/articletrash')}}"><i class='fa fa-trash'></i>Sampah</a></li>
                     </ul>
                 </li>
+                
+                <li><a href="{{url('admin/view/article')}}"><i class='fa fa-check'></i> <span>Artikel User</span></a></li>
 
                 <li class="treeview">
                     <a href="#"><i class='fa fa-tag'></i> <span>Kategori</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -73,8 +75,13 @@
                 <li class="treeview">
                     <a href="#"><i class='fa fa-check'></i> <span>Artikel Saya</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
+<<<<<<< HEAD
                         <li style="padding-left: 20px;"><a href="{{url('/home/artikel')}}"><i class='fa fa-file-text-o'></i>Semua Artikel</a></li>
                         <li style="padding-left: 20px;"><a href="{{url('/home/artikel/create')}}"><i class='fa fa-pencil'></i>Tambah Artikel</a></li>
+=======
+                        <li style="padding-left: 20px;"><a href="{{url('/user/artikel')}}"><i class='fa fa-file-text-o'></i>Semua Artikel</a></li>
+                        <li style="padding-left: 20px;"><a href="{{url('/user/artikel/tambah')}}"><i class='fa fa-pencil'></i>Tambah Artikel</a></li>
+>>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
                     </ul>
                 </li>
             @endif

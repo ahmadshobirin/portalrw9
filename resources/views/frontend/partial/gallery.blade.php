@@ -3,6 +3,7 @@
          <h4 style="padding-left: 10px;padding-right: 9px;"> Gallery!</h4>
    </div>
    <div class="panel-body gallery">
+   <?php $gallery = App\GalleryModel::orderBy('id','desc')->get(); ?>
    @foreach($gallery as $list)
       <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 thumbnail grid">
          
@@ -14,10 +15,8 @@
       @endforeach
       <a href="{{url('gallery')}}">
       <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 thumbnail see-more grid">
-            
-               <p>SEE<br>MORE</p>
-               <span class="glyphicon glyphicon-plus" ></span>
-            
+            <p>SEE<br>MORE</p>
+            <span class="glyphicon glyphicon-plus" ></span>
       </div>
       </a>
    </div>

@@ -15,17 +15,21 @@
             <div class="box box-success" style="box-shadow: 3px 3px 7px #888888">
                <div class="box-body">
                     <b> <h4 style="color: black;padding-left: 5px;"> FORM ARTIKEL BARU</h4> </b>
-                        <form method="post" action="{{url('/home/artikel')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{url('user/artikel/tambah')}}" enctype="multipart/form-data">
                             @include('adminlte::layouts.partials.displayerror')
                             {{csrf_field()}}
                             <table class="table table:hover">
                                 <tr>
                                     <th>Kategori</th>
                                     <td>
+<<<<<<< HEAD
                                         <select name="category" class="form-control" required>
                                             <option selected disabled>--Kategori--</option>
                                             <option value="{{$category->id}}">{{$category->category}}</option>
                                         </select>
+=======
+                                        <input type="text" disabled value="Rembug Warga" class="form-control">
+>>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
                                     </td>
                                 </tr>
                                 <tr>
