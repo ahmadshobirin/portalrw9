@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Mail\ConfirmationEmail;
+use App\User;
+use Mail;
+use Auth;
 
-/**
- * Class RegisterController
- * @package %%NAMESPACE%%\Http\Controllers\Auth
- */
 class RegisterController extends Controller
 {
     /*
@@ -33,7 +34,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('adminlte::auth.register');
+        return view('auth.register');
+        // return view('adminlte::auth.register');
     }
 
     /**
@@ -89,13 +91,27 @@ class RegisterController extends Controller
         return User::create($fields);
     }
 
-    public function sendEMail()
+    public function register(Request $request)
     {
+        $this->validator($request->all())->validate();
 
+        event(new Registered($user = $this->create($request->all())));
+
+        Mail::to($user->email)->send(new ConfirmationEmail($user));
+
+        return back()->with('status', 'Please confirm your Email Address');
     }
 
-    public function verifyEmail()
+    public function confirmEmail($token)
     {
         
+        $user = User::whereToken($token)->first();
+        $user_id = $user->id;
+
+        User::whereToken($token)->firstOrFail()->hasVerified();
+
+        Auth::loginUsingId($user_id);
+
+        return redirect('admin');
     }
 }

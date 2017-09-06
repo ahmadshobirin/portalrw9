@@ -9,6 +9,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link href="{{URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
       <link href="{{URL::asset('assets/css/facebook.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/css/media-query.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/css/footer.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/css/gallery.css')}}" rel="stylesheet">
       <style> .active{ background:#1B5E20;}</style>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" />
         <!-- END STYLE CSS -->
@@ -103,6 +106,22 @@
                   setInterval(GetClock, 1000);
               }
          });
+        </script>
+        <script>
+          var slideIndex = 0;
+          showSlides();
+
+          function showSlides() {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none"; 
+              }
+              slideIndex++;
+              if (slideIndex> slides.length) {slideIndex = 1} 
+              slides[slideIndex-1].style.display = "block"; 
+              setTimeout(showSlides, 7000); // Change image every 2 seconds
+          }
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox-plus-jquery.min.js"></script>
       <!-- END JS -->

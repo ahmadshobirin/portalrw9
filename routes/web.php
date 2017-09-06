@@ -15,69 +15,106 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/','frontController@index');
+Route::get('/gallery', 'frontController@gallery');
+// ini ntar dibuat view gallery detail
+Route::get('/gallery/event', 'frontController@galleryEvent');
+// baris ini aja ^^^^^^^
 Route::get('/article/category/{slug}','frontController@category_article');
 Route::get('/article/post/{slug}','frontController@article_view'); 
-Route::get('/birthday','frontController@birthday');
+
+// Route::get('/birthday','frontController@birthday');
+Route::get('footer/{slug}','frontController@footer');
+
 Route::get('/tentang-kami','frontController@tentangkami');
 Route::get('/pedoman-media-cyber','frontController@pedoman');
 Route::get('/manajemen-redaksi','frontController@manajemen');
 Route::get('/ketentuan-layanan','frontController@ketentuan');
 Route::get('/kebijakan-privasi','frontController@kebijakan');
 Route::get('/panduan-dan-bantuan-menulis','frontController@panduan');
+Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     
-    Route::resource('/admin/article','ArticleController');
-    Route::resource('/admin/category','categoryController');
-    Route::resource('/admin/warga','kkController');
-    Route::resource('/admin/slider','SliderController');
-    Route::resource('/admin/gallery','GalleryController');
-    Route::resource('/admin/footer','FooterController');
-    
-    Route::get('/admin/pengaturan','UserController@password');
-    Route::post('/admin/pengaturan','UserController@updatePassword');
-    Route::get('/admin/warga/{id}/delete','kkController@destroy');
-    Route::post('/admin/warga/create/ajax','kkController@store');
+    //user
     Route::get('/admin','HomeController@index');
-    Route::get('admin/detailkk/','DetailKkController@index');
-    Route::get('admin/detailkk/create','DetailKkController@create');
-    Route::post('admin/detailkk/create','DetailKkController@store');
-    Route::get('admin/detailkk/edit/{id}','DetailKkController@edit');
-    Route::post('admin/detailkk/update/{id}','DetailKkController@update');
-    Route::get('admin/detailkk/delete/{id}','DetailKkController@destroy');
-    Route::get('admin/detailkk/{nokk}','DetailKkController@show');
+    Route::get('/pengaturan','UserController@config');
+    Route::get('pengaturan/ubahPassword','UserController@password');
+    Route::post('/pengaturan/ubahPassword','UserController@updatePassword');
+    Route::get('/pengaturan/ubahakun','UserController@akun');
+    Route::post('/pengaturan/ubahakun','UserController@updateakun');
+    
+    Route::get('/user/artikel','UserArtikelController@index');
+    Route::get('/user/artikel/tambah','UserArtikelController@create');
+    Route::post('/user/artikel/tambah','UserArtikelController@store');
+    Route::get('/user/artikel/ubah/{id}','UserArtikelController@edit');
+    Route::post('/user/artikel/ubah','UserArtikelController@update');
 
-    Route::get('admin/articletrash', 'ArticleController@trash');
-    Route::get('admin/article/restore/{id}', 'ArticleController@restore');
-    Route::get('admin/article/permanent/delete/{id}', 'ArticleController@permanentDelete');
+    Route::middleware(['auth', 'admin'])->group(function () {
 
-    Route::get('admin/categorytrash', 'categoryController@trash');
-    Route::get('admin/category/restore/{id}', 'categoryController@restore');
-    Route::get('admin/category/permanent/delete/{id}', 'categoryController@permanentDelete');
+        //articlecontorller
+        Route::resource('/admin/article','ArticleController');
+        Route::get('admin/articletrash', 'ArticleController@trash');
+        Route::get('admin/article/restore/{id}', 'ArticleController@restore');
+        Route::get('admin/article/permanent/delete/{id}', 'ArticleController@permanentDelete');
+        Route::get('admin/artikeluser','ArticleController@articleUser');
 
-    Route::get('admin/wargatrash', 'kkController@trash');
-    Route::get('admin/warga/restore/{id}', 'kkController@restore');
-    Route::get('admin/warga/permanent/delete/{id}', 'kkController@permanentDelete');
+        //articlereview
+        Route::get('admin/view/article','UserArtikelController@viewAdmin');
+        Route::get('admin/view/article/{id}','UserArtikelController@detailViewAdmin');
+        Route::get('admin/view/setstatus/{id}/{status}','UserArtikelController@setStatus');
 
-    Route::get('admin/warga/add/one','kkController@tambahSatu');
-    Route::post('admin/warga/add/one','kkController@simpanSatu');
+        
+        //categorycontroller
+        Route::resource('/admin/category','categoryController');
+        Route::get('admin/categorytrash', 'categoryController@trash');
+        Route::get('admin/category/restore/{id}', 'categoryController@restore');
+        Route::get('admin/category/permanent/delete/{id}', 'categoryController@permanentDelete');
 
-    Route::get('admin/detailkktrash/{nokk}', 'DetailKkController@trash');
-    Route::get('admin/detailkk/restore/{id}', 'DetailKkController@restore');
-    Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');   
+        //kkcontroller
+        Route::resource('/admin/warga','kkController');
+        Route::get('/admin/warga/{id}/delete','kkController@destroy');
+        Route::post('/admin/warga/create/ajax','kkController@store');
+        Route::get('admin/wargatrash', 'kkController@trash');
+        Route::get('admin/warga/restore/{id}', 'kkController@restore');
+        Route::get('admin/warga/permanent/delete/{id}', 'kkController@permanentDelete');
+        Route::get('admin/warga/add/one','kkController@tambahSatu');
+        Route::post('admin/warga/add/one','kkController@simpanSatu');
+        
+        //detailkk
+        Route::get('admin/detailkk/','DetailKkController@index');
+        Route::get('admin/detailkk/create','DetailKkController@create');
+        Route::post('admin/detailkk/create','DetailKkController@store');
+        Route::get('admin/detailkk/edit/{id}','DetailKkController@edit');
+        Route::post('admin/detailkk/update/{id}','DetailKkController@update');
+        Route::get('admin/detailkk/delete/{id}','DetailKkController@destroy');
+        Route::get('admin/detailkk/{nokk}','DetailKkController@show');
+        Route::get('admin/detailkktrash/{nokk}', 'DetailKkController@trash');
+        Route::get('admin/detailkk/restore/{id}', 'DetailKkController@restore');
+        Route::get('admin/detailkk/permanent/delete/{id}', 'DetailKkController@permanentDelete');   
 
-    Route::get('admin/slidertrash', 'SliderController@trash');
-    Route::get('admin/slider/restore/{id}', 'SliderController@restore');
-    Route::get('admin/slider/permanent/delete/{id}', 'SliderController@permanentDelete');
-    Route::get('/admin/slider/setstatus/{id}/{status}','SliderController@setStatus');
+        //slidercontroller
+        Route::resource('/admin/slider','SliderController');
+        Route::get('admin/slidertrash', 'SliderController@trash');
+        Route::get('admin/slider/restore/{id}', 'SliderController@restore');
+        Route::get('admin/slider/permanent/delete/{id}', 'SliderController@permanentDelete');
+        Route::get('/admin/slider/setstatus/{id}/{status}','SliderController@setStatus');
 
-    Route::get('admin/gallerytrash', 'GalleryController@trash');
-    Route::get('admin/gallery/restore/{id}', 'GalleryController@restore');
-    Route::get('admin/gallery/permanent/delete/{id}', 'GalleryController@permanentDelete');  
 
-    Route::get('admin/footertrash', 'FooterController@trash');
-    Route::get('admin/footer/restore/{id}', 'FooterController@restore');
-    Route::get('admin/footer/permanent/delete/{id}', 'FooterController@permanentDelete');   
+        //gallerycontroller
+        Route::resource('/admin/gallery','GalleryController');
+        Route::get('admin/gallerytrash', 'GalleryController@trash');
+        Route::get('admin/gallery/restore/{id}', 'GalleryController@restore');
+        Route::get('admin/gallery/permanent/delete/{id}', 'GalleryController@permanentDelete');  
+        Route::get('admin/gallery/multiple/delete', 'GalleryController@multipleDestroy');  
+        Route::get('admin/gallery/multiple/trash', 'GalleryController@multipleTrash');  
+
+
+        //footercontroller
+        Route::resource('/admin/footer','FooterController');
+        Route::get('admin/footertrash', 'FooterController@trash');
+        Route::get('admin/footer/restore/{id}', 'FooterController@restore');
+        Route::get('admin/footer/permanent/delete/{id}', 'FooterController@permanentDelete');
+
+    });
 });

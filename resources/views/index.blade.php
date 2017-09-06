@@ -14,7 +14,7 @@
             </div>
           </a>
             <div class="caption panel-body">
-              <p class="text-muted">POSTED BY ADMIN | {{$list->created_at->diffForHumans()}}</p>
+              <p class="text-muted">Posted By {{ ucfirst($list->name) }} | {{$list->created_at->diffForHumans()}}</p>
               <a href="{{url('article/post/'.$list->slug)}}"> <h3>{{$list->title}}</h3> </a>
               <p class="text-left">{{$list->description}}</p>
               <span> <a href="{{url('/article/category/'.$list->category)}}" class="category">{{$list->category}}</a></span>

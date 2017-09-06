@@ -1,0 +1,10 @@
+------ git branch command
+
+
+git chekout -b namabranch
+git branch
+
+git add .
+git commit -m "branch baru"
+
+git push origin baru //namabranch

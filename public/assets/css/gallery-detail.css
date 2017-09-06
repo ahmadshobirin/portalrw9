@@ -1,0 +1,48 @@
+.gallery {
+  padding: 0;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.see-more{
+  background-color: #FAFAFA;
+  text-align: center;
+  margin: 0px auto;
+  font-size: 20px;
+}
+
+.see-more:hover{
+  background-color: #4CAF50;
+  text-align: center;
+  color: #FAFAFA;
+  margin: 0px auto;
+  font-size: 20px;
+
+}
+
+.gallery > div {
+  padding: 0;
+}
+
+div.thumbnail{
+  margin-bottom: 0;
+}
+
+
+
+.grid2{
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.grid2 img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'images', 'is_admin',
     ];
 
     /**
@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function boot(){
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->token = str_random(40);
+        });
+    }
+
+    public function hasVerified()
+    {
+        $this->is_status    = true;
+        $this->token        = null;
+
+        $this->save();
+    }
 }
