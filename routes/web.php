@@ -44,18 +44,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengaturan/ubahakun','UserController@akun');
     Route::post('/pengaturan/ubahakun','UserController@updateakun');
     
-<<<<<<< HEAD
-    // Route::get('/home/artikel','UserArtikelController@index');
-    // Route::get('/home/artikel/tambah','UserArtikelController@create');
-    // Route::get('/home/artikel/edit/{id}','UserArtikelController@edit');
-    Route::resource('/home/artikel','UserArtikelController');
-=======
     Route::get('/user/artikel','UserArtikelController@index');
     Route::get('/user/artikel/tambah','UserArtikelController@create');
     Route::post('/user/artikel/tambah','UserArtikelController@store');
     Route::get('/user/artikel/ubah/{id}','UserArtikelController@edit');
     Route::post('/user/artikel/ubah','UserArtikelController@update');
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
 
     Route::middleware(['auth', 'admin'])->group(function () {
 
@@ -113,6 +106,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('admin/gallerytrash', 'GalleryController@trash');
         Route::get('admin/gallery/restore/{id}', 'GalleryController@restore');
         Route::get('admin/gallery/permanent/delete/{id}', 'GalleryController@permanentDelete');  
+        Route::get('admin/gallery/multiple/delete', 'GalleryController@multipleDestroy');  
+        Route::get('admin/gallery/multiple/trash', 'GalleryController@multipleTrash');  
 
 
         //footercontroller
