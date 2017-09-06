@@ -114,5 +114,4 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('admin/footer/permanent/delete/{id}', 'FooterController@permanentDelete');
 
     });
-
 });
