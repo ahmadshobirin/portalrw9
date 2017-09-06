@@ -81,13 +81,7 @@ class frontController extends Controller
                 ->orderBy('article.id','desc')
                 ->limit(4)
                 ->get();
-<<<<<<< HEAD
-        $gallery = GalleryModel::orderBy('id','desc')->get();
-        $category = KategoriArticleModel::get();
-        return view('category', compact("articleInti","kategori","category","latestArticle","listArticle","gallery"));
-=======
         return view('category', compact("articleInti","kategori","latestArticle","listArticle"));
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
      }
     
     public function footer($slug)

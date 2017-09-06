@@ -24,7 +24,7 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label for="">Gambar</label>
-                                        <input type="file" name="images" class="" required="">
+                                        <input type="file" name="images[]" class="" required="" multiple>
                                     </div>
                                     <input type="submit" value="Simpan" class="btn btn-block btn-primary">
                                 </div>
