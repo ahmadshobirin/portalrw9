@@ -14,10 +14,13 @@ class CreateGalleriesTable extends Migration
     public function up()
     {
         Schema::create('galleries', function (Blueprint $table) {
+            //
             $table->increments('id');
+            $table->integer('folder_id')->unsigned();
             $table->string('images');
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('folder_id')->references('id')->on('gallery_folder');
         });
     }
 
@@ -28,6 +31,6 @@ class CreateGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galleries');
+         Schema::dropIfExists('galleries');
     }
 }

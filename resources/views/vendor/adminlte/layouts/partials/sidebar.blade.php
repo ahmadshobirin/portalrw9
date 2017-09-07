@@ -39,14 +39,16 @@
                     </ul>
                 </li>
 
-                <li class="treeview">
+                {{--  <li class="treeview">
                     <a href="#"><i class='fa fa-columns'></i> <span>Gambar di Galeri</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li style="padding-left: 20px;"><a href="{{url('/admin/gallery')}}"><i class='fa fa-th'></i>Semua Gambar</a></li> 
                         <li style="padding-left: 20px;"><a href="{{url('/admin/gallery/create')}}"><i class='fa fa-pencil'></i>Tambah Baru</a></li>
                         <li style="padding-left: 20px;"><a href="{{url('/admin/gallerytrash')}}"><i class='fa fa-trash'></i>Sampah</a></li>
                     </ul>
-                </li>
+                </li>  --}}
+
+                <li><a href="{{url('/admin/gallery')}}"><i class='fa fa-columns'></i> <span>Galeri</span></a></li>
 
                 <li class="treeview">
                     <a href="#"><i class='fa fa-bars'></i> <span>Konten Footer</span> <i class="fa fa-angle-left pull-right"></i></a>
