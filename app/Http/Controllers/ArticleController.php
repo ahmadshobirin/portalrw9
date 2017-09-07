@@ -35,6 +35,23 @@ class ArticleController extends Controller
         return view("admin.article.list", compact("article"));
     }
 
+    public function articleUser()
+    {
+        // //ini contoh untuk join mas, jangan lupa di ->get()
+        $article = ArticleModel::join('users', 'users.id', '=', 'article.user_id')
+                ->select('article.id', 'article.title', 'article.images', 
+                'article.description', 'article.content', 'article.view')
+                ->where('users.is_admin','!=',1)
+                ->get();
+
+        // //ini untuk count() tanpa ->get()
+        // $total = ArticleModel::count();
+
+        //ini untuk ngecek berhasil gak querynya
+        // dd($article);
+        return view("admin.article.articleUser", compact("article"));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

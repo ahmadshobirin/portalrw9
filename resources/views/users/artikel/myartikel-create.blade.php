@@ -22,7 +22,14 @@
                                 <tr>
                                     <th>Kategori</th>
                                     <td>
+<<<<<<< HEAD
+                                        <select name="category" class="form-control" required>
+                                            <option selected disabled>--Kategori--</option>
+                                            <option value="{{$category->id}}">{{$category->category}}</option>
+                                        </select>
+=======
                                         <input type="text" disabled value="Rembug Warga" class="form-control">
+>>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
                                     </td>
                                 </tr>
                                 <tr>

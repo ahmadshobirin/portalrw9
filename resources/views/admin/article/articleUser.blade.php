@@ -4,19 +4,18 @@
 	Artikel
 @endsection
 
-@section('contentheader_title', 'Artikel')
+@section('contentheader_title', 'Artikel User')
 
 @section('main-content')
 
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
-<div>
-<<<<<<< HEAD
-    <a href="{{url('/home/artikel/create')}}" class="btn btn-success btn-md">
-=======
-    <a href="{{url('/user/artikel/tambah')}}" class="btn btn-success btn-md">
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
+<div class="">
+    <a href="{{url('/admin/article/create')}}" class="btn btn-success btn-md">
         <i class="fa fa-plus"></i> Tambah Data
+    </a>
+    <a href="{{url('/admin/articletrash')}}" class="btn btn-danger btn-md">
+        <i class="fa fa-trash"></i> Lihat Data Sampah
     </a>
 </div>
 <br>    
@@ -27,49 +26,30 @@
                 <th>No.</th>
                 <th>Judul</th>
                 <th>Sampul</th>
-                <th>status</th>
+                <th>Kategori</th>
                 <th class="nosort">Aksi</th>
             </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
         <?php $i=1 ?>
             @foreach($article as $list)
                 <tr>
-                    <td>{{$i++}}</td>
+                    <td>{{ $i++ }}</td>
                     <td>{{$list->title}}</td>
                     <td><img src="{{asset('images/'.$list->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
-                    <td>{{$list->status}}</td>
+                    <td>{{$list->category}}</td>
                     <td>
-                        <a class="btn btn-warning pull-left" href="{{url('/home/artikel/'.$list->id.'/edit')}}"><span class="fa fa-pencil"> Ubah</span></a>
+                        <form method="post" action="/admin/article/{{$list->id}}">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <button class="btn btn-danger pull-left">
+                                <span class="fa fa-trash"> Hapus</span>
+                            </button>
+                        </form>
+                        <a class="btn btn-warning pull-left" href="/admin/article/{{$list->id}}/edit"><span class="fa fa-pencil"> Ubah</span></a>
                     </td>
-            @endforeach
-=======
-            <?php $no = 1;?>
-            @foreach($dataArtikel as $artikel)
-                <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{ $artikel->title }}</td>
-                    <td><img src="{{ asset('images/'.$artikel->images)}}" alt="" style="max-midth:120px; max-height:120px;"></td>
-                    <td>
-                        @if($artikel->status == 'aktif')
-                            <h4><span class="label label-success">{{ $artikel->status }}</span></h4>
-                        @else
-                            <h4><span class="label label-warning">{{ $artikel->status }}</span></h4>
-                        @endif
-                    </td>
-                    <td>
-                        @if($artikel->status == 'pending')
-                           <h4><span class="label label-danger">belum direview</span></h4>
-                        @elseif($artikel->status == 'aktif')
-                            <h4><span class="label label-primary">sudah direview</span></h4>
-                        @else
-                        <a class="btn btn-warning pull-left btn-sm" href="{{url('/home/artikel/edit/')}}"><span class="fa fa-pencil"> Ubah</span></a>
-                        @endif
-                    </td>
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
                 </tr>
-            @endforeach
+                @endforeach
         </tbody>
     </table>
 

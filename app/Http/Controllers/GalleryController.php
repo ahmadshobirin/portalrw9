@@ -41,17 +41,20 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-                'images' => 'required|image|mimes:jpg,jpeg,png,bmp',
+                'images' => 'required',
+                'images.*' =>'image|mimes:jpg,jpeg,png,bmp',
             ]);
-        $store = new GalleryModel;
+        // $store = new GalleryModel;
         if($request->hasFile('images')){
-            $file = $request->file('images');
-            $filename = time().'-'.$file->getClientOriginalName();
-            $location = public_path('images/gallery/'.$filename);
-            Image::make($file)->save($location); 
+            foreach ($request->images as $images) {
+                $filename = time().'-'.$images->getClientOriginalName();
+                $location = public_path('images/gallery/'.$filename);
+                Image::make($images)->save($location);
+                GalleryModel::create([
+                    'images' => $filename
+                ]);
+            }            
         }
-        $store->images = $filename;
-        $store->save(); 
         return redirect('/admin/gallery');
     }
 
@@ -112,10 +115,30 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $destroy = GalleryModel::find($id)->delete();
         return redirect()->back();
+    }
+
+    public function multipleDestroy(Request $request)
+    {
+    
+        foreach ($request->id as $key => $value) {
+            // echo $value."<br>";
+            $galleryDelete = GalleryModel::where('id', '=', $value)->delete();
+        }
+        return redirect('/admin/gallery');
+    }
+
+    public function multipleTrash(Request $request)
+    {
+        foreach ($request->id as $key => $value) {
+            $galleryTrash = GalleryModel::withTrashed()->where('id','=',$value)->first();
+                @unlink(public_path('images/gallery/'.$galleryTrash->images));
+            $galleryTrash->forceDelete();
+        }
+        return redirect('/admin/gallerytrash');
     }
 
     public function trash()

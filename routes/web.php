@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('admin/articletrash', 'ArticleController@trash');
         Route::get('admin/article/restore/{id}', 'ArticleController@restore');
         Route::get('admin/article/permanent/delete/{id}', 'ArticleController@permanentDelete');
+        Route::get('admin/artikeluser','ArticleController@articleUser');
 
         //articlereview
         Route::get('admin/view/article','UserArtikelController@viewAdmin');
@@ -105,6 +106,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('admin/gallerytrash', 'GalleryController@trash');
         Route::get('admin/gallery/restore/{id}', 'GalleryController@restore');
         Route::get('admin/gallery/permanent/delete/{id}', 'GalleryController@permanentDelete');  
+        Route::get('admin/gallery/multiple/delete', 'GalleryController@multipleDestroy');  
+        Route::get('admin/gallery/multiple/trash', 'GalleryController@multipleTrash');  
 
 
         //footercontroller
