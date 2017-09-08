@@ -9,6 +9,7 @@ use App\GalleryModel;
 use App\AlbumModel;
 use Image;
 use File;
+use DB;
 
 class GalleryController extends Controller
 {
@@ -21,6 +22,8 @@ class GalleryController extends Controller
     {
 
         $dataAlbum = AlbumModel::paginate(12);
+        // $jumlahFoto = DB::table('galleries')->where('folder_id', '=', 16)->count();
+        // dd($jumlahFoto);
         return view('admin.album.list', compact('dataAlbum'));
         // $galleries = GalleryModel::get();
         // return view('admin.gallery.list', compact('galleries'));
@@ -70,7 +73,7 @@ class GalleryController extends Controller
                 ]);
             }            
         }
-        return redirect('/admin/gallery');
+        return redirect()->back();
     }
 
     /**
@@ -82,7 +85,7 @@ class GalleryController extends Controller
     public function show($id)
     {
         //
-        $galleries = GalleryModel::get();
+        $galleries = GalleryModel::where('folder_id', '=', $id)->get();
         return view('admin.gallery.list', compact('galleries', 'id'));
     }
 
@@ -155,13 +158,13 @@ class GalleryController extends Controller
                 @unlink(public_path('images/gallery/'.$galleryTrash->images));
             $galleryTrash->forceDelete();
         }
-        return redirect('/admin/gallerytrash');
+        return redirect('/admin/gallerytrash/'.$galleryTrash->folder_id);
     }
 
-    public function trash()
+    public function trash($id)
     {
-        $trash = GalleryModel::onlyTrashed()->get();
-        return view('admin.gallery.trash', compact('trash'));
+        $trash = GalleryModel::onlyTrashed()->where('folder_id', '=', $id)->get();
+        return view('admin.gallery.trash', compact('trash', 'id'));
     }
 
 
@@ -190,5 +193,30 @@ class GalleryController extends Controller
         $album->save();
 
         return redirect('/admin/gallery');
+    }
+
+    public function destroyAlbum(Request $request, $id)
+    {
+        $destroy = AlbumModel::find($id)->delete();
+        return redirect()->back();
+    }
+
+    public function folderTrash(){
+        $albumFolderTrash = AlbumModel::onlyTrashed()->paginate(12);
+        return view('admin.album.trash', compact('albumFolderTrash'));
+    }
+
+    public function permanentDeleteAlbum($id)
+    {
+        $albumFolderDelete = AlbumModel::withTrashed()->where('id', '=', $id)->first();
+        // dd($albumFolderDelete);
+        $albumFolderDelete->forceDelete();
+        return redirect()->back();
+    }
+
+    public function restoreFolder($id)
+    {
+        AlbumModel::where('id', '=', $id)->restore();
+        return redirect()->back();
     }
 }

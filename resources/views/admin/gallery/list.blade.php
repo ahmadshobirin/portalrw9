@@ -16,13 +16,13 @@ di Galery') @section('main-content')
                 <input type="submit" value="Tambah" class="btn btn-primary btn-xs col-md-3">
             <input type="hidden" value="{{$id}}" name="folder_id">
         </form>
-    </div>
-    {{--
-    <div class="pull-right">
-        <a href="{{url('/admin/gallerytrash')}}" class="btn btn-danger btn-md">
-        <i class="fa fa-trash"></i> Lihat Data Sampah
-    </a>
-    </div> --}}
+    </div><br>
+    
+     <div class="container">
+        <a href="{{url('/admin/gallerytrash/'.$id)}}" class="btn btn-danger btn-md">
+            <i class="fa fa-trash"></i> Lihat Data Sampah
+        </a>
+    </div> 
 </div>
 <br>
 

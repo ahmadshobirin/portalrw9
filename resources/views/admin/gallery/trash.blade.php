@@ -4,10 +4,10 @@ Galeri di Sampah') @section('main-content')
 <link rel="stylesheet" href="{{URL::asset('css/datatables.min.css')}}">
 
 <div class="">
-    <a href="{{url('/admin/gallery/create')}}" class="btn btn-success btn-md">
-        <i class="fa fa-plus"></i> Tambah Data
+    <a href="{{url('/admin/gallery')}}" class="btn btn-success btn-md">
+        <i class="fa fa-plus"></i> Lihat Folder 
     </a>
-    <a href="{{url('/admin/gallery')}}" class="btn btn-info btn-md">
+    <a href="{{url('/admin/gallery/'.$id)}}" class="btn btn-info btn-md">
         <i class="fa fa-columns"></i> Lihat Gambar
     </a>
 </div>

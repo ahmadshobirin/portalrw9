@@ -5,20 +5,20 @@
     <a href="{{url('/admin/gallery/create')}}" class="btn btn-success btn-md">
         <i class="fa fa-plus"></i> Tambah Folder
     </a>
-    <a href="{{url('/admin/gallery/folder/trash')}}" class="btn btn-danger btn-md">
+    {{--  <a href="{{url('/admin/gallery/folder/trash')}}" class="btn btn-danger btn-md">
         <i class="fa fa-trash"></i> Lihat Data Sampah
-    </a>
+    </a>  --}}
 </div>
 
 <section class="content">
     <div class="row">
-        @forelse($dataAlbum as $album)
+        @forelse($albumFolderTrash as $albumTrashed)
 
         <div class="col-lg-4 col-xs-8">
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h4 class="text-center">{{str_limit($album->nama, 13, '...')}}</h4>
-                    <?php $jumlahFoto=\App\GalleryModel::where('folder_id', '=', $album->id)->count(); ?>
+                    <h4 class="text-center">{{str_limit($albumTrashed->nama, 13, '...')}}</h4>
+                    <?php $jumlahFoto=\DB::table('galleries')->where('folder_id', '=', $albumTrashed->id)->count(); ?>
                     
                     <p>{{$jumlahFoto}} FOTO</p>
                 </div>
@@ -28,17 +28,20 @@
                 
                     <div class="small-box-footer">
                     <div class="row">
-                        <div class="col-md-6 ">
-                            <a href="{{url('/admin/gallery/hapusFolder/'.$album->id)}}" style="color:white;"><i class="fa fa-trash fa-1x"></i></a>
+                        <div class="col-md-4 ">
+                            <a href="{{url('/admin/gallery/folder/permanentdeletealbum/'.$albumTrashed->id)}}" style="color:white;"><i class="fa fa-trash fa-1x"></i></a>
                         </div>
-                        <div class="col-md-6 ">
-                            <a href="{{url('/admin/gallery/'.$album->id)}}" style="color:white;" >More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <div class="col-md-4 ">
+                            <a href="{{url('/admin/gallery/folder/restore/'.$albumTrashed->id)}}" style="color:white;"><i class="fa fa-refresh fa-1x"></i></a>
+                        </div>
+                        <div class="col-md-4 ">
+                            <a href="{{url('/admin/gallery/'.$albumTrashed->id)}}" style="color:white;" >More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     
                     
                 </div>  
-                {{--  <a href="/admin/gallery/{{$album->id}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>  --}}
+                {{--  <a href="/admin/gallery/{{$albumTrashed->id}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>  --}}
             </div>
         </div>
         @empty
@@ -48,7 +51,7 @@
         @endforelse
     </div>
     <div class="row text-center">
-        {{$dataAlbum->links()}}
+        {{$albumFolderTrash->links()}}
     </div>
 </section>
 @endsection

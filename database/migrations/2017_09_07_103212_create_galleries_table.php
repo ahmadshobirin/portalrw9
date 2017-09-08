@@ -19,7 +19,7 @@ class CreateGalleriesTable extends Migration
             $table->string('images');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('folder_id')->references('id')->on('gallery_folder');
+            $table->foreign('folder_id')->references('id')->on('gallery_folder')->onDelete('cascade');
         });
     }
 
