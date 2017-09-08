@@ -20,14 +20,6 @@ class UserArtikelController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $article = ArticleModel::join('category', 'category.id', '=', 'article.category')
-            ->select('article.id', 'article.status','article.title', 'article.images', 
-            'article.description', 'article.content', 'article.view', 'category.category')
-            ->get();
-        return view("users.artikel.myartikel-index", compact("article"));
-        // dd('s');
-=======
         $dataArtikel = DB::table('article')
                      ->select('article.*','users.id','users.name','users.email')
                      ->join('users','users.id','=','article.user_id')
@@ -35,7 +27,6 @@ class UserArtikelController extends Controller
                      ->where('users.is_admin','!=',1)
                      ->get();
         return view('users.artikel.myartikel-index',compact('dataArtikel'));
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
     }
 
     /**
@@ -45,12 +36,7 @@ class UserArtikelController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        $category = KategoriArticleModel::where('category','Rembuk warga')->first();
-        return view("users.artikel.myartikel-create", compact("category"));
-=======
         return view("users.artikel.myartikel-create");
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
     }
 
     /**
@@ -61,21 +47,6 @@ class UserArtikelController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-        $this->validate($request, [
-                'category' => 'required|not_in:--Kategori--', 
-                'title' => 'required', 
-                'images' => 'required|image|mimes:jpeg,bmp,png,jpg', 
-                'description' => 'required',
-                'content' => 'required',
-            ]);
-        $store = new ArticleModel;
-        $store->user_id = auth()->user()->id;
-        $store->category = $request->category;
-        $store->title = $request->title;
-        $store->slug = str_slug($request->title,'-');
-        if($request->hasFile('images')){
-=======
         //
         $this->validate($request,[ 
             'title' => 'required', 
@@ -95,21 +66,11 @@ class UserArtikelController extends Controller
     $item->content = $request->content;
     //storeimage
         if($request->hasFile('images')){ 
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
             $file = $request->file('images');
             $filename = time().'-'.$file->getClientOriginalName();
             $location = public_path('images/'.$filename);
             Image::make($file)->resize(800,400)->save($location);
         }
-<<<<<<< HEAD
-        $store->images = $filename;
-        $store->description = $request->description;
-        $store->content = $request->content;
-        $store->view = 0;
-        $store->status = 'pending';
-        $store->save();
-        return redirect('/home/artikel');
-=======
    
     $item->images = $filename;
     auth()->user()->is_admin != 1 ? $item->status = 'pending' : $item->status = 'aktif';
@@ -117,7 +78,6 @@ class UserArtikelController extends Controller
     $item->save();
 
     return redirect('/user/artikel');
->>>>>>> 5e3201fb0f0bcf90bdaef3041da61d0c9ac6f3e6
     }
 
     /**

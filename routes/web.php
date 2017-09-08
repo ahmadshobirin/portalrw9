@@ -103,11 +103,16 @@ Route::group(['middleware' => 'auth'], function () {
 
         //gallerycontroller
         Route::resource('/admin/gallery','GalleryController');
-        Route::get('admin/gallerytrash', 'GalleryController@trash');
+        Route::get('admin/gallerytrash/{id}', 'GalleryController@trash');
         Route::get('admin/gallery/restore/{id}', 'GalleryController@restore');
         Route::get('admin/gallery/permanent/delete/{id}', 'GalleryController@permanentDelete');  
         Route::get('admin/gallery/multiple/delete', 'GalleryController@multipleDestroy');  
-        Route::get('admin/gallery/multiple/trash', 'GalleryController@multipleTrash');  
+        Route::get('admin/gallery/multiple/trash', 'GalleryController@multipleTrash');
+        Route::post('/admin/gallery/createalbum', 'GalleryController@storealbum');
+        Route::get('/admin/gallery/hapusFolder/{id}', 'GalleryController@destroyAlbum');
+        Route::get('admin/gallery/folder/trash', 'GalleryController@folderTrash');
+        Route::get('admin/gallery/folder/permanentdeletealbum/{id}', 'GalleryController@permanentDeleteAlbum');
+        Route::get('admin/gallery/folder/restore/{id}', 'GalleryController@restoreFolder');
 
 
         //footercontroller
@@ -115,6 +120,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('admin/footertrash', 'FooterController@trash');
         Route::get('admin/footer/restore/{id}', 'FooterController@restore');
         Route::get('admin/footer/permanent/delete/{id}', 'FooterController@permanentDelete');
+
 
     });
 });
